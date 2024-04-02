@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "623164379206",
+    "project_id": "hnmarket",
+    "storage_bucket": "hnmarket.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623164379206:android:08cb7d51b7bb6c33edfa47",
+        "android_client_info": {
+          "package_name": "vn.hnmarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623164379206-8cqg7ht1qomnt50s1f1reg19s2epbs0d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.hnmarket",
+            "certificate_hash": "cf47ae83de6c07e956c55c2208471611cee15103"
+          }
+        },
+        {
+          "client_id": "623164379206-3fnrq33ncsdpi243lc4f676do6aaos8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB31eKL5O-f4wFblIBpjKbjKfIG76W8C_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623164379206-3fnrq33ncsdpi243lc4f676do6aaos8b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "623164379206-ul2dnsieuhnr45c6425bpqmo9ouel8nd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "vn.hnmarket"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
