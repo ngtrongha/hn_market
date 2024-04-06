@@ -354,6 +354,10 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
   started(Started event, Emitter<OrderEntryState> emit) async {
     try {
       EasyLoading.show();
+      await MyFirestore().getProductsCollection().get().then((value) async {
+        emit(state.copyWith(
+            list_product: value.docs.map((e) => e.data()).toList()));
+      });
       if (product != null) {
         emit(state.copyWith(
             detail: state.detail.copyWith(
@@ -363,14 +367,16 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
                     barcode: product!.barcode,
                     ten_san_pham: product!.ten_san_pham,
                     hinh_san_pham: product!.hinh_san_pham,
-                    // gia_ban: product!.gia_ban,
+                    gia_ban: product!.price_list.firstOrNull?.gia_ban ?? 0,
+                    gia_ban_ten_don_vi:
+                        product!.price_list.firstOrNull?.ten_don_vi ?? '',
+                    gia_ban_ky_hieu_don_vi:
+                        product!.price_list.firstOrNull?.ky_hieu_don_vi ?? '',
+                    gia_ban_uid_don_vi:
+                        product!.price_list.firstOrNull?.uid_don_vi ?? '',
                     so_luong: 1,
                   )))));
       }
-      await MyFirestore().getProductsCollection().get().then((value) async {
-        emit(state.copyWith(
-            list_product: value.docs.map((e) => e.data()).toList()));
-      });
     } catch (e) {
       e.printELog;
       EasyLoading.dismiss();

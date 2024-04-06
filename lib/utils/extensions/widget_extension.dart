@@ -5,8 +5,8 @@ import 'package:gap/gap.dart';
 import '../utils.dart';
 
 extension ObjectExtension on dynamic {
-  void get printDLog => {if (Utils.debugLog) Utils.log.d(this)};
-  void get printELog => {if (Utils.debugLog) Utils.log.e(this)};
+  void get printDLog => {if (Utils.debugLog) Utils.log.debug(this)};
+  void get printELog => {if (Utils.debugLog) Utils.log.error(this)};
 }
 
 extension WidgetsExtension on Widget {

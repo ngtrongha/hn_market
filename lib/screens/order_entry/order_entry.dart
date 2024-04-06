@@ -251,9 +251,12 @@ class OrderEntryScreen extends StatelessWidget implements AutoRouteWrapper {
                                                     mainAxisSize:
                                                         MainAxisSize.min,
                                                     children: state.list_product
-                                                        .firstWhere((element) =>
-                                                            element.uid ==
-                                                            e.uid_product)
+                                                        .firstWhere(
+                                                            (element) =>
+                                                                element.uid ==
+                                                                e.uid_product,
+                                                            orElse: () =>
+                                                                const ProductModel())
                                                         .price_list
                                                         .map(
                                                             (price) =>
@@ -266,7 +269,7 @@ class OrderEntryScreen extends StatelessWidget implements AutoRouteWrapper {
                                                                       border: Border(
                                                                           bottom:
                                                                               BorderSide(color: Colors.black12))),
-                                                                  child: '${Utils.moneyFormat(price.gia_ban)}/${price.ten_don_vi}'
+                                                                  child: '${Utils.moneyFormat(price.gia_ban)}${e.so_luong > 1 ? '/${price.so_luong}' : ''}/${price.ten_don_vi}'
                                                                       .size15
                                                                       .center,
                                                                 ).onTap(() {

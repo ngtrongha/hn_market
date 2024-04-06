@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
-import 'package:logger/logger.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 import '../main/bloc/main_bloc.dart';
 import '../app_router/app_router.dart';
@@ -23,13 +23,12 @@ export 'custom_scaffold.dart';
 const pageSize = 20;
 const refkey = 'refcode';
 const mapZoom = 15.0;
-const geminiAIKey = 'AIzaSyCkMLadrplRyLzNcpORZ2jL_W7r5ayTyXs';
 
 class Utils {
   static const debugLog = true;
   static late MainBloc mainBloc;
   static final appRouter = AppRouter();
-  static final log = Logger();
+  static final log = TalkerFlutter.init();
   int getTotalPage(int total) {
     int result = total ~/ pageSize;
     if (total % pageSize > 0) result += 1;

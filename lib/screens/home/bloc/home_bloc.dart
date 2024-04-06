@@ -82,12 +82,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               await Utils.appRouter
                   .popAndPush(AddProductRoute(barcode: barcode))
                   .whenComplete(() => add(const Started()));
-            } else {
+            } else { 
               Utils.appRouter
                   .popAndPush(
                       OrderEntryRoute(product: value.docs.firstOrNull?.data()))
                   .whenComplete(() => add(const Started()));
             }
+          }).onError((error, stackTrace) {
+            error?.toString().printELog;
           });
         },
       ));

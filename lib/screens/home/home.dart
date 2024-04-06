@@ -7,6 +7,7 @@ import 'package:hn_market/app_router/app_router.dart';
 import 'package:hn_market/utils/custom_avatar.dart';
 import 'package:hn_market/utils/image_cached.dart';
 import 'package:hn_market/utils/utils.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 import 'package:tdesign_flutter/tdesign_flutter.dart';
 
 import '../../utils/custom_textfield.dart';
@@ -64,6 +65,15 @@ class HomeScreen extends StatelessWidget {
                                     .size16
                                     .color(Colors.black),
                                 const Spacer(),
+                                if (Utils.debugLog)
+                                  Icon(
+                                    FontAwesomeIcons.bug,
+                                    size: 20.sp,
+                                  ).onTap(() {
+                                    Utils.appRouter.pushWidget(
+                                        TalkerScreen(talker: Utils.log));
+                                  }),
+                                if (Utils.debugLog) 10.sized,
                                 PopupMenuButton(
                                   icon: const Icon(FontAwesomeIcons.gear),
                                   itemBuilder: (context) {
