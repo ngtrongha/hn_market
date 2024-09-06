@@ -95,6 +95,9 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -111,6 +114,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -240,6 +246,8 @@ class __$$ChangeBoolImplCopyWithImpl<$Res>
       _$ChangeBoolImpl _value, $Res Function(_$ChangeBoolImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -278,7 +286,9 @@ class _$ChangeBoolImpl implements ChangeBool {
   @override
   int get hashCode => Object.hash(runtimeType, key);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChangeBoolImplCopyWith<_$ChangeBoolImpl> get copyWith =>
@@ -375,7 +385,10 @@ abstract class ChangeBool implements HomeEvent {
   const factory ChangeBool(final String key) = _$ChangeBoolImpl;
 
   String get key;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChangeBoolImplCopyWith<_$ChangeBoolImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -397,6 +410,8 @@ class __$$ChangeStringImplCopyWithImpl<$Res>
       _$ChangeStringImpl _value, $Res Function(_$ChangeStringImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -443,7 +458,9 @@ class _$ChangeStringImpl implements ChangeString {
   @override
   int get hashCode => Object.hash(runtimeType, key, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChangeStringImplCopyWith<_$ChangeStringImpl> get copyWith =>
@@ -542,7 +559,10 @@ abstract class ChangeString implements HomeEvent {
 
   String get key;
   String get value;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChangeStringImplCopyWith<_$ChangeStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -561,6 +581,9 @@ class __$$GetProductsImplCopyWithImpl<$Res>
   __$$GetProductsImplCopyWithImpl(
       _$GetProductsImpl _value, $Res Function(_$GetProductsImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -687,6 +710,9 @@ class __$$GetOrdersImplCopyWithImpl<$Res>
   __$$GetOrdersImplCopyWithImpl(
       _$GetOrdersImpl _value, $Res Function(_$GetOrdersImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -812,6 +838,9 @@ class __$$ScanImplCopyWithImpl<$Res>
     implements _$$ScanImplCopyWith<$Res> {
   __$$ScanImplCopyWithImpl(_$ScanImpl _value, $Res Function(_$ScanImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -932,7 +961,9 @@ mixin _$HomeState {
   List<ProductModel> get list_product => throw _privateConstructorUsedError;
   List<OrderModel> get list_order => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HomeStateCopyWith<HomeState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -960,6 +991,8 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1018,6 +1051,8 @@ class __$$HomeStateImplCopyWithImpl<$Res>
       _$HomeStateImpl _value, $Res Function(_$HomeStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1121,7 +1156,9 @@ class _$HomeStateImpl implements _HomeState {
       const DeepCollectionEquality().hash(_list_product),
       const DeepCollectionEquality().hash(_list_order));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
@@ -1146,8 +1183,11 @@ abstract class _HomeState implements HomeState {
   List<ProductModel> get list_product;
   @override
   List<OrderModel> get list_order;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,7 +1,8 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hn_market/utils/utils.dart';
+
 
 part 'main_event.dart';
 part 'main_state.dart';
@@ -18,12 +19,20 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         add(const ChangeLogin(true));
       }
     });
-
+    on<Started>(started);
     on<ChangeLogin>(changeLogin);
     on<UpdateUser>(updateUser);
   }
   updateUser(UpdateUser event, Emitter<MainState> emit) async {
     emit(state.copyWith(user: event.user));
+  }
+
+  started(Started event, Emitter<MainState> emit) async {
+    try {
+      
+    } catch (e) {
+      e.printELog;
+    } finally {}
   }
 
   changeLogin(ChangeLogin event, Emitter<MainState> emit) async {

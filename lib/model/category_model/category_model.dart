@@ -1,15 +1,13 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:objectbox/objectbox.dart';
 
-part 'category_model.freezed.dart';
-part 'category_model.g.dart';
-
-@freezed
-class CategoryModel with _$CategoryModel {
-  const factory CategoryModel({
-    @Default('') final String uid, 
-    @Default('') final String ten_danh_muc,  
-  }) = _CategoryModel;
-
-  factory CategoryModel.fromJson(Map<String, dynamic> json) =>
-      _$CategoryModelFromJson(json);
+@Entity()
+class CategoryModel {
+  @Id()
+  int uid;
+  String? ten_danh_muc;
+  String? loai_danh_muc;
+  @Property(type: PropertyType.date) // Store as int in milliseconds
+  DateTime? createDate;
+  CategoryModel(
+      {this.uid = 0, this.ten_danh_muc, this.loai_danh_muc, this.createDate});
 }

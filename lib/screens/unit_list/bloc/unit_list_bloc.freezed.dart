@@ -20,7 +20,7 @@ mixin _$UnitListEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() create,
-    required TResult Function(String uid) delete,
+    required TResult Function(int uid) delete,
     required TResult Function(String value) onChangeString,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$UnitListEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? create,
-    TResult? Function(String uid)? delete,
+    TResult? Function(int uid)? delete,
     TResult? Function(String value)? onChangeString,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$UnitListEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? create,
-    TResult Function(String uid)? delete,
+    TResult Function(int uid)? delete,
     TResult Function(String value)? onChangeString,
     required TResult orElse(),
   }) =>
@@ -84,6 +84,9 @@ class _$UnitListEventCopyWithImpl<$Res, $Val extends UnitListEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of UnitListEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of UnitListEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -126,7 +132,7 @@ class _$StartedImpl implements Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() create,
-    required TResult Function(String uid) delete,
+    required TResult Function(int uid) delete,
     required TResult Function(String value) onChangeString,
   }) {
     return started();
@@ -137,7 +143,7 @@ class _$StartedImpl implements Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? create,
-    TResult? Function(String uid)? delete,
+    TResult? Function(int uid)? delete,
     TResult? Function(String value)? onChangeString,
   }) {
     return started?.call();
@@ -148,7 +154,7 @@ class _$StartedImpl implements Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? create,
-    TResult Function(String uid)? delete,
+    TResult Function(int uid)? delete,
     TResult Function(String value)? onChangeString,
     required TResult orElse(),
   }) {
@@ -214,6 +220,9 @@ class __$$CreateImplCopyWithImpl<$Res>
   __$$CreateImplCopyWithImpl(
       _$CreateImpl _value, $Res Function(_$CreateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of UnitListEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -240,7 +249,7 @@ class _$CreateImpl implements Create {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() create,
-    required TResult Function(String uid) delete,
+    required TResult Function(int uid) delete,
     required TResult Function(String value) onChangeString,
   }) {
     return create();
@@ -251,7 +260,7 @@ class _$CreateImpl implements Create {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? create,
-    TResult? Function(String uid)? delete,
+    TResult? Function(int uid)? delete,
     TResult? Function(String value)? onChangeString,
   }) {
     return create?.call();
@@ -262,7 +271,7 @@ class _$CreateImpl implements Create {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? create,
-    TResult Function(String uid)? delete,
+    TResult Function(int uid)? delete,
     TResult Function(String value)? onChangeString,
     required TResult orElse(),
   }) {
@@ -320,7 +329,7 @@ abstract class _$$DeleteImplCopyWith<$Res> {
           _$DeleteImpl value, $Res Function(_$DeleteImpl) then) =
       __$$DeleteImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String uid});
+  $Res call({int uid});
 }
 
 /// @nodoc
@@ -331,6 +340,8 @@ class __$$DeleteImplCopyWithImpl<$Res>
       _$DeleteImpl _value, $Res Function(_$DeleteImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UnitListEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -340,7 +351,7 @@ class __$$DeleteImplCopyWithImpl<$Res>
       null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -351,7 +362,7 @@ class _$DeleteImpl implements Delete {
   const _$DeleteImpl(this.uid);
 
   @override
-  final String uid;
+  final int uid;
 
   @override
   String toString() {
@@ -369,7 +380,9 @@ class _$DeleteImpl implements Delete {
   @override
   int get hashCode => Object.hash(runtimeType, uid);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UnitListEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
@@ -380,7 +393,7 @@ class _$DeleteImpl implements Delete {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() create,
-    required TResult Function(String uid) delete,
+    required TResult Function(int uid) delete,
     required TResult Function(String value) onChangeString,
   }) {
     return delete(uid);
@@ -391,7 +404,7 @@ class _$DeleteImpl implements Delete {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? create,
-    TResult? Function(String uid)? delete,
+    TResult? Function(int uid)? delete,
     TResult? Function(String value)? onChangeString,
   }) {
     return delete?.call(uid);
@@ -402,7 +415,7 @@ class _$DeleteImpl implements Delete {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? create,
-    TResult Function(String uid)? delete,
+    TResult Function(int uid)? delete,
     TResult Function(String value)? onChangeString,
     required TResult orElse(),
   }) {
@@ -451,10 +464,13 @@ class _$DeleteImpl implements Delete {
 }
 
 abstract class Delete implements UnitListEvent {
-  const factory Delete(final String uid) = _$DeleteImpl;
+  const factory Delete(final int uid) = _$DeleteImpl;
 
-  String get uid;
-  @JsonKey(ignore: true)
+  int get uid;
+
+  /// Create a copy of UnitListEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -476,6 +492,8 @@ class __$$OnChangeStringImplCopyWithImpl<$Res>
       _$OnChangeStringImpl _value, $Res Function(_$OnChangeStringImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UnitListEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -514,7 +532,9 @@ class _$OnChangeStringImpl implements OnChangeString {
   @override
   int get hashCode => Object.hash(runtimeType, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UnitListEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OnChangeStringImplCopyWith<_$OnChangeStringImpl> get copyWith =>
@@ -526,7 +546,7 @@ class _$OnChangeStringImpl implements OnChangeString {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() create,
-    required TResult Function(String uid) delete,
+    required TResult Function(int uid) delete,
     required TResult Function(String value) onChangeString,
   }) {
     return onChangeString(value);
@@ -537,7 +557,7 @@ class _$OnChangeStringImpl implements OnChangeString {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? create,
-    TResult? Function(String uid)? delete,
+    TResult? Function(int uid)? delete,
     TResult? Function(String value)? onChangeString,
   }) {
     return onChangeString?.call(value);
@@ -548,7 +568,7 @@ class _$OnChangeStringImpl implements OnChangeString {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? create,
-    TResult Function(String uid)? delete,
+    TResult Function(int uid)? delete,
     TResult Function(String value)? onChangeString,
     required TResult orElse(),
   }) {
@@ -600,7 +620,10 @@ abstract class OnChangeString implements UnitListEvent {
   const factory OnChangeString(final String value) = _$OnChangeStringImpl;
 
   String get value;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UnitListEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OnChangeStringImplCopyWith<_$OnChangeStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -610,7 +633,9 @@ mixin _$UnitListState {
   String get search_text => throw _privateConstructorUsedError;
   List<UnitModel> get list_value => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UnitListState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UnitListStateCopyWith<UnitListState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -634,6 +659,8 @@ class _$UnitListStateCopyWithImpl<$Res, $Val extends UnitListState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UnitListState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -672,6 +699,8 @@ class __$$UnitListStateImplCopyWithImpl<$Res>
       _$UnitListStateImpl _value, $Res Function(_$UnitListStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UnitListState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -730,7 +759,9 @@ class _$UnitListStateImpl implements _UnitListState {
   int get hashCode => Object.hash(runtimeType, search_text,
       const DeepCollectionEquality().hash(_list_value));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UnitListState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UnitListStateImplCopyWith<_$UnitListStateImpl> get copyWith =>
@@ -746,8 +777,11 @@ abstract class _UnitListState implements UnitListState {
   String get search_text;
   @override
   List<UnitModel> get list_value;
+
+  /// Create a copy of UnitListState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UnitListStateImplCopyWith<_$UnitListStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

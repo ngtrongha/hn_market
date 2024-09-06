@@ -1,0 +1,398 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "2:8462100601893205612",
+      "lastPropertyId": "10:4944268585478704077",
+      "name": "OrderModel",
+      "properties": [
+        {
+          "id": "1:8479132576122394026",
+          "name": "uid",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4523916266304147786",
+          "name": "thoi_gian_mua",
+          "type": 10
+        },
+        {
+          "id": "3:3335041921269555226",
+          "name": "uid_khach_hang",
+          "type": 6
+        },
+        {
+          "id": "4:1856729103606736230",
+          "name": "ten_khach_hang",
+          "type": 9
+        },
+        {
+          "id": "5:2970767064493836545",
+          "name": "hinh_khach_hang",
+          "type": 23
+        },
+        {
+          "id": "6:6596033124175339077",
+          "name": "sdt_khach_hang",
+          "type": 9
+        },
+        {
+          "id": "7:7967327727288773898",
+          "name": "khach_no",
+          "type": 1
+        },
+        {
+          "id": "8:3362299750829196582",
+          "name": "tong_tien_no",
+          "type": 8
+        },
+        {
+          "id": "9:2750023190832166596",
+          "name": "tong_gia",
+          "type": 8
+        },
+        {
+          "id": "10:4944268585478704077",
+          "name": "createDate",
+          "type": 10
+        }
+      ],
+      "relations": [
+        {
+          "id": "2:6117545004750295902",
+          "name": "list_product",
+          "targetId": "4:3376631319514457996"
+        }
+      ]
+    },
+    {
+      "id": "3:2774907212245098214",
+      "lastPropertyId": "8:8090806262661001619",
+      "name": "PriceList",
+      "properties": [
+        {
+          "id": "1:1657564179567643833",
+          "name": "uid",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7220771278987625304",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:6837452732912493970",
+          "name": "uid_don_vi",
+          "type": 6
+        },
+        {
+          "id": "4:7032831974186877870",
+          "name": "ten_don_vi",
+          "type": 9
+        },
+        {
+          "id": "5:4266610608789417277",
+          "name": "ky_hieu_don_vi",
+          "type": 9
+        },
+        {
+          "id": "6:6753043266397354163",
+          "name": "gia_ban",
+          "type": 8
+        },
+        {
+          "id": "7:1009228909912017167",
+          "name": "so_luong",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:3376631319514457996",
+      "lastPropertyId": "14:4278042561808483539",
+      "name": "ProductItem",
+      "properties": [
+        {
+          "id": "1:8241860205670702977",
+          "name": "uid",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:812030874404062344",
+          "name": "uid_product",
+          "type": 6
+        },
+        {
+          "id": "3:8566887608838875456",
+          "name": "barcode",
+          "type": 9
+        },
+        {
+          "id": "4:7823422843550329682",
+          "name": "ten_san_pham",
+          "type": 9
+        },
+        {
+          "id": "5:7405349370863855049",
+          "name": "hinh_san_pham",
+          "type": 23
+        },
+        {
+          "id": "6:6931669776031782900",
+          "name": "uid_don_vi",
+          "type": 6
+        },
+        {
+          "id": "7:2994713848890333595",
+          "name": "ten_don_vi",
+          "type": 9
+        },
+        {
+          "id": "8:5424488080241102282",
+          "name": "ten_loai",
+          "type": 9
+        },
+        {
+          "id": "9:8326155832968762877",
+          "name": "ky_hieu_don_vi",
+          "type": 9
+        },
+        {
+          "id": "10:7410578384373947376",
+          "name": "gia_ban_uid_don_vi",
+          "type": 6
+        },
+        {
+          "id": "11:4117038924924385776",
+          "name": "gia_ban_ten_don_vi",
+          "type": 9
+        },
+        {
+          "id": "12:8744451219592071",
+          "name": "gia_ban_ky_hieu_don_vi",
+          "type": 9
+        },
+        {
+          "id": "13:8312112673082639836",
+          "name": "gia_ban",
+          "type": 8
+        },
+        {
+          "id": "14:4278042561808483539",
+          "name": "so_luong",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "5:2699875232035799149",
+      "lastPropertyId": "13:6850306170653725048",
+      "name": "ProductModel",
+      "properties": [
+        {
+          "id": "1:5571371203571454592",
+          "name": "uid",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:9008781066506134880",
+          "name": "barcode",
+          "type": 9
+        },
+        {
+          "id": "3:5009954247164826755",
+          "name": "ten_san_pham",
+          "type": 9
+        },
+        {
+          "id": "4:6061245436868486034",
+          "name": "hinh_san_pham",
+          "type": 23
+        },
+        {
+          "id": "5:7229928441048565709",
+          "name": "uid_danh_muc",
+          "type": 6
+        },
+        {
+          "id": "6:1518545134613383641",
+          "name": "ten_danh_muc",
+          "type": 9
+        },
+        {
+          "id": "7:6982042452188979866",
+          "name": "uid_don_vi",
+          "type": 6
+        },
+        {
+          "id": "8:6001654584984488585",
+          "name": "ten_don_vi",
+          "type": 9
+        },
+        {
+          "id": "9:883625706046727771",
+          "name": "ky_hieu_don_vi",
+          "type": 9
+        },
+        {
+          "id": "10:6021767469518361791",
+          "name": "ghi_chu",
+          "type": 9
+        },
+        {
+          "id": "11:6807131810671397937",
+          "name": "gia_nhap",
+          "type": 8
+        },
+        {
+          "id": "12:6214602939360826599",
+          "name": "dung_tich",
+          "type": 6
+        },
+        {
+          "id": "13:6850306170653725048",
+          "name": "so_luong",
+          "type": 6
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:7058649337610862334",
+          "name": "price_list",
+          "targetId": "3:2774907212245098214"
+        }
+      ]
+    },
+    {
+      "id": "6:4395494203919008109",
+      "lastPropertyId": "5:7563155607688441043",
+      "name": "UnitModel",
+      "properties": [
+        {
+          "id": "1:5938035661955631924",
+          "name": "uid",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:3111332530529794604",
+          "name": "ten_don_vi",
+          "type": 9
+        },
+        {
+          "id": "3:8792214140384089297",
+          "name": "loai_don_vi",
+          "type": 9
+        },
+        {
+          "id": "4:2015183802015280897",
+          "name": "ky_hieu",
+          "type": 9
+        },
+        {
+          "id": "5:7563155607688441043",
+          "name": "createDate",
+          "type": 10
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "7:3646208378886933205",
+      "lastPropertyId": "6:6050084833291723297",
+      "name": "CustomerModel",
+      "properties": [
+        {
+          "id": "1:3579513034822440326",
+          "name": "uid",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:3157431911059337559",
+          "name": "ten_khach_hang",
+          "type": 9
+        },
+        {
+          "id": "3:5664871943150517921",
+          "name": "hinh_khach_hang",
+          "type": 23
+        },
+        {
+          "id": "4:7109396362435822095",
+          "name": "sdt_khach_hang",
+          "type": 9
+        },
+        {
+          "id": "5:9038904169819601270",
+          "name": "dia_chi",
+          "type": 9
+        },
+        {
+          "id": "6:6050084833291723297",
+          "name": "createDate",
+          "type": 10
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "8:3828381250875953042",
+      "lastPropertyId": "4:5633756422000733903",
+      "name": "CategoryModel",
+      "properties": [
+        {
+          "id": "1:2944983431183764254",
+          "name": "uid",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6201877116637760197",
+          "name": "ten_danh_muc",
+          "type": 9
+        },
+        {
+          "id": "3:4835612102365298861",
+          "name": "loai_danh_muc",
+          "type": 9
+        },
+        {
+          "id": "4:5633756422000733903",
+          "name": "createDate",
+          "type": 10
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "8:3828381250875953042",
+  "lastIndexId": "1:681671148803372239",
+  "lastRelationId": "2:6117545004750295902",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [
+    4121840046154517435
+  ],
+  "retiredIndexUids": [
+    681671148803372239
+  ],
+  "retiredPropertyUids": [
+    2554028156081344597,
+    3276445162843721571,
+    1946115600899689025,
+    8241427837389614950,
+    8090806262661001619
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}

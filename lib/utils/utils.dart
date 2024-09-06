@@ -6,8 +6,9 @@ import 'dart:ui';
 
 import 'package:currency_formatter/currency_formatter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hn_market/database/object_box.dart';
 import 'package:intl/intl.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
@@ -19,6 +20,7 @@ export 'extensions/string_extension.dart';
 export 'extensions/widget_extension.dart';
 export 'custom_appbar.dart';
 export 'custom_scaffold.dart';
+export 'package:flutter_screenutil/flutter_screenutil.dart';
 
 const pageSize = 20;
 const refkey = 'refcode';
@@ -27,12 +29,33 @@ const mapZoom = 15.0;
 class Utils {
   static const debugLog = true;
   static late MainBloc mainBloc;
+  static late ObjectBox objectBox;
   static final appRouter = AppRouter();
   static final log = TalkerFlutter.init();
   int getTotalPage(int total) {
     int result = total ~/ pageSize;
     if (total % pageSize > 0) result += 1;
     return result;
+  }
+
+  static Future<Uint8List?> compressImageToBase64(
+      Uint8List inputData, int targetSizeKB) async {
+    int quality = 100;
+    Uint8List? compressedData;
+    do {
+      compressedData = await FlutterImageCompress.compressWithList(
+        inputData,
+        quality: quality,
+      );
+
+      if (quality > 10) {
+        quality -= 10;
+      } else {
+        quality -= 1;
+      }
+    } while (compressedData.lengthInBytes / 1024 > targetSizeKB && quality > 0);
+
+    return compressedData;
   }
 
   Future<Uint8List> svgToPng(
@@ -57,7 +80,7 @@ class Utils {
         .join('&');
   }
 
-  static int get randomId => -Random().nextInt(9999999);
+  static int get randomId => DateTime.now().millisecondsSinceEpoch;
   static List<TextSpan> highlightResultSearch(String source, String query) {
     if (query.isEmpty) {
       return [TextSpan(text: source)];

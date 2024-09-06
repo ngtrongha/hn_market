@@ -26,6 +26,7 @@ mixin _$OrderEntryEvent {
     required TResult Function(ProductItem data, int value) changeAmount,
     required TResult Function(ProductItem data, PriceList value) choosePrice,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
     required TResult Function() create,
     required TResult Function() getTotal,
     required TResult Function() chooseCustomer,
@@ -41,6 +42,7 @@ mixin _$OrderEntryEvent {
     TResult? Function(ProductItem data, int value)? changeAmount,
     TResult? Function(ProductItem data, PriceList value)? choosePrice,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
     TResult? Function()? create,
     TResult? Function()? getTotal,
     TResult? Function()? chooseCustomer,
@@ -56,6 +58,7 @@ mixin _$OrderEntryEvent {
     TResult Function(ProductItem data, int value)? changeAmount,
     TResult Function(ProductItem data, PriceList value)? choosePrice,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     TResult Function()? create,
     TResult Function()? getTotal,
     TResult Function()? chooseCustomer,
@@ -72,6 +75,7 @@ mixin _$OrderEntryEvent {
     required TResult Function(ChangeAmount value) changeAmount,
     required TResult Function(ChoosePrice value) choosePrice,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
     required TResult Function(Create value) create,
     required TResult Function(GetTotal value) getTotal,
     required TResult Function(ChooseCustomer value) chooseCustomer,
@@ -87,6 +91,7 @@ mixin _$OrderEntryEvent {
     TResult? Function(ChangeAmount value)? changeAmount,
     TResult? Function(ChoosePrice value)? choosePrice,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
     TResult? Function(Create value)? create,
     TResult? Function(GetTotal value)? getTotal,
     TResult? Function(ChooseCustomer value)? chooseCustomer,
@@ -102,6 +107,7 @@ mixin _$OrderEntryEvent {
     TResult Function(ChangeAmount value)? changeAmount,
     TResult Function(ChoosePrice value)? choosePrice,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     TResult Function(Create value)? create,
     TResult Function(GetTotal value)? getTotal,
     TResult Function(ChooseCustomer value)? chooseCustomer,
@@ -126,6 +132,9 @@ class _$OrderEntryEventCopyWithImpl<$Res, $Val extends OrderEntryEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -142,6 +151,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -174,6 +186,7 @@ class _$StartedImpl implements Started {
     required TResult Function(ProductItem data, int value) changeAmount,
     required TResult Function(ProductItem data, PriceList value) choosePrice,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
     required TResult Function() create,
     required TResult Function() getTotal,
     required TResult Function() chooseCustomer,
@@ -192,6 +205,7 @@ class _$StartedImpl implements Started {
     TResult? Function(ProductItem data, int value)? changeAmount,
     TResult? Function(ProductItem data, PriceList value)? choosePrice,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
     TResult? Function()? create,
     TResult? Function()? getTotal,
     TResult? Function()? chooseCustomer,
@@ -210,6 +224,7 @@ class _$StartedImpl implements Started {
     TResult Function(ProductItem data, int value)? changeAmount,
     TResult Function(ProductItem data, PriceList value)? choosePrice,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     TResult Function()? create,
     TResult Function()? getTotal,
     TResult Function()? chooseCustomer,
@@ -232,6 +247,7 @@ class _$StartedImpl implements Started {
     required TResult Function(ChangeAmount value) changeAmount,
     required TResult Function(ChoosePrice value) choosePrice,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
     required TResult Function(Create value) create,
     required TResult Function(GetTotal value) getTotal,
     required TResult Function(ChooseCustomer value) chooseCustomer,
@@ -250,6 +266,7 @@ class _$StartedImpl implements Started {
     TResult? Function(ChangeAmount value)? changeAmount,
     TResult? Function(ChoosePrice value)? choosePrice,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
     TResult? Function(Create value)? create,
     TResult? Function(GetTotal value)? getTotal,
     TResult? Function(ChooseCustomer value)? chooseCustomer,
@@ -268,6 +285,7 @@ class _$StartedImpl implements Started {
     TResult Function(ChangeAmount value)? changeAmount,
     TResult Function(ChoosePrice value)? choosePrice,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     TResult Function(Create value)? create,
     TResult Function(GetTotal value)? getTotal,
     TResult Function(ChooseCustomer value)? chooseCustomer,
@@ -301,6 +319,8 @@ class __$$ChangeBoolImplCopyWithImpl<$Res>
       _$ChangeBoolImpl _value, $Res Function(_$ChangeBoolImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -339,7 +359,9 @@ class _$ChangeBoolImpl implements ChangeBool {
   @override
   int get hashCode => Object.hash(runtimeType, key);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChangeBoolImplCopyWith<_$ChangeBoolImpl> get copyWith =>
@@ -356,6 +378,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     required TResult Function(ProductItem data, int value) changeAmount,
     required TResult Function(ProductItem data, PriceList value) choosePrice,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
     required TResult Function() create,
     required TResult Function() getTotal,
     required TResult Function() chooseCustomer,
@@ -374,6 +397,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult? Function(ProductItem data, int value)? changeAmount,
     TResult? Function(ProductItem data, PriceList value)? choosePrice,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
     TResult? Function()? create,
     TResult? Function()? getTotal,
     TResult? Function()? chooseCustomer,
@@ -392,6 +416,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult Function(ProductItem data, int value)? changeAmount,
     TResult Function(ProductItem data, PriceList value)? choosePrice,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     TResult Function()? create,
     TResult Function()? getTotal,
     TResult Function()? chooseCustomer,
@@ -414,6 +439,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     required TResult Function(ChangeAmount value) changeAmount,
     required TResult Function(ChoosePrice value) choosePrice,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
     required TResult Function(Create value) create,
     required TResult Function(GetTotal value) getTotal,
     required TResult Function(ChooseCustomer value) chooseCustomer,
@@ -432,6 +458,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult? Function(ChangeAmount value)? changeAmount,
     TResult? Function(ChoosePrice value)? choosePrice,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
     TResult? Function(Create value)? create,
     TResult? Function(GetTotal value)? getTotal,
     TResult? Function(ChooseCustomer value)? chooseCustomer,
@@ -450,6 +477,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult Function(ChangeAmount value)? changeAmount,
     TResult Function(ChoosePrice value)? choosePrice,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     TResult Function(Create value)? create,
     TResult Function(GetTotal value)? getTotal,
     TResult Function(ChooseCustomer value)? chooseCustomer,
@@ -466,7 +494,10 @@ abstract class ChangeBool implements OrderEntryEvent {
   const factory ChangeBool(final String key) = _$ChangeBoolImpl;
 
   String get key;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChangeBoolImplCopyWith<_$ChangeBoolImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -485,6 +516,9 @@ class __$$AddProductByScanImplCopyWithImpl<$Res>
   __$$AddProductByScanImplCopyWithImpl(_$AddProductByScanImpl _value,
       $Res Function(_$AddProductByScanImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -517,6 +551,7 @@ class _$AddProductByScanImpl implements AddProductByScan {
     required TResult Function(ProductItem data, int value) changeAmount,
     required TResult Function(ProductItem data, PriceList value) choosePrice,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
     required TResult Function() create,
     required TResult Function() getTotal,
     required TResult Function() chooseCustomer,
@@ -535,6 +570,7 @@ class _$AddProductByScanImpl implements AddProductByScan {
     TResult? Function(ProductItem data, int value)? changeAmount,
     TResult? Function(ProductItem data, PriceList value)? choosePrice,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
     TResult? Function()? create,
     TResult? Function()? getTotal,
     TResult? Function()? chooseCustomer,
@@ -553,6 +589,7 @@ class _$AddProductByScanImpl implements AddProductByScan {
     TResult Function(ProductItem data, int value)? changeAmount,
     TResult Function(ProductItem data, PriceList value)? choosePrice,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     TResult Function()? create,
     TResult Function()? getTotal,
     TResult Function()? chooseCustomer,
@@ -575,6 +612,7 @@ class _$AddProductByScanImpl implements AddProductByScan {
     required TResult Function(ChangeAmount value) changeAmount,
     required TResult Function(ChoosePrice value) choosePrice,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
     required TResult Function(Create value) create,
     required TResult Function(GetTotal value) getTotal,
     required TResult Function(ChooseCustomer value) chooseCustomer,
@@ -593,6 +631,7 @@ class _$AddProductByScanImpl implements AddProductByScan {
     TResult? Function(ChangeAmount value)? changeAmount,
     TResult? Function(ChoosePrice value)? choosePrice,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
     TResult? Function(Create value)? create,
     TResult? Function(GetTotal value)? getTotal,
     TResult? Function(ChooseCustomer value)? chooseCustomer,
@@ -611,6 +650,7 @@ class _$AddProductByScanImpl implements AddProductByScan {
     TResult Function(ChangeAmount value)? changeAmount,
     TResult Function(ChoosePrice value)? choosePrice,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     TResult Function(Create value)? create,
     TResult Function(GetTotal value)? getTotal,
     TResult Function(ChooseCustomer value)? chooseCustomer,
@@ -641,6 +681,9 @@ class __$$AddProductByChooseImplCopyWithImpl<$Res>
   __$$AddProductByChooseImplCopyWithImpl(_$AddProductByChooseImpl _value,
       $Res Function(_$AddProductByChooseImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -673,6 +716,7 @@ class _$AddProductByChooseImpl implements AddProductByChoose {
     required TResult Function(ProductItem data, int value) changeAmount,
     required TResult Function(ProductItem data, PriceList value) choosePrice,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
     required TResult Function() create,
     required TResult Function() getTotal,
     required TResult Function() chooseCustomer,
@@ -691,6 +735,7 @@ class _$AddProductByChooseImpl implements AddProductByChoose {
     TResult? Function(ProductItem data, int value)? changeAmount,
     TResult? Function(ProductItem data, PriceList value)? choosePrice,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
     TResult? Function()? create,
     TResult? Function()? getTotal,
     TResult? Function()? chooseCustomer,
@@ -709,6 +754,7 @@ class _$AddProductByChooseImpl implements AddProductByChoose {
     TResult Function(ProductItem data, int value)? changeAmount,
     TResult Function(ProductItem data, PriceList value)? choosePrice,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     TResult Function()? create,
     TResult Function()? getTotal,
     TResult Function()? chooseCustomer,
@@ -731,6 +777,7 @@ class _$AddProductByChooseImpl implements AddProductByChoose {
     required TResult Function(ChangeAmount value) changeAmount,
     required TResult Function(ChoosePrice value) choosePrice,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
     required TResult Function(Create value) create,
     required TResult Function(GetTotal value) getTotal,
     required TResult Function(ChooseCustomer value) chooseCustomer,
@@ -749,6 +796,7 @@ class _$AddProductByChooseImpl implements AddProductByChoose {
     TResult? Function(ChangeAmount value)? changeAmount,
     TResult? Function(ChoosePrice value)? choosePrice,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
     TResult? Function(Create value)? create,
     TResult? Function(GetTotal value)? getTotal,
     TResult? Function(ChooseCustomer value)? chooseCustomer,
@@ -767,6 +815,7 @@ class _$AddProductByChooseImpl implements AddProductByChoose {
     TResult Function(ChangeAmount value)? changeAmount,
     TResult Function(ChoosePrice value)? choosePrice,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     TResult Function(Create value)? create,
     TResult Function(GetTotal value)? getTotal,
     TResult Function(ChooseCustomer value)? chooseCustomer,
@@ -790,8 +839,6 @@ abstract class _$$RemoveProductImplCopyWith<$Res> {
       __$$RemoveProductImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ProductItem data});
-
-  $ProductItemCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -802,6 +849,8 @@ class __$$RemoveProductImplCopyWithImpl<$Res>
       _$RemoveProductImpl _value, $Res Function(_$RemoveProductImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -813,14 +862,6 @@ class __$$RemoveProductImplCopyWithImpl<$Res>
           : data // ignore: cast_nullable_to_non_nullable
               as ProductItem,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ProductItemCopyWith<$Res> get data {
-    return $ProductItemCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -848,7 +889,9 @@ class _$RemoveProductImpl implements RemoveProduct {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RemoveProductImplCopyWith<_$RemoveProductImpl> get copyWith =>
@@ -865,6 +908,7 @@ class _$RemoveProductImpl implements RemoveProduct {
     required TResult Function(ProductItem data, int value) changeAmount,
     required TResult Function(ProductItem data, PriceList value) choosePrice,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
     required TResult Function() create,
     required TResult Function() getTotal,
     required TResult Function() chooseCustomer,
@@ -883,6 +927,7 @@ class _$RemoveProductImpl implements RemoveProduct {
     TResult? Function(ProductItem data, int value)? changeAmount,
     TResult? Function(ProductItem data, PriceList value)? choosePrice,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
     TResult? Function()? create,
     TResult? Function()? getTotal,
     TResult? Function()? chooseCustomer,
@@ -901,6 +946,7 @@ class _$RemoveProductImpl implements RemoveProduct {
     TResult Function(ProductItem data, int value)? changeAmount,
     TResult Function(ProductItem data, PriceList value)? choosePrice,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     TResult Function()? create,
     TResult Function()? getTotal,
     TResult Function()? chooseCustomer,
@@ -923,6 +969,7 @@ class _$RemoveProductImpl implements RemoveProduct {
     required TResult Function(ChangeAmount value) changeAmount,
     required TResult Function(ChoosePrice value) choosePrice,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
     required TResult Function(Create value) create,
     required TResult Function(GetTotal value) getTotal,
     required TResult Function(ChooseCustomer value) chooseCustomer,
@@ -941,6 +988,7 @@ class _$RemoveProductImpl implements RemoveProduct {
     TResult? Function(ChangeAmount value)? changeAmount,
     TResult? Function(ChoosePrice value)? choosePrice,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
     TResult? Function(Create value)? create,
     TResult? Function(GetTotal value)? getTotal,
     TResult? Function(ChooseCustomer value)? chooseCustomer,
@@ -959,6 +1007,7 @@ class _$RemoveProductImpl implements RemoveProduct {
     TResult Function(ChangeAmount value)? changeAmount,
     TResult Function(ChoosePrice value)? choosePrice,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     TResult Function(Create value)? create,
     TResult Function(GetTotal value)? getTotal,
     TResult Function(ChooseCustomer value)? chooseCustomer,
@@ -975,7 +1024,10 @@ abstract class RemoveProduct implements OrderEntryEvent {
   const factory RemoveProduct(final ProductItem data) = _$RemoveProductImpl;
 
   ProductItem get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RemoveProductImplCopyWith<_$RemoveProductImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -987,8 +1039,6 @@ abstract class _$$ChangeAmountImplCopyWith<$Res> {
       __$$ChangeAmountImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ProductItem data, int value});
-
-  $ProductItemCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -999,6 +1049,8 @@ class __$$ChangeAmountImplCopyWithImpl<$Res>
       _$ChangeAmountImpl _value, $Res Function(_$ChangeAmountImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1015,14 +1067,6 @@ class __$$ChangeAmountImplCopyWithImpl<$Res>
           : value // ignore: cast_nullable_to_non_nullable
               as int,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ProductItemCopyWith<$Res> get data {
-    return $ProductItemCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -1053,7 +1097,9 @@ class _$ChangeAmountImpl implements ChangeAmount {
   @override
   int get hashCode => Object.hash(runtimeType, data, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChangeAmountImplCopyWith<_$ChangeAmountImpl> get copyWith =>
@@ -1070,6 +1116,7 @@ class _$ChangeAmountImpl implements ChangeAmount {
     required TResult Function(ProductItem data, int value) changeAmount,
     required TResult Function(ProductItem data, PriceList value) choosePrice,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
     required TResult Function() create,
     required TResult Function() getTotal,
     required TResult Function() chooseCustomer,
@@ -1088,6 +1135,7 @@ class _$ChangeAmountImpl implements ChangeAmount {
     TResult? Function(ProductItem data, int value)? changeAmount,
     TResult? Function(ProductItem data, PriceList value)? choosePrice,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
     TResult? Function()? create,
     TResult? Function()? getTotal,
     TResult? Function()? chooseCustomer,
@@ -1106,6 +1154,7 @@ class _$ChangeAmountImpl implements ChangeAmount {
     TResult Function(ProductItem data, int value)? changeAmount,
     TResult Function(ProductItem data, PriceList value)? choosePrice,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     TResult Function()? create,
     TResult Function()? getTotal,
     TResult Function()? chooseCustomer,
@@ -1128,6 +1177,7 @@ class _$ChangeAmountImpl implements ChangeAmount {
     required TResult Function(ChangeAmount value) changeAmount,
     required TResult Function(ChoosePrice value) choosePrice,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
     required TResult Function(Create value) create,
     required TResult Function(GetTotal value) getTotal,
     required TResult Function(ChooseCustomer value) chooseCustomer,
@@ -1146,6 +1196,7 @@ class _$ChangeAmountImpl implements ChangeAmount {
     TResult? Function(ChangeAmount value)? changeAmount,
     TResult? Function(ChoosePrice value)? choosePrice,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
     TResult? Function(Create value)? create,
     TResult? Function(GetTotal value)? getTotal,
     TResult? Function(ChooseCustomer value)? chooseCustomer,
@@ -1164,6 +1215,7 @@ class _$ChangeAmountImpl implements ChangeAmount {
     TResult Function(ChangeAmount value)? changeAmount,
     TResult Function(ChoosePrice value)? choosePrice,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     TResult Function(Create value)? create,
     TResult Function(GetTotal value)? getTotal,
     TResult Function(ChooseCustomer value)? chooseCustomer,
@@ -1182,7 +1234,10 @@ abstract class ChangeAmount implements OrderEntryEvent {
 
   ProductItem get data;
   int get value;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChangeAmountImplCopyWith<_$ChangeAmountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1194,9 +1249,6 @@ abstract class _$$ChoosePriceImplCopyWith<$Res> {
       __$$ChoosePriceImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ProductItem data, PriceList value});
-
-  $ProductItemCopyWith<$Res> get data;
-  $PriceListCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -1207,6 +1259,8 @@ class __$$ChoosePriceImplCopyWithImpl<$Res>
       _$ChoosePriceImpl _value, $Res Function(_$ChoosePriceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1223,22 +1277,6 @@ class __$$ChoosePriceImplCopyWithImpl<$Res>
           : value // ignore: cast_nullable_to_non_nullable
               as PriceList,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ProductItemCopyWith<$Res> get data {
-    return $ProductItemCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PriceListCopyWith<$Res> get value {
-    return $PriceListCopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
-    });
   }
 }
 
@@ -1269,7 +1307,9 @@ class _$ChoosePriceImpl implements ChoosePrice {
   @override
   int get hashCode => Object.hash(runtimeType, data, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChoosePriceImplCopyWith<_$ChoosePriceImpl> get copyWith =>
@@ -1286,6 +1326,7 @@ class _$ChoosePriceImpl implements ChoosePrice {
     required TResult Function(ProductItem data, int value) changeAmount,
     required TResult Function(ProductItem data, PriceList value) choosePrice,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
     required TResult Function() create,
     required TResult Function() getTotal,
     required TResult Function() chooseCustomer,
@@ -1304,6 +1345,7 @@ class _$ChoosePriceImpl implements ChoosePrice {
     TResult? Function(ProductItem data, int value)? changeAmount,
     TResult? Function(ProductItem data, PriceList value)? choosePrice,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
     TResult? Function()? create,
     TResult? Function()? getTotal,
     TResult? Function()? chooseCustomer,
@@ -1322,6 +1364,7 @@ class _$ChoosePriceImpl implements ChoosePrice {
     TResult Function(ProductItem data, int value)? changeAmount,
     TResult Function(ProductItem data, PriceList value)? choosePrice,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     TResult Function()? create,
     TResult Function()? getTotal,
     TResult Function()? chooseCustomer,
@@ -1344,6 +1387,7 @@ class _$ChoosePriceImpl implements ChoosePrice {
     required TResult Function(ChangeAmount value) changeAmount,
     required TResult Function(ChoosePrice value) choosePrice,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
     required TResult Function(Create value) create,
     required TResult Function(GetTotal value) getTotal,
     required TResult Function(ChooseCustomer value) chooseCustomer,
@@ -1362,6 +1406,7 @@ class _$ChoosePriceImpl implements ChoosePrice {
     TResult? Function(ChangeAmount value)? changeAmount,
     TResult? Function(ChoosePrice value)? choosePrice,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
     TResult? Function(Create value)? create,
     TResult? Function(GetTotal value)? getTotal,
     TResult? Function(ChooseCustomer value)? chooseCustomer,
@@ -1380,6 +1425,7 @@ class _$ChoosePriceImpl implements ChoosePrice {
     TResult Function(ChangeAmount value)? changeAmount,
     TResult Function(ChoosePrice value)? choosePrice,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     TResult Function(Create value)? create,
     TResult Function(GetTotal value)? getTotal,
     TResult Function(ChooseCustomer value)? chooseCustomer,
@@ -1398,7 +1444,10 @@ abstract class ChoosePrice implements OrderEntryEvent {
 
   ProductItem get data;
   PriceList get value;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChoosePriceImplCopyWith<_$ChoosePriceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1417,6 +1466,9 @@ class __$$ChooseImageImplCopyWithImpl<$Res>
   __$$ChooseImageImplCopyWithImpl(
       _$ChooseImageImpl _value, $Res Function(_$ChooseImageImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1449,6 +1501,7 @@ class _$ChooseImageImpl implements ChooseImage {
     required TResult Function(ProductItem data, int value) changeAmount,
     required TResult Function(ProductItem data, PriceList value) choosePrice,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
     required TResult Function() create,
     required TResult Function() getTotal,
     required TResult Function() chooseCustomer,
@@ -1467,6 +1520,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult? Function(ProductItem data, int value)? changeAmount,
     TResult? Function(ProductItem data, PriceList value)? choosePrice,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
     TResult? Function()? create,
     TResult? Function()? getTotal,
     TResult? Function()? chooseCustomer,
@@ -1485,6 +1539,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult Function(ProductItem data, int value)? changeAmount,
     TResult Function(ProductItem data, PriceList value)? choosePrice,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     TResult Function()? create,
     TResult Function()? getTotal,
     TResult Function()? chooseCustomer,
@@ -1507,6 +1562,7 @@ class _$ChooseImageImpl implements ChooseImage {
     required TResult Function(ChangeAmount value) changeAmount,
     required TResult Function(ChoosePrice value) choosePrice,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
     required TResult Function(Create value) create,
     required TResult Function(GetTotal value) getTotal,
     required TResult Function(ChooseCustomer value) chooseCustomer,
@@ -1525,6 +1581,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult? Function(ChangeAmount value)? changeAmount,
     TResult? Function(ChoosePrice value)? choosePrice,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
     TResult? Function(Create value)? create,
     TResult? Function(GetTotal value)? getTotal,
     TResult? Function(ChooseCustomer value)? chooseCustomer,
@@ -1543,6 +1600,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult Function(ChangeAmount value)? changeAmount,
     TResult Function(ChoosePrice value)? choosePrice,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     TResult Function(Create value)? create,
     TResult Function(GetTotal value)? getTotal,
     TResult Function(ChooseCustomer value)? chooseCustomer,
@@ -1560,6 +1618,216 @@ abstract class ChooseImage implements OrderEntryEvent {
 }
 
 /// @nodoc
+abstract class _$$ChangeStringImplCopyWith<$Res> {
+  factory _$$ChangeStringImplCopyWith(
+          _$ChangeStringImpl value, $Res Function(_$ChangeStringImpl) then) =
+      __$$ChangeStringImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String key, String value});
+}
+
+/// @nodoc
+class __$$ChangeStringImplCopyWithImpl<$Res>
+    extends _$OrderEntryEventCopyWithImpl<$Res, _$ChangeStringImpl>
+    implements _$$ChangeStringImplCopyWith<$Res> {
+  __$$ChangeStringImplCopyWithImpl(
+      _$ChangeStringImpl _value, $Res Function(_$ChangeStringImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? key = null,
+    Object? value = null,
+  }) {
+    return _then(_$ChangeStringImpl(
+      null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeStringImpl implements ChangeString {
+  const _$ChangeStringImpl(this.key, this.value);
+
+  @override
+  final String key;
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'OrderEntryEvent.changeString(key: $key, value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeStringImpl &&
+            (identical(other.key, key) || other.key == key) &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, key, value);
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeStringImplCopyWith<_$ChangeStringImpl> get copyWith =>
+      __$$ChangeStringImplCopyWithImpl<_$ChangeStringImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String key) changeBool,
+    required TResult Function() addProductByScan,
+    required TResult Function() addProductByChoose,
+    required TResult Function(ProductItem data) removeProduct,
+    required TResult Function(ProductItem data, int value) changeAmount,
+    required TResult Function(ProductItem data, PriceList value) choosePrice,
+    required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
+    required TResult Function() create,
+    required TResult Function() getTotal,
+    required TResult Function() chooseCustomer,
+  }) {
+    return changeString(key, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String key)? changeBool,
+    TResult? Function()? addProductByScan,
+    TResult? Function()? addProductByChoose,
+    TResult? Function(ProductItem data)? removeProduct,
+    TResult? Function(ProductItem data, int value)? changeAmount,
+    TResult? Function(ProductItem data, PriceList value)? choosePrice,
+    TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
+    TResult? Function()? create,
+    TResult? Function()? getTotal,
+    TResult? Function()? chooseCustomer,
+  }) {
+    return changeString?.call(key, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String key)? changeBool,
+    TResult Function()? addProductByScan,
+    TResult Function()? addProductByChoose,
+    TResult Function(ProductItem data)? removeProduct,
+    TResult Function(ProductItem data, int value)? changeAmount,
+    TResult Function(ProductItem data, PriceList value)? choosePrice,
+    TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
+    TResult Function()? create,
+    TResult Function()? getTotal,
+    TResult Function()? chooseCustomer,
+    required TResult orElse(),
+  }) {
+    if (changeString != null) {
+      return changeString(key, value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(ChangeBool value) changeBool,
+    required TResult Function(AddProductByScan value) addProductByScan,
+    required TResult Function(AddProductByChoose value) addProductByChoose,
+    required TResult Function(RemoveProduct value) removeProduct,
+    required TResult Function(ChangeAmount value) changeAmount,
+    required TResult Function(ChoosePrice value) choosePrice,
+    required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
+    required TResult Function(Create value) create,
+    required TResult Function(GetTotal value) getTotal,
+    required TResult Function(ChooseCustomer value) chooseCustomer,
+  }) {
+    return changeString(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(ChangeBool value)? changeBool,
+    TResult? Function(AddProductByScan value)? addProductByScan,
+    TResult? Function(AddProductByChoose value)? addProductByChoose,
+    TResult? Function(RemoveProduct value)? removeProduct,
+    TResult? Function(ChangeAmount value)? changeAmount,
+    TResult? Function(ChoosePrice value)? choosePrice,
+    TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
+    TResult? Function(Create value)? create,
+    TResult? Function(GetTotal value)? getTotal,
+    TResult? Function(ChooseCustomer value)? chooseCustomer,
+  }) {
+    return changeString?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(ChangeBool value)? changeBool,
+    TResult Function(AddProductByScan value)? addProductByScan,
+    TResult Function(AddProductByChoose value)? addProductByChoose,
+    TResult Function(RemoveProduct value)? removeProduct,
+    TResult Function(ChangeAmount value)? changeAmount,
+    TResult Function(ChoosePrice value)? choosePrice,
+    TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
+    TResult Function(Create value)? create,
+    TResult Function(GetTotal value)? getTotal,
+    TResult Function(ChooseCustomer value)? chooseCustomer,
+    required TResult orElse(),
+  }) {
+    if (changeString != null) {
+      return changeString(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeString implements OrderEntryEvent {
+  const factory ChangeString(final String key, final String value) =
+      _$ChangeStringImpl;
+
+  String get key;
+  String get value;
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeStringImplCopyWith<_$ChangeStringImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$CreateImplCopyWith<$Res> {
   factory _$$CreateImplCopyWith(
           _$CreateImpl value, $Res Function(_$CreateImpl) then) =
@@ -1573,6 +1841,9 @@ class __$$CreateImplCopyWithImpl<$Res>
   __$$CreateImplCopyWithImpl(
       _$CreateImpl _value, $Res Function(_$CreateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1605,6 +1876,7 @@ class _$CreateImpl implements Create {
     required TResult Function(ProductItem data, int value) changeAmount,
     required TResult Function(ProductItem data, PriceList value) choosePrice,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
     required TResult Function() create,
     required TResult Function() getTotal,
     required TResult Function() chooseCustomer,
@@ -1623,6 +1895,7 @@ class _$CreateImpl implements Create {
     TResult? Function(ProductItem data, int value)? changeAmount,
     TResult? Function(ProductItem data, PriceList value)? choosePrice,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
     TResult? Function()? create,
     TResult? Function()? getTotal,
     TResult? Function()? chooseCustomer,
@@ -1641,6 +1914,7 @@ class _$CreateImpl implements Create {
     TResult Function(ProductItem data, int value)? changeAmount,
     TResult Function(ProductItem data, PriceList value)? choosePrice,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     TResult Function()? create,
     TResult Function()? getTotal,
     TResult Function()? chooseCustomer,
@@ -1663,6 +1937,7 @@ class _$CreateImpl implements Create {
     required TResult Function(ChangeAmount value) changeAmount,
     required TResult Function(ChoosePrice value) choosePrice,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
     required TResult Function(Create value) create,
     required TResult Function(GetTotal value) getTotal,
     required TResult Function(ChooseCustomer value) chooseCustomer,
@@ -1681,6 +1956,7 @@ class _$CreateImpl implements Create {
     TResult? Function(ChangeAmount value)? changeAmount,
     TResult? Function(ChoosePrice value)? choosePrice,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
     TResult? Function(Create value)? create,
     TResult? Function(GetTotal value)? getTotal,
     TResult? Function(ChooseCustomer value)? chooseCustomer,
@@ -1699,6 +1975,7 @@ class _$CreateImpl implements Create {
     TResult Function(ChangeAmount value)? changeAmount,
     TResult Function(ChoosePrice value)? choosePrice,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     TResult Function(Create value)? create,
     TResult Function(GetTotal value)? getTotal,
     TResult Function(ChooseCustomer value)? chooseCustomer,
@@ -1729,6 +2006,9 @@ class __$$GetTotalImplCopyWithImpl<$Res>
   __$$GetTotalImplCopyWithImpl(
       _$GetTotalImpl _value, $Res Function(_$GetTotalImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1761,6 +2041,7 @@ class _$GetTotalImpl implements GetTotal {
     required TResult Function(ProductItem data, int value) changeAmount,
     required TResult Function(ProductItem data, PriceList value) choosePrice,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
     required TResult Function() create,
     required TResult Function() getTotal,
     required TResult Function() chooseCustomer,
@@ -1779,6 +2060,7 @@ class _$GetTotalImpl implements GetTotal {
     TResult? Function(ProductItem data, int value)? changeAmount,
     TResult? Function(ProductItem data, PriceList value)? choosePrice,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
     TResult? Function()? create,
     TResult? Function()? getTotal,
     TResult? Function()? chooseCustomer,
@@ -1797,6 +2079,7 @@ class _$GetTotalImpl implements GetTotal {
     TResult Function(ProductItem data, int value)? changeAmount,
     TResult Function(ProductItem data, PriceList value)? choosePrice,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     TResult Function()? create,
     TResult Function()? getTotal,
     TResult Function()? chooseCustomer,
@@ -1819,6 +2102,7 @@ class _$GetTotalImpl implements GetTotal {
     required TResult Function(ChangeAmount value) changeAmount,
     required TResult Function(ChoosePrice value) choosePrice,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
     required TResult Function(Create value) create,
     required TResult Function(GetTotal value) getTotal,
     required TResult Function(ChooseCustomer value) chooseCustomer,
@@ -1837,6 +2121,7 @@ class _$GetTotalImpl implements GetTotal {
     TResult? Function(ChangeAmount value)? changeAmount,
     TResult? Function(ChoosePrice value)? choosePrice,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
     TResult? Function(Create value)? create,
     TResult? Function(GetTotal value)? getTotal,
     TResult? Function(ChooseCustomer value)? chooseCustomer,
@@ -1855,6 +2140,7 @@ class _$GetTotalImpl implements GetTotal {
     TResult Function(ChangeAmount value)? changeAmount,
     TResult Function(ChoosePrice value)? choosePrice,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     TResult Function(Create value)? create,
     TResult Function(GetTotal value)? getTotal,
     TResult Function(ChooseCustomer value)? chooseCustomer,
@@ -1885,6 +2171,9 @@ class __$$ChooseCustomerImplCopyWithImpl<$Res>
   __$$ChooseCustomerImplCopyWithImpl(
       _$ChooseCustomerImpl _value, $Res Function(_$ChooseCustomerImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OrderEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1917,6 +2206,7 @@ class _$ChooseCustomerImpl implements ChooseCustomer {
     required TResult Function(ProductItem data, int value) changeAmount,
     required TResult Function(ProductItem data, PriceList value) choosePrice,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
     required TResult Function() create,
     required TResult Function() getTotal,
     required TResult Function() chooseCustomer,
@@ -1935,6 +2225,7 @@ class _$ChooseCustomerImpl implements ChooseCustomer {
     TResult? Function(ProductItem data, int value)? changeAmount,
     TResult? Function(ProductItem data, PriceList value)? choosePrice,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
     TResult? Function()? create,
     TResult? Function()? getTotal,
     TResult? Function()? chooseCustomer,
@@ -1953,6 +2244,7 @@ class _$ChooseCustomerImpl implements ChooseCustomer {
     TResult Function(ProductItem data, int value)? changeAmount,
     TResult Function(ProductItem data, PriceList value)? choosePrice,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     TResult Function()? create,
     TResult Function()? getTotal,
     TResult Function()? chooseCustomer,
@@ -1975,6 +2267,7 @@ class _$ChooseCustomerImpl implements ChooseCustomer {
     required TResult Function(ChangeAmount value) changeAmount,
     required TResult Function(ChoosePrice value) choosePrice,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
     required TResult Function(Create value) create,
     required TResult Function(GetTotal value) getTotal,
     required TResult Function(ChooseCustomer value) chooseCustomer,
@@ -1993,6 +2286,7 @@ class _$ChooseCustomerImpl implements ChooseCustomer {
     TResult? Function(ChangeAmount value)? changeAmount,
     TResult? Function(ChoosePrice value)? choosePrice,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
     TResult? Function(Create value)? create,
     TResult? Function(GetTotal value)? getTotal,
     TResult? Function(ChooseCustomer value)? chooseCustomer,
@@ -2011,6 +2305,7 @@ class _$ChooseCustomerImpl implements ChooseCustomer {
     TResult Function(ChangeAmount value)? changeAmount,
     TResult Function(ChoosePrice value)? choosePrice,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     TResult Function(Create value)? create,
     TResult Function(GetTotal value)? getTotal,
     TResult Function(ChooseCustomer value)? chooseCustomer,
@@ -2030,11 +2325,22 @@ abstract class ChooseCustomer implements OrderEntryEvent {
 /// @nodoc
 mixin _$OrderEntryState {
   bool get isDebt => throw _privateConstructorUsedError;
-  OrderModel get detail => throw _privateConstructorUsedError;
-  List<ProductModel> get list_product => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  DateTime? get thoi_gian_mua => throw _privateConstructorUsedError;
+  int get uid_khach_hang => throw _privateConstructorUsedError;
+  String get ten_khach_hang => throw _privateConstructorUsedError;
+  Uint8List? get hinh_khach_hang => throw _privateConstructorUsedError;
+  String get sdt_khach_hang => throw _privateConstructorUsedError;
+  bool get khach_no => throw _privateConstructorUsedError;
+  double get tong_tien_no => throw _privateConstructorUsedError;
+  double get tong_gia => throw _privateConstructorUsedError;
+  DateTime? get createDate => throw _privateConstructorUsedError;
+  List<ProductItem> get list_product => throw _privateConstructorUsedError;
   AssetEntity? get image => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderEntryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OrderEntryStateCopyWith<OrderEntryState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2047,11 +2353,18 @@ abstract class $OrderEntryStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isDebt,
-      OrderModel detail,
-      List<ProductModel> list_product,
+      bool isLoading,
+      DateTime? thoi_gian_mua,
+      int uid_khach_hang,
+      String ten_khach_hang,
+      Uint8List? hinh_khach_hang,
+      String sdt_khach_hang,
+      bool khach_no,
+      double tong_tien_no,
+      double tong_gia,
+      DateTime? createDate,
+      List<ProductItem> list_product,
       AssetEntity? image});
-
-  $OrderModelCopyWith<$Res> get detail;
 }
 
 /// @nodoc
@@ -2064,11 +2377,22 @@ class _$OrderEntryStateCopyWithImpl<$Res, $Val extends OrderEntryState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of OrderEntryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isDebt = null,
-    Object? detail = null,
+    Object? isLoading = null,
+    Object? thoi_gian_mua = freezed,
+    Object? uid_khach_hang = null,
+    Object? ten_khach_hang = null,
+    Object? hinh_khach_hang = freezed,
+    Object? sdt_khach_hang = null,
+    Object? khach_no = null,
+    Object? tong_tien_no = null,
+    Object? tong_gia = null,
+    Object? createDate = freezed,
     Object? list_product = null,
     Object? image = freezed,
   }) {
@@ -2077,27 +2401,55 @@ class _$OrderEntryStateCopyWithImpl<$Res, $Val extends OrderEntryState>
           ? _value.isDebt
           : isDebt // ignore: cast_nullable_to_non_nullable
               as bool,
-      detail: null == detail
-          ? _value.detail
-          : detail // ignore: cast_nullable_to_non_nullable
-              as OrderModel,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      thoi_gian_mua: freezed == thoi_gian_mua
+          ? _value.thoi_gian_mua
+          : thoi_gian_mua // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      uid_khach_hang: null == uid_khach_hang
+          ? _value.uid_khach_hang
+          : uid_khach_hang // ignore: cast_nullable_to_non_nullable
+              as int,
+      ten_khach_hang: null == ten_khach_hang
+          ? _value.ten_khach_hang
+          : ten_khach_hang // ignore: cast_nullable_to_non_nullable
+              as String,
+      hinh_khach_hang: freezed == hinh_khach_hang
+          ? _value.hinh_khach_hang
+          : hinh_khach_hang // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      sdt_khach_hang: null == sdt_khach_hang
+          ? _value.sdt_khach_hang
+          : sdt_khach_hang // ignore: cast_nullable_to_non_nullable
+              as String,
+      khach_no: null == khach_no
+          ? _value.khach_no
+          : khach_no // ignore: cast_nullable_to_non_nullable
+              as bool,
+      tong_tien_no: null == tong_tien_no
+          ? _value.tong_tien_no
+          : tong_tien_no // ignore: cast_nullable_to_non_nullable
+              as double,
+      tong_gia: null == tong_gia
+          ? _value.tong_gia
+          : tong_gia // ignore: cast_nullable_to_non_nullable
+              as double,
+      createDate: freezed == createDate
+          ? _value.createDate
+          : createDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       list_product: null == list_product
           ? _value.list_product
           : list_product // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
+              as List<ProductItem>,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as AssetEntity?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $OrderModelCopyWith<$Res> get detail {
-    return $OrderModelCopyWith<$Res>(_value.detail, (value) {
-      return _then(_value.copyWith(detail: value) as $Val);
-    });
   }
 }
 
@@ -2111,12 +2463,18 @@ abstract class _$$OrderEntryStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isDebt,
-      OrderModel detail,
-      List<ProductModel> list_product,
+      bool isLoading,
+      DateTime? thoi_gian_mua,
+      int uid_khach_hang,
+      String ten_khach_hang,
+      Uint8List? hinh_khach_hang,
+      String sdt_khach_hang,
+      bool khach_no,
+      double tong_tien_no,
+      double tong_gia,
+      DateTime? createDate,
+      List<ProductItem> list_product,
       AssetEntity? image});
-
-  @override
-  $OrderModelCopyWith<$Res> get detail;
 }
 
 /// @nodoc
@@ -2127,11 +2485,22 @@ class __$$OrderEntryStateImplCopyWithImpl<$Res>
       _$OrderEntryStateImpl _value, $Res Function(_$OrderEntryStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OrderEntryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isDebt = null,
-    Object? detail = null,
+    Object? isLoading = null,
+    Object? thoi_gian_mua = freezed,
+    Object? uid_khach_hang = null,
+    Object? ten_khach_hang = null,
+    Object? hinh_khach_hang = freezed,
+    Object? sdt_khach_hang = null,
+    Object? khach_no = null,
+    Object? tong_tien_no = null,
+    Object? tong_gia = null,
+    Object? createDate = freezed,
     Object? list_product = null,
     Object? image = freezed,
   }) {
@@ -2140,14 +2509,50 @@ class __$$OrderEntryStateImplCopyWithImpl<$Res>
           ? _value.isDebt
           : isDebt // ignore: cast_nullable_to_non_nullable
               as bool,
-      detail: null == detail
-          ? _value.detail
-          : detail // ignore: cast_nullable_to_non_nullable
-              as OrderModel,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      thoi_gian_mua: freezed == thoi_gian_mua
+          ? _value.thoi_gian_mua
+          : thoi_gian_mua // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      uid_khach_hang: null == uid_khach_hang
+          ? _value.uid_khach_hang
+          : uid_khach_hang // ignore: cast_nullable_to_non_nullable
+              as int,
+      ten_khach_hang: null == ten_khach_hang
+          ? _value.ten_khach_hang
+          : ten_khach_hang // ignore: cast_nullable_to_non_nullable
+              as String,
+      hinh_khach_hang: freezed == hinh_khach_hang
+          ? _value.hinh_khach_hang
+          : hinh_khach_hang // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      sdt_khach_hang: null == sdt_khach_hang
+          ? _value.sdt_khach_hang
+          : sdt_khach_hang // ignore: cast_nullable_to_non_nullable
+              as String,
+      khach_no: null == khach_no
+          ? _value.khach_no
+          : khach_no // ignore: cast_nullable_to_non_nullable
+              as bool,
+      tong_tien_no: null == tong_tien_no
+          ? _value.tong_tien_no
+          : tong_tien_no // ignore: cast_nullable_to_non_nullable
+              as double,
+      tong_gia: null == tong_gia
+          ? _value.tong_gia
+          : tong_gia // ignore: cast_nullable_to_non_nullable
+              as double,
+      createDate: freezed == createDate
+          ? _value.createDate
+          : createDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       list_product: null == list_product
           ? _value._list_product
           : list_product // ignore: cast_nullable_to_non_nullable
-              as List<ProductModel>,
+              as List<ProductItem>,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -2161,8 +2566,17 @@ class __$$OrderEntryStateImplCopyWithImpl<$Res>
 class _$OrderEntryStateImpl implements _OrderEntryState {
   const _$OrderEntryStateImpl(
       {this.isDebt = false,
-      this.detail = const OrderModel(),
-      final List<ProductModel> list_product = const [],
+      this.isLoading = true,
+      this.thoi_gian_mua,
+      this.uid_khach_hang = 0,
+      this.ten_khach_hang = '',
+      this.hinh_khach_hang,
+      this.sdt_khach_hang = '',
+      this.khach_no = false,
+      this.tong_tien_no = 0,
+      this.tong_gia = 0,
+      this.createDate,
+      final List<ProductItem> list_product = const [],
       this.image})
       : _list_product = list_product;
 
@@ -2171,11 +2585,35 @@ class _$OrderEntryStateImpl implements _OrderEntryState {
   final bool isDebt;
   @override
   @JsonKey()
-  final OrderModel detail;
-  final List<ProductModel> _list_product;
+  final bool isLoading;
+  @override
+  final DateTime? thoi_gian_mua;
   @override
   @JsonKey()
-  List<ProductModel> get list_product {
+  final int uid_khach_hang;
+  @override
+  @JsonKey()
+  final String ten_khach_hang;
+  @override
+  final Uint8List? hinh_khach_hang;
+  @override
+  @JsonKey()
+  final String sdt_khach_hang;
+  @override
+  @JsonKey()
+  final bool khach_no;
+  @override
+  @JsonKey()
+  final double tong_tien_no;
+  @override
+  @JsonKey()
+  final double tong_gia;
+  @override
+  final DateTime? createDate;
+  final List<ProductItem> _list_product;
+  @override
+  @JsonKey()
+  List<ProductItem> get list_product {
     if (_list_product is EqualUnmodifiableListView) return _list_product;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_list_product);
@@ -2186,7 +2624,7 @@ class _$OrderEntryStateImpl implements _OrderEntryState {
 
   @override
   String toString() {
-    return 'OrderEntryState(isDebt: $isDebt, detail: $detail, list_product: $list_product, image: $image)';
+    return 'OrderEntryState(isDebt: $isDebt, isLoading: $isLoading, thoi_gian_mua: $thoi_gian_mua, uid_khach_hang: $uid_khach_hang, ten_khach_hang: $ten_khach_hang, hinh_khach_hang: $hinh_khach_hang, sdt_khach_hang: $sdt_khach_hang, khach_no: $khach_no, tong_tien_no: $tong_tien_no, tong_gia: $tong_gia, createDate: $createDate, list_product: $list_product, image: $image)';
   }
 
   @override
@@ -2195,17 +2633,51 @@ class _$OrderEntryStateImpl implements _OrderEntryState {
         (other.runtimeType == runtimeType &&
             other is _$OrderEntryStateImpl &&
             (identical(other.isDebt, isDebt) || other.isDebt == isDebt) &&
-            (identical(other.detail, detail) || other.detail == detail) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.thoi_gian_mua, thoi_gian_mua) ||
+                other.thoi_gian_mua == thoi_gian_mua) &&
+            (identical(other.uid_khach_hang, uid_khach_hang) ||
+                other.uid_khach_hang == uid_khach_hang) &&
+            (identical(other.ten_khach_hang, ten_khach_hang) ||
+                other.ten_khach_hang == ten_khach_hang) &&
+            const DeepCollectionEquality()
+                .equals(other.hinh_khach_hang, hinh_khach_hang) &&
+            (identical(other.sdt_khach_hang, sdt_khach_hang) ||
+                other.sdt_khach_hang == sdt_khach_hang) &&
+            (identical(other.khach_no, khach_no) ||
+                other.khach_no == khach_no) &&
+            (identical(other.tong_tien_no, tong_tien_no) ||
+                other.tong_tien_no == tong_tien_no) &&
+            (identical(other.tong_gia, tong_gia) ||
+                other.tong_gia == tong_gia) &&
+            (identical(other.createDate, createDate) ||
+                other.createDate == createDate) &&
             const DeepCollectionEquality()
                 .equals(other._list_product, _list_product) &&
             (identical(other.image, image) || other.image == image));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isDebt, detail,
-      const DeepCollectionEquality().hash(_list_product), image);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isDebt,
+      isLoading,
+      thoi_gian_mua,
+      uid_khach_hang,
+      ten_khach_hang,
+      const DeepCollectionEquality().hash(hinh_khach_hang),
+      sdt_khach_hang,
+      khach_no,
+      tong_tien_no,
+      tong_gia,
+      createDate,
+      const DeepCollectionEquality().hash(_list_product),
+      image);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderEntryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OrderEntryStateImplCopyWith<_$OrderEntryStateImpl> get copyWith =>
@@ -2216,20 +2688,50 @@ class _$OrderEntryStateImpl implements _OrderEntryState {
 abstract class _OrderEntryState implements OrderEntryState {
   const factory _OrderEntryState(
       {final bool isDebt,
-      final OrderModel detail,
-      final List<ProductModel> list_product,
+      final bool isLoading,
+      final DateTime? thoi_gian_mua,
+      final int uid_khach_hang,
+      final String ten_khach_hang,
+      final Uint8List? hinh_khach_hang,
+      final String sdt_khach_hang,
+      final bool khach_no,
+      final double tong_tien_no,
+      final double tong_gia,
+      final DateTime? createDate,
+      final List<ProductItem> list_product,
       final AssetEntity? image}) = _$OrderEntryStateImpl;
 
   @override
   bool get isDebt;
   @override
-  OrderModel get detail;
+  bool get isLoading;
   @override
-  List<ProductModel> get list_product;
+  DateTime? get thoi_gian_mua;
+  @override
+  int get uid_khach_hang;
+  @override
+  String get ten_khach_hang;
+  @override
+  Uint8List? get hinh_khach_hang;
+  @override
+  String get sdt_khach_hang;
+  @override
+  bool get khach_no;
+  @override
+  double get tong_tien_no;
+  @override
+  double get tong_gia;
+  @override
+  DateTime? get createDate;
+  @override
+  List<ProductItem> get list_product;
   @override
   AssetEntity? get image;
+
+  /// Create a copy of OrderEntryState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OrderEntryStateImplCopyWith<_$OrderEntryStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

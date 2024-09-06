@@ -9,109 +9,19 @@
 
 part of 'app_router.dart';
 
-abstract class _$AppRouter extends RootStackRouter {
-  // ignore: unused_element
-  _$AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, PageFactory> pagesMap = {
-    AddProductRoute.name: (routeData) {
-      final args = routeData.argsAs<AddProductRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(
-            child: AddProductScreen(
-          key: args.key,
-          oldData: args.oldData,
-          barcode: args.barcode,
-        )),
-      );
-    },
-    CategoryListRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const CategoryListScreen()),
-      );
-    },
-    CustomerEntryRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const CustomerEntryScreen()),
-      );
-    },
-    CustomerListRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const CustomerListScreen()),
-      );
-    },
-    EmptyRouteRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const EmptyPageScreen(),
-      );
-    },
-    HomeRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const HomeScreen(),
-      );
-    },
-    LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(
-            child: LoginScreen(
-          key: args.key,
-          onResult: args.onResult,
-        )),
-      );
-    },
-    OrderEntryRoute.name: (routeData) {
-      final args = routeData.argsAs<OrderEntryRouteArgs>(
-          orElse: () => const OrderEntryRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(
-            child: OrderEntryScreen(
-          key: args.key,
-          product: args.product,
-        )),
-      );
-    },
-    QrScanRoute.name: (routeData) {
-      final args = routeData.argsAs<QrScanRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: QrScanScreen(
-          key: args.key,
-          onResult: args.onResult,
-        ),
-      );
-    },
-    UnitListRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WrappedRoute(child: const UnitListScreen()),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [AddProductScreen]
 class AddProductRoute extends PageRouteInfo<AddProductRouteArgs> {
   AddProductRoute({
     Key? key,
-    ProductModel? oldData,
+    int? uid,
     required String barcode,
     List<PageRouteInfo>? children,
   }) : super(
           AddProductRoute.name,
           args: AddProductRouteArgs(
             key: key,
-            oldData: oldData,
+            uid: uid,
             barcode: barcode,
           ),
           initialChildren: children,
@@ -119,26 +29,36 @@ class AddProductRoute extends PageRouteInfo<AddProductRouteArgs> {
 
   static const String name = 'AddProductRoute';
 
-  static const PageInfo<AddProductRouteArgs> page =
-      PageInfo<AddProductRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<AddProductRouteArgs>();
+      return WrappedRoute(
+          child: AddProductScreen(
+        key: args.key,
+        uid: args.uid,
+        barcode: args.barcode,
+      ));
+    },
+  );
 }
 
 class AddProductRouteArgs {
   const AddProductRouteArgs({
     this.key,
-    this.oldData,
+    this.uid,
     required this.barcode,
   });
 
   final Key? key;
 
-  final ProductModel? oldData;
+  final int? uid;
 
   final String barcode;
 
   @override
   String toString() {
-    return 'AddProductRouteArgs{key: $key, oldData: $oldData, barcode: $barcode}';
+    return 'AddProductRouteArgs{key: $key, uid: $uid, barcode: $barcode}';
   }
 }
 
@@ -153,7 +73,12 @@ class CategoryListRoute extends PageRouteInfo<void> {
 
   static const String name = 'CategoryListRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const CategoryListScreen());
+    },
+  );
 }
 
 /// generated route for
@@ -167,7 +92,12 @@ class CustomerEntryRoute extends PageRouteInfo<void> {
 
   static const String name = 'CustomerEntryRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const CustomerEntryScreen());
+    },
+  );
 }
 
 /// generated route for
@@ -181,7 +111,12 @@ class CustomerListRoute extends PageRouteInfo<void> {
 
   static const String name = 'CustomerListRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const CustomerListScreen());
+    },
+  );
 }
 
 /// generated route for
@@ -195,7 +130,12 @@ class EmptyRouteRoute extends PageRouteInfo<void> {
 
   static const String name = 'EmptyRouteRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const EmptyPageScreen();
+    },
+  );
 }
 
 /// generated route for
@@ -209,7 +149,12 @@ class HomeRoute extends PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const HomeScreen();
+    },
+  );
 }
 
 /// generated route for
@@ -230,7 +175,17 @@ class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
 
   static const String name = 'LoginRoute';
 
-  static const PageInfo<LoginRouteArgs> page = PageInfo<LoginRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<LoginRouteArgs>();
+      return WrappedRoute(
+          child: LoginScreen(
+        key: args.key,
+        onResult: args.onResult,
+      ));
+    },
+  );
 }
 
 class LoginRouteArgs {
@@ -267,8 +222,18 @@ class OrderEntryRoute extends PageRouteInfo<OrderEntryRouteArgs> {
 
   static const String name = 'OrderEntryRoute';
 
-  static const PageInfo<OrderEntryRouteArgs> page =
-      PageInfo<OrderEntryRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<OrderEntryRouteArgs>(
+          orElse: () => const OrderEntryRouteArgs());
+      return WrappedRoute(
+          child: OrderEntryScreen(
+        key: args.key,
+        product: args.product,
+      ));
+    },
+  );
 }
 
 class OrderEntryRouteArgs {
@@ -292,7 +257,10 @@ class OrderEntryRouteArgs {
 class QrScanRoute extends PageRouteInfo<QrScanRouteArgs> {
   QrScanRoute({
     Key? key,
-    required void Function(BarcodeCapture) onResult,
+    required void Function(
+      BarcodeCapture,
+      MobileScannerController,
+    ) onResult,
     List<PageRouteInfo>? children,
   }) : super(
           QrScanRoute.name,
@@ -305,7 +273,16 @@ class QrScanRoute extends PageRouteInfo<QrScanRouteArgs> {
 
   static const String name = 'QrScanRoute';
 
-  static const PageInfo<QrScanRouteArgs> page = PageInfo<QrScanRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<QrScanRouteArgs>();
+      return QrScanScreen(
+        key: args.key,
+        onResult: args.onResult,
+      );
+    },
+  );
 }
 
 class QrScanRouteArgs {
@@ -316,7 +293,10 @@ class QrScanRouteArgs {
 
   final Key? key;
 
-  final void Function(BarcodeCapture) onResult;
+  final void Function(
+    BarcodeCapture,
+    MobileScannerController,
+  ) onResult;
 
   @override
   String toString() {
@@ -335,5 +315,10 @@ class UnitListRoute extends PageRouteInfo<void> {
 
   static const String name = 'UnitListRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const UnitListScreen());
+    },
+  );
 }

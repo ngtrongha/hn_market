@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hn_market/utils/utils.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -42,17 +41,19 @@ class CategoryListScreen extends StatelessWidget implements AutoRouteWrapper {
               10.sized,
               Expanded(
                   child: SmartRefresher(
-                    controller: bloc.refreshController,
-                    onRefresh: () => bloc.add(const Started()),
-                    child: SingleChildScrollView(
-                                    child: Column(
+                controller: bloc.refreshController,
+                onRefresh: () => bloc.add(const Started()),
+                child: SingleChildScrollView(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: state.list_value
-                        .where((element) => element.ten_danh_muc
-                            .toLowerCase()
-                            .contains(state.search_text.toLowerCase()))
+                        .where((element) =>
+                            element.ten_danh_muc
+                                ?.toLowerCase()
+                                .contains(state.search_text.toLowerCase()) ??
+                            false)
                         .map((e) => ListTile(
-                              title: e.ten_danh_muc.size15,
+                              title: (e.ten_danh_muc ?? '').size15,
                               trailing: Icon(
                                 FontAwesomeIcons.trash,
                                 color: Colors.red,
@@ -62,9 +63,9 @@ class CategoryListScreen extends StatelessWidget implements AutoRouteWrapper {
                               }),
                             ))
                         .toList(),
-                                    ),
-                                  ),
-                  ))
+                  ),
+                ),
+              ))
             ],
           ),
         );

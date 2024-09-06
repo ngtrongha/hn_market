@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hn_market/model/customer_model/customer_model.dart';
 import 'package:hn_market/utils/custom_checkbox.dart';
 import 'package:tdesign_flutter/tdesign_flutter.dart';
@@ -11,7 +10,8 @@ import '../../utils/utils.dart';
 
 class OrderPopup {
   static multiChooseProducts(final List<ProductModel> values,
-      [final List<ProductModel> chosses = const []]) {
+      [final List<ProductModel>? oldData]) {
+    final chosses = oldData ?? [];
     return TDSlidePopupRoute(
         slideTransitionFrom: SlideTransitionFrom.bottom,
         builder: (context) {
@@ -30,40 +30,52 @@ class OrderPopup {
                   ? const EmptyWidget().marginSymmetric(vertical: 40)
                   : SizedBox(
                       height: ScreenUtil().screenHeight * 0.7,
+                      width: ScreenUtil().screenWidth,
                       child: SingleChildScrollView(
                         child: Column(
                           children: values.map((data) {
-                            return ListTile(
-                              onTap: () async {
+                            return Container(
+                              padding: const EdgeInsets.all(10),
+                              child: Row(
+                                children: [
+                                  if (data.hinh_san_pham != null)
+                                    ImageMemory(
+                                      data.hinh_san_pham!,
+                                      height: 64.sp,
+                                      width: 64.sp,
+                                    ),
+                                  10.sized,
+                                  Expanded(
+                                      child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      (data.ten_san_pham ?? '').size16,
+                                      4.sized,
+                                      Row(
+                                        children: [
+                                          'Loại:'.size12,
+                                          5.sized,
+                                          (data.ten_danh_muc ?? '').size14
+                                        ],
+                                      )
+                                    ],
+                                  )),
+                                  CustomCheckBox(
+                                    value: chosses.any(
+                                        (element) => element.uid == data.uid),
+                                    onChanged: (p0) {
+                                      setState(() {
+                                        chosses.add(data);
+                                      });
+                                    },
+                                  )
+                                ],
+                              ).onTap(() {
                                 setState(() {
                                   chosses.add(data);
                                 });
-                              },
-                              leading: ImageCached(
-                                image: data.hinh_san_pham,
-                              ),
-                              title: data.ten_san_pham.size16,
-                              trailing: CustomCheckBox(
-                                value: chosses
-                                    .any((element) => element.uid == data.uid),
-                                onChanged: (p0) {
-                                  setState(() {
-                                    chosses.add(data);
-                                  });
-                                },
-                              ),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      'Loại:'.size12,
-                                      5.sized,
-                                      data.ten_danh_muc.size14
-                                    ],
-                                  )
-                                ],
-                              ),
+                              }),
                             );
                           }).toList(),
                         ),
@@ -98,36 +110,47 @@ class OrderPopup {
                       child: SingleChildScrollView(
                         child: Column(
                           children: values.map((data) {
-                            return ListTile(
-                              onTap: () async {
+                            return Container(
+                              padding: const EdgeInsets.all(10),
+                              child: Row(
+                                children: [
+                                  if (data.hinh_khach_hang != null)
+                                    ImageMemory(
+                                      data.hinh_khach_hang!,
+                                      height: 64.sp,
+                                      width: 64.sp,
+                                    ),
+                                  10.sized,
+                                  Expanded(
+                                      child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      (data.ten_khach_hang ?? '').size16,
+                                      4.sized,
+                                      Row(
+                                        children: [
+                                          'SDT:'.size12,
+                                          5.sized,
+                                          (data.sdt_khach_hang ?? '').size14
+                                        ],
+                                      )
+                                    ],
+                                  )),
+                                  CustomCheckBox(
+                                    value: choose == data,
+                                    onChanged: (p0) {
+                                      setState(() {
+                                        choose = data;
+                                      });
+                                    },
+                                  )
+                                ],
+                              ).onTap(() {
                                 setState(() {
                                   choose = data;
                                 });
-                              },
-                              leading: ImageCached(
-                                image: data.hinh_khach_hang,
-                              ),
-                              title: data.ten_khach_hang.size16,
-                              trailing: CustomCheckBox(
-                                value: choose?.uid == data.uid,
-                                onChanged: (p0) {
-                                  setState(() {
-                                    choose = data;
-                                  });
-                                },
-                              ),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      'SDT:'.size12,
-                                      5.sized,
-                                      data.sdt_khach_hang.size14
-                                    ],
-                                  )
-                                ],
-                              ),
+                              }),
                             );
                           }).toList(),
                         ),

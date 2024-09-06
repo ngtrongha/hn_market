@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -8,7 +8,8 @@ import 'package:hn_market/model/order_model/order_model.dart';
 import 'package:hn_market/utils/utils.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../../firestore/firestore.dart';
+import '../../../model/product_model/product_model.dart';
+import '../../../objectbox.g.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -37,12 +38,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   List<ProductModel> getListProducts() {
-    return state.list_product
-        .where((element) => element.ten_san_pham
-            .toLowerCase()
-            .noAccentVietnamese()
-            .contains(state.search_product_text.toLowerCase()))
-        .toList();
+    return state.list_product.where((element) {
+      if (state.search_product_text.isEmpty || element.ten_san_pham == null) {
+        return true;
+      }
+      return element.ten_san_pham!
+          .toLowerCase()
+          .contains(state.search_product_text.toLowerCase());
+    }).toList();
   }
 
   HomeBloc(this.context) : super(const HomeState()) {
@@ -57,6 +60,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     switch (event.key) {
       case 'search_product_text':
         emit(state.copyWith(search_product_text: event.value));
+
         break;
     }
   }
@@ -68,29 +72,29 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   scan(Scan event, Emitter<HomeState> emit) async {
     try {
       await Utils.appRouter.push(QrScanRoute(
-        onResult: (p0) async {
+        onResult: (p0, controller) async {
           final barcode = p0.barcodes.first.rawValue;
-          await MyFirestore()
-              .getProductsCollection()
-              .where('barcode', isEqualTo: barcode)
-              .get()
-              .then((value) async {
-            if (barcode == null) {
-              return;
-            }
-            if (value.docs.isEmpty) {
-              await Utils.appRouter
-                  .popAndPush(AddProductRoute(barcode: barcode))
-                  .whenComplete(() => add(const Started()));
-            } else { 
-              Utils.appRouter
-                  .popAndPush(
-                      OrderEntryRoute(product: value.docs.firstOrNull?.data()))
-                  .whenComplete(() => add(const Started()));
-            }
-          }).onError((error, stackTrace) {
-            error?.toString().printELog;
-          });
+          if (barcode != null) {
+            controller.stop();
+            await Utils.objectBox.store
+                .box<ProductModel>()
+                .query(ProductModel_.barcode.equals(barcode))
+                .build()
+                .findAsync()
+                .then((value) async {
+              if (value.isEmpty) {
+                await Utils.appRouter
+                    .popAndPush(AddProductRoute(barcode: barcode))
+                    .whenComplete(() => add(const Started()));
+              } else {
+                await Utils.appRouter
+                    .popAndPush(OrderEntryRoute(product: value.first))
+                    .whenComplete(() => add(const Started()));
+              }
+            }).onError((error, stackTrace) {
+              error?.toString().printELog;
+            });
+          }
         },
       ));
     } catch (e) {
@@ -105,39 +109,22 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   getProducts(GetProducts event, Emitter<HomeState> emit) async {
     try {
-      if (!refreshController.isRefresh) EasyLoading.show();
-      await MyFirestore()
-          .getProductsCollection()
-          .get()
-          .then((QuerySnapshot<ProductModel> querySnapshot) {
-        final list = <ProductModel>[];
-        for (var doc in querySnapshot.docs) {
-          list.add(doc.data());
-        }
-        emit(state.copyWith(list_product: list));
+      await Utils.objectBox.store
+          .box<ProductModel>()
+          .getAllAsync()
+          .then((value) {
+        value.length.printDLog;
+        emit(state.copyWith(list_product: value));
       });
     } catch (e) {
       e.printELog;
-      EasyLoading.dismiss();
-      refreshController.refreshFailed();
-    } finally {
-      EasyLoading.dismiss();
-      refreshController.refreshCompleted();
     }
   }
 
   getOrders(GetOrders event, Emitter<HomeState> emit) async {
     try {
-      await MyFirestore()
-          .getOrdersCollection()
-          .orderBy('thoi_gian_mua', descending: true)
-          .get()
-          .then((QuerySnapshot<OrderModel> querySnapshot) {
-        final list = <OrderModel>[];
-        for (var doc in querySnapshot.docs) {
-          list.add(doc.data());
-        }
-        emit(state.copyWith(list_order: list));
+      await Utils.objectBox.store.box<OrderModel>().getAllAsync().then((value) {
+        emit(state.copyWith(list_order: value));
       });
     } catch (e) {
       e.printELog;

@@ -1,16 +1,18 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:objectbox/objectbox.dart';
 
-part 'unit_model.freezed.dart';
-part 'unit_model.g.dart';
-
-@freezed
-class UnitModel with _$UnitModel {
-  const factory UnitModel({
-    @Default('') final String uid, 
-    @Default('') final String ten_don_vi,  
-    @Default('') final String ky_hieu,  
-  }) = _UnitModel;
-
-  factory UnitModel.fromJson(Map<String, dynamic> json) =>
-      _$UnitModelFromJson(json);
+@Entity()
+class UnitModel {
+  @Id()
+  int uid;
+  String? ten_don_vi;
+  String? loai_don_vi;
+  String? ky_hieu;
+  @Property(type: PropertyType.date) // Store as int in milliseconds
+  DateTime? createDate;
+  UnitModel(
+      {this.uid = 0,
+      this.ten_don_vi,
+      this.loai_don_vi,
+      this.ky_hieu,
+      this.createDate});
 }

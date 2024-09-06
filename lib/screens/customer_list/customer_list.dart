@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hn_market/app_router/app_router.dart';
 import 'package:hn_market/utils/custom_avatar.dart';
@@ -54,9 +53,9 @@ class CustomerListScreen extends StatelessWidget implements AutoRouteWrapper {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: bloc.getCustomers
                               .map((e) => ListTile(
-                                    title: e.ten_khach_hang.size15,
+                                    title: (e.ten_khach_hang ?? '').size15,
                                     leading: CustomAvatar(
-                                      avatarUrl: e.hinh_khach_hang,
+                                      avatar: e.hinh_khach_hang,
                                       name: e.ten_khach_hang,
                                     ),
                                     trailing: Icon(

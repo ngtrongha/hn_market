@@ -13,6 +13,9 @@ class OrderEntryEvent with _$OrderEntryEvent {
   const factory OrderEntryEvent.choosePrice(
       final ProductItem data, final PriceList value) = ChoosePrice;
   const factory OrderEntryEvent.chooseImage() = ChooseImage;
+  
+  const factory OrderEntryEvent.changeString(
+      final String key, final String value) = ChangeString;
   const factory OrderEntryEvent.create() = Create;
   const factory OrderEntryEvent.getTotal() = GetTotal;
   const factory OrderEntryEvent.chooseCustomer() = ChooseCustomer;

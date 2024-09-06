@@ -1,7 +1,9 @@
+import 'dart:typed_data';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hn_market/utils/loading.dart'; 
+import 'package:hn_market/utils/loading.dart';
 
 class ImageCached extends StatelessWidget {
   const ImageCached({
@@ -65,6 +67,38 @@ class ImageCached extends StatelessWidget {
           );
         },
         placeholder: (context, url) => const Center(child: LoadingWidget()),
+      ),
+    );
+  }
+}
+
+class ImageMemory extends StatelessWidget {
+  const ImageMemory(
+    this.bytes, {
+    super.key,
+    this.width,
+    this.height,
+    this.alignment = Alignment.center,
+    this.borderRadius = 4,
+    this.fit = BoxFit.cover,
+    this.disable = false,
+  });
+  final Uint8List bytes;
+  final double? width;
+  final double? height;
+  final Alignment alignment;
+  final double borderRadius;
+  final BoxFit? fit;
+  final bool disable;
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(borderRadius),
+      child: Image.memory(
+        bytes,
+        width: width,
+        height: height,
+        fit: fit,
       ),
     );
   }

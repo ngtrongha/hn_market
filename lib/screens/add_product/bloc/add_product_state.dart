@@ -4,15 +4,14 @@ part of 'add_product_bloc.dart';
 class AddProductState with _$AddProductState {
   const factory AddProductState({
     @Default(false) final bool isImport,
-    @Default(0) final int ton_kho,
-    @Default(0) final double gia_nhap_moi_sp,
-    @Default('') final String barcode,
-    @Default('') final String imageUrl,
-    @Default(CategoryModel()) final CategoryModel category,
-    @Default(UnitModel()) final UnitModel unit,
+    final Uint8List? hinh_san_pham,
+    final int? uid_danh_muc,
+    @Default('') final String ten_danh_muc,
+    final int? uid_don_vi,
+    @Default('') final String ten_don_vi,
+    @Default('') final String ky_hieu_don_vi,
+    @Default([]) final List<PriceList> price_list,
     @Default([]) final List<CategoryModel> list_category,
-    @Default([]) final List<UnitModel> list_unit,
-    @Default([]) final List<PriceList> list_price,
-    final AssetEntity? image,
+    @Default([]) final List<UnitModel> list_unit, 
   }) = _AddProductState;
 }

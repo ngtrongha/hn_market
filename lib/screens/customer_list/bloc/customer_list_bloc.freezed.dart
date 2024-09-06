@@ -19,21 +19,21 @@ mixin _$CustomerListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String uid) delete,
+    required TResult Function(int uid) delete,
     required TResult Function(String value) onChangeString,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String uid)? delete,
+    TResult? Function(int uid)? delete,
     TResult? Function(String value)? onChangeString,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String uid)? delete,
+    TResult Function(int uid)? delete,
     TResult Function(String value)? onChangeString,
     required TResult orElse(),
   }) =>
@@ -78,6 +78,9 @@ class _$CustomerListEventCopyWithImpl<$Res, $Val extends CustomerListEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CustomerListEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -94,6 +97,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CustomerListEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -119,7 +125,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String uid) delete,
+    required TResult Function(int uid) delete,
     required TResult Function(String value) onChangeString,
   }) {
     return started();
@@ -129,7 +135,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String uid)? delete,
+    TResult? Function(int uid)? delete,
     TResult? Function(String value)? onChangeString,
   }) {
     return started?.call();
@@ -139,7 +145,7 @@ class _$StartedImpl implements Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String uid)? delete,
+    TResult Function(int uid)? delete,
     TResult Function(String value)? onChangeString,
     required TResult orElse(),
   }) {
@@ -194,7 +200,7 @@ abstract class _$$DeleteImplCopyWith<$Res> {
           _$DeleteImpl value, $Res Function(_$DeleteImpl) then) =
       __$$DeleteImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String uid});
+  $Res call({int uid});
 }
 
 /// @nodoc
@@ -205,6 +211,8 @@ class __$$DeleteImplCopyWithImpl<$Res>
       _$DeleteImpl _value, $Res Function(_$DeleteImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CustomerListEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -214,7 +222,7 @@ class __$$DeleteImplCopyWithImpl<$Res>
       null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -225,7 +233,7 @@ class _$DeleteImpl implements Delete {
   const _$DeleteImpl(this.uid);
 
   @override
-  final String uid;
+  final int uid;
 
   @override
   String toString() {
@@ -243,7 +251,9 @@ class _$DeleteImpl implements Delete {
   @override
   int get hashCode => Object.hash(runtimeType, uid);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CustomerListEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
@@ -253,7 +263,7 @@ class _$DeleteImpl implements Delete {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String uid) delete,
+    required TResult Function(int uid) delete,
     required TResult Function(String value) onChangeString,
   }) {
     return delete(uid);
@@ -263,7 +273,7 @@ class _$DeleteImpl implements Delete {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String uid)? delete,
+    TResult? Function(int uid)? delete,
     TResult? Function(String value)? onChangeString,
   }) {
     return delete?.call(uid);
@@ -273,7 +283,7 @@ class _$DeleteImpl implements Delete {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String uid)? delete,
+    TResult Function(int uid)? delete,
     TResult Function(String value)? onChangeString,
     required TResult orElse(),
   }) {
@@ -319,10 +329,13 @@ class _$DeleteImpl implements Delete {
 }
 
 abstract class Delete implements CustomerListEvent {
-  const factory Delete(final String uid) = _$DeleteImpl;
+  const factory Delete(final int uid) = _$DeleteImpl;
 
-  String get uid;
-  @JsonKey(ignore: true)
+  int get uid;
+
+  /// Create a copy of CustomerListEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -344,6 +357,8 @@ class __$$OnChangeStringImplCopyWithImpl<$Res>
       _$OnChangeStringImpl _value, $Res Function(_$OnChangeStringImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CustomerListEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -382,7 +397,9 @@ class _$OnChangeStringImpl implements OnChangeString {
   @override
   int get hashCode => Object.hash(runtimeType, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CustomerListEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OnChangeStringImplCopyWith<_$OnChangeStringImpl> get copyWith =>
@@ -393,7 +410,7 @@ class _$OnChangeStringImpl implements OnChangeString {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String uid) delete,
+    required TResult Function(int uid) delete,
     required TResult Function(String value) onChangeString,
   }) {
     return onChangeString(value);
@@ -403,7 +420,7 @@ class _$OnChangeStringImpl implements OnChangeString {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String uid)? delete,
+    TResult? Function(int uid)? delete,
     TResult? Function(String value)? onChangeString,
   }) {
     return onChangeString?.call(value);
@@ -413,7 +430,7 @@ class _$OnChangeStringImpl implements OnChangeString {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String uid)? delete,
+    TResult Function(int uid)? delete,
     TResult Function(String value)? onChangeString,
     required TResult orElse(),
   }) {
@@ -462,7 +479,10 @@ abstract class OnChangeString implements CustomerListEvent {
   const factory OnChangeString(final String value) = _$OnChangeStringImpl;
 
   String get value;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CustomerListEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OnChangeStringImplCopyWith<_$OnChangeStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -470,10 +490,11 @@ abstract class OnChangeString implements CustomerListEvent {
 /// @nodoc
 mixin _$CustomerListState {
   List<CustomerModel> get list_value => throw _privateConstructorUsedError;
-  List<OrderModel> get list_order => throw _privateConstructorUsedError;
   String get search_text => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CustomerListState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CustomerListStateCopyWith<CustomerListState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -484,10 +505,7 @@ abstract class $CustomerListStateCopyWith<$Res> {
           CustomerListState value, $Res Function(CustomerListState) then) =
       _$CustomerListStateCopyWithImpl<$Res, CustomerListState>;
   @useResult
-  $Res call(
-      {List<CustomerModel> list_value,
-      List<OrderModel> list_order,
-      String search_text});
+  $Res call({List<CustomerModel> list_value, String search_text});
 }
 
 /// @nodoc
@@ -500,11 +518,12 @@ class _$CustomerListStateCopyWithImpl<$Res, $Val extends CustomerListState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CustomerListState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? list_value = null,
-    Object? list_order = null,
     Object? search_text = null,
   }) {
     return _then(_value.copyWith(
@@ -512,10 +531,6 @@ class _$CustomerListStateCopyWithImpl<$Res, $Val extends CustomerListState>
           ? _value.list_value
           : list_value // ignore: cast_nullable_to_non_nullable
               as List<CustomerModel>,
-      list_order: null == list_order
-          ? _value.list_order
-          : list_order // ignore: cast_nullable_to_non_nullable
-              as List<OrderModel>,
       search_text: null == search_text
           ? _value.search_text
           : search_text // ignore: cast_nullable_to_non_nullable
@@ -532,10 +547,7 @@ abstract class _$$CustomerListStateImplCopyWith<$Res>
       __$$CustomerListStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {List<CustomerModel> list_value,
-      List<OrderModel> list_order,
-      String search_text});
+  $Res call({List<CustomerModel> list_value, String search_text});
 }
 
 /// @nodoc
@@ -546,11 +558,12 @@ class __$$CustomerListStateImplCopyWithImpl<$Res>
       $Res Function(_$CustomerListStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CustomerListState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? list_value = null,
-    Object? list_order = null,
     Object? search_text = null,
   }) {
     return _then(_$CustomerListStateImpl(
@@ -558,10 +571,6 @@ class __$$CustomerListStateImplCopyWithImpl<$Res>
           ? _value._list_value
           : list_value // ignore: cast_nullable_to_non_nullable
               as List<CustomerModel>,
-      list_order: null == list_order
-          ? _value._list_order
-          : list_order // ignore: cast_nullable_to_non_nullable
-              as List<OrderModel>,
       search_text: null == search_text
           ? _value.search_text
           : search_text // ignore: cast_nullable_to_non_nullable
@@ -574,11 +583,8 @@ class __$$CustomerListStateImplCopyWithImpl<$Res>
 
 class _$CustomerListStateImpl implements _CustomerListState {
   const _$CustomerListStateImpl(
-      {final List<CustomerModel> list_value = const [],
-      final List<OrderModel> list_order = const [],
-      this.search_text = ''})
-      : _list_value = list_value,
-        _list_order = list_order;
+      {final List<CustomerModel> list_value = const [], this.search_text = ''})
+      : _list_value = list_value;
 
   final List<CustomerModel> _list_value;
   @override
@@ -589,22 +595,13 @@ class _$CustomerListStateImpl implements _CustomerListState {
     return EqualUnmodifiableListView(_list_value);
   }
 
-  final List<OrderModel> _list_order;
-  @override
-  @JsonKey()
-  List<OrderModel> get list_order {
-    if (_list_order is EqualUnmodifiableListView) return _list_order;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_list_order);
-  }
-
   @override
   @JsonKey()
   final String search_text;
 
   @override
   String toString() {
-    return 'CustomerListState(list_value: $list_value, list_order: $list_order, search_text: $search_text)';
+    return 'CustomerListState(list_value: $list_value, search_text: $search_text)';
   }
 
   @override
@@ -614,20 +611,17 @@ class _$CustomerListStateImpl implements _CustomerListState {
             other is _$CustomerListStateImpl &&
             const DeepCollectionEquality()
                 .equals(other._list_value, _list_value) &&
-            const DeepCollectionEquality()
-                .equals(other._list_order, _list_order) &&
             (identical(other.search_text, search_text) ||
                 other.search_text == search_text));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_list_value),
-      const DeepCollectionEquality().hash(_list_order),
-      search_text);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_list_value), search_text);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CustomerListState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CustomerListStateImplCopyWith<_$CustomerListStateImpl> get copyWith =>
@@ -638,17 +632,17 @@ class _$CustomerListStateImpl implements _CustomerListState {
 abstract class _CustomerListState implements CustomerListState {
   const factory _CustomerListState(
       {final List<CustomerModel> list_value,
-      final List<OrderModel> list_order,
       final String search_text}) = _$CustomerListStateImpl;
 
   @override
   List<CustomerModel> get list_value;
   @override
-  List<OrderModel> get list_order;
-  @override
   String get search_text;
+
+  /// Create a copy of CustomerListState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CustomerListStateImplCopyWith<_$CustomerListStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

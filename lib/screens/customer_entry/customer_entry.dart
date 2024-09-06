@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hn_market/utils/utils.dart';
 
@@ -36,29 +35,16 @@ class CustomerEntryScreen extends StatelessWidget implements AutoRouteWrapper {
                 10.sized,
                 Row(
                   children: [
-                    if (state.image != null)
+                    if (state.hinh_khach_hang != null)
                       Container(
                         width: 125.sp,
                         height: 125.sp,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(color: Colors.black12)),
-                        child: AssetEntityImage(
-                          state.image!,
+                        child: ImageMemory(
+                          state.hinh_khach_hang!,
                           fit: BoxFit.cover,
-                        ),
-                      ).onTap(() {
-                        bloc.add(const ChooseImage());
-                      })
-                    else if (state.detail.hinh_khach_hang.isNotEmpty)
-                      Container(
-                        width: 125.sp,
-                        height: 125.sp,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: Colors.black12)),
-                        child: ImageCached(
-                          image: state.detail.hinh_khach_hang,
                         ),
                       ).onTap(() {
                         bloc.add(const ChooseImage());
@@ -85,16 +71,22 @@ class CustomerEntryScreen extends StatelessWidget implements AutoRouteWrapper {
                         child: Column(
                       children: [
                         CustomTextField(
-                          controller: bloc.ten_khach_hang,
-                          leftLabel: 'Khách hàng',
+                          initialValue: state.ten_khach_hang,
+                          onChanged: (value) {
+                            bloc.add(ChangeString('ten_khach_hang', value));
+                          },
+                          title: 'Khách hàng',
                           required: true,
                           hintText: 'Nhập tên khách hàng',
                         ),
                         10.sized,
                         CustomTextField(
-                          controller: bloc.sdt,
+                          initialValue: state.sdt_khach_hang,
+                          onChanged: (value) {
+                            bloc.add(ChangeString('sdt_khach_hang', value));
+                          },
                           inputType: TextInputType.phone,
-                          leftLabel: 'SĐT Khách',
+                          title: 'SĐT Khách',
                           hintText: 'Nhập SĐT khách hàng',
                           required: true,
                         ),
@@ -104,8 +96,11 @@ class CustomerEntryScreen extends StatelessWidget implements AutoRouteWrapper {
                 ).marginSymmetric(horizontal: 10),
                 10.sized,
                 CustomTextField(
-                  controller: bloc.dai_chi,
-                  leftLabel: 'Địa chỉ',
+                  initialValue: state.dia_chi,
+                  onChanged: (value) {
+                    bloc.add(ChangeString('dia_chi', value));
+                  },
+                  title: 'Địa chỉ',
                   hintText: 'Nhập địa chỉ khách hàng',
                 ),
               ],

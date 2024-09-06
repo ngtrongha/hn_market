@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import '../utils.dart';
@@ -13,7 +12,7 @@ extension WidgetsExtension on Widget {
   InkWell onTap(final void Function() onTap) {
     return InkWell(
       onTap: onTap,
-      overlayColor: MaterialStateProperty.all(Colors.transparent),
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
       child: this,
     );
   }

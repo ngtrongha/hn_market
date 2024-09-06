@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -7,7 +7,8 @@ import 'package:hn_market/utils/utils.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:tdesign_flutter/tdesign_flutter.dart';
 
-import '../../../firestore/firestore.dart';
+import '../../../model/unit_model/unit_model.dart';
+import '../../../objectbox.g.dart';
 import '../../../utils/custom_textfield.dart';
 
 part 'unit_list_event.dart';
@@ -26,19 +27,17 @@ class UnitListBloc extends Bloc<UnitListEvent, UnitListState> {
   }
   onChangeString(OnChangeString event, Emitter<UnitListState> emit) async {
     emit(state.copyWith(search_text: event.value));
+    add(const Started());
   }
 
   delete(Delete event, Emitter<UnitListState> emit) async {
     try {
       EasyLoading.show();
-      await MyFirestore()
-          .getUnitCollection()
-          .doc(event.uid)
-          .delete()
+      await Utils.objectBox.store
+          .box<UnitModel>()
+          .removeAsync(event.uid)
           .then((querySnapshot) {
-        emit(state.copyWith(
-            list_value: state.list_value.toList()
-              ..removeWhere((element) => element.uid == event.uid)));
+        add(const Started());
       });
     } catch (e) {
       e.printELog;
@@ -63,13 +62,13 @@ class UnitListBloc extends Bloc<UnitListEvent, UnitListState> {
                 children: [
                   CustomTextField(
                     controller: name,
-                    leftLabel: 'Tên đơn vị',
+                    title: 'Tên đơn vị',
                     required: true,
                   ),
                   10.sized,
                   CustomTextField(
                     controller: unit,
-                    leftLabel: 'Kí hiệu đơn vị',
+                    title: 'Kí hiệu đơn vị',
                     required: true,
                   ),
                 ],
@@ -98,14 +97,15 @@ class UnitListBloc extends Bloc<UnitListEvent, UnitListState> {
       ).then((value) async {
         if (value != null && value) {
           EasyLoading.show();
-          final stogare = MyFirestore().getUnitCollection();
-          await stogare
-              .add(UnitModel(ten_don_vi: name.text, ky_hieu: unit.text))
+
+          await Utils.objectBox.store
+              .box<UnitModel>()
+              .putAndGetAsync(
+                  UnitModel(ten_don_vi: name.text, ky_hieu: unit.text))
               .then((value) async {
+            if (!context.mounted) return;
             TDToast.showSuccess('Thêm thành công',
                 direction: IconTextDirection.vertical, context: context);
-            await value.update({'uid': value.id});
-
             add(const Started());
           });
         }
@@ -121,16 +121,13 @@ class UnitListBloc extends Bloc<UnitListEvent, UnitListState> {
   started(Started event, Emitter<UnitListState> emit) async {
     try {
       if (!refreshController.isRefresh) EasyLoading.show();
-
-      await MyFirestore()
-          .getUnitCollection()
-          .get()
-          .then((QuerySnapshot<UnitModel> querySnapshot) {
-        final list = <UnitModel>[];
-        for (var doc in querySnapshot.docs) {
-          list.add(doc.data());
-        }
-        emit(state.copyWith(list_value: list));
+      await Utils.objectBox.store
+          .box<UnitModel>()
+          .query(UnitModel_.ten_don_vi.contains(state.search_text))
+          .build()
+          .findAsync()
+          .then((value) {
+        emit(state.copyWith(list_value: value));
       });
     } catch (e) {
       e.printELog;

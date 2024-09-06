@@ -22,14 +22,11 @@ mixin _$AddProductEvent {
     required TResult Function() create,
     required TResult Function() chooseImage,
     required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
+    required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
     required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
     required TResult Function(UnitModel value) chooseUnit,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,14 +36,11 @@ mixin _$AddProductEvent {
     TResult? Function()? create,
     TResult? Function()? chooseImage,
     TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
+    TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
     TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult? Function(UnitModel value)? chooseUnit,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,14 +50,11 @@ mixin _$AddProductEvent {
     TResult Function()? create,
     TResult Function()? chooseImage,
     TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
+    TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
     TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult Function(UnitModel value)? chooseUnit,
     required TResult orElse(),
   }) =>
@@ -78,10 +69,7 @@ mixin _$AddProductEvent {
     required TResult Function(DeletePrice value) deletePrice,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
     required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
     required TResult Function(ChooseUnit value) chooseUnit,
   }) =>
       throw _privateConstructorUsedError;
@@ -95,10 +83,7 @@ mixin _$AddProductEvent {
     TResult? Function(DeletePrice value)? deletePrice,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
     TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult? Function(ChooseUnit value)? chooseUnit,
   }) =>
       throw _privateConstructorUsedError;
@@ -112,10 +97,7 @@ mixin _$AddProductEvent {
     TResult Function(DeletePrice value)? deletePrice,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
     TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult Function(ChooseUnit value)? chooseUnit,
     required TResult orElse(),
   }) =>
@@ -138,6 +120,9 @@ class _$AddProductEventCopyWithImpl<$Res, $Val extends AddProductEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -154,6 +139,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -182,14 +170,11 @@ class _$StartedImpl implements Started {
     required TResult Function() create,
     required TResult Function() chooseImage,
     required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
+    required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
     required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
     required TResult Function(UnitModel value) chooseUnit,
   }) {
     return started();
@@ -202,14 +187,11 @@ class _$StartedImpl implements Started {
     TResult? Function()? create,
     TResult? Function()? chooseImage,
     TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
+    TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
     TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult? Function(UnitModel value)? chooseUnit,
   }) {
     return started?.call();
@@ -222,14 +204,11 @@ class _$StartedImpl implements Started {
     TResult Function()? create,
     TResult Function()? chooseImage,
     TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
+    TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
     TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult Function(UnitModel value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -250,10 +229,7 @@ class _$StartedImpl implements Started {
     required TResult Function(DeletePrice value) deletePrice,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
     required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
     required TResult Function(ChooseUnit value) chooseUnit,
   }) {
     return started(this);
@@ -270,10 +246,7 @@ class _$StartedImpl implements Started {
     TResult? Function(DeletePrice value)? deletePrice,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
     TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult? Function(ChooseUnit value)? chooseUnit,
   }) {
     return started?.call(this);
@@ -290,10 +263,7 @@ class _$StartedImpl implements Started {
     TResult Function(DeletePrice value)? deletePrice,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
     TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult Function(ChooseUnit value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -322,6 +292,9 @@ class __$$CreateImplCopyWithImpl<$Res>
   __$$CreateImplCopyWithImpl(
       _$CreateImpl _value, $Res Function(_$CreateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -350,14 +323,11 @@ class _$CreateImpl implements Create {
     required TResult Function() create,
     required TResult Function() chooseImage,
     required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
+    required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
     required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
     required TResult Function(UnitModel value) chooseUnit,
   }) {
     return create();
@@ -370,14 +340,11 @@ class _$CreateImpl implements Create {
     TResult? Function()? create,
     TResult? Function()? chooseImage,
     TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
+    TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
     TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult? Function(UnitModel value)? chooseUnit,
   }) {
     return create?.call();
@@ -390,14 +357,11 @@ class _$CreateImpl implements Create {
     TResult Function()? create,
     TResult Function()? chooseImage,
     TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
+    TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
     TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult Function(UnitModel value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -418,10 +382,7 @@ class _$CreateImpl implements Create {
     required TResult Function(DeletePrice value) deletePrice,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
     required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
     required TResult Function(ChooseUnit value) chooseUnit,
   }) {
     return create(this);
@@ -438,10 +399,7 @@ class _$CreateImpl implements Create {
     TResult? Function(DeletePrice value)? deletePrice,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
     TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult? Function(ChooseUnit value)? chooseUnit,
   }) {
     return create?.call(this);
@@ -458,10 +416,7 @@ class _$CreateImpl implements Create {
     TResult Function(DeletePrice value)? deletePrice,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
     TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult Function(ChooseUnit value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -490,6 +445,9 @@ class __$$ChooseImageImplCopyWithImpl<$Res>
   __$$ChooseImageImplCopyWithImpl(
       _$ChooseImageImpl _value, $Res Function(_$ChooseImageImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -518,14 +476,11 @@ class _$ChooseImageImpl implements ChooseImage {
     required TResult Function() create,
     required TResult Function() chooseImage,
     required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
+    required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
     required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
     required TResult Function(UnitModel value) chooseUnit,
   }) {
     return chooseImage();
@@ -538,14 +493,11 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult? Function()? create,
     TResult? Function()? chooseImage,
     TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
+    TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
     TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult? Function(UnitModel value)? chooseUnit,
   }) {
     return chooseImage?.call();
@@ -558,14 +510,11 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult Function()? create,
     TResult Function()? chooseImage,
     TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
+    TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
     TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult Function(UnitModel value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -586,10 +535,7 @@ class _$ChooseImageImpl implements ChooseImage {
     required TResult Function(DeletePrice value) deletePrice,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
     required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
     required TResult Function(ChooseUnit value) chooseUnit,
   }) {
     return chooseImage(this);
@@ -606,10 +552,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult? Function(DeletePrice value)? deletePrice,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
     TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult? Function(ChooseUnit value)? chooseUnit,
   }) {
     return chooseImage?.call(this);
@@ -626,10 +569,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult Function(DeletePrice value)? deletePrice,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
     TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult Function(ChooseUnit value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -658,6 +598,9 @@ class __$$ScanBarcodeImplCopyWithImpl<$Res>
   __$$ScanBarcodeImplCopyWithImpl(
       _$ScanBarcodeImpl _value, $Res Function(_$ScanBarcodeImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -686,14 +629,11 @@ class _$ScanBarcodeImpl implements ScanBarcode {
     required TResult Function() create,
     required TResult Function() chooseImage,
     required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
+    required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
     required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
     required TResult Function(UnitModel value) chooseUnit,
   }) {
     return scanBarcode();
@@ -706,14 +646,11 @@ class _$ScanBarcodeImpl implements ScanBarcode {
     TResult? Function()? create,
     TResult? Function()? chooseImage,
     TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
+    TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
     TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult? Function(UnitModel value)? chooseUnit,
   }) {
     return scanBarcode?.call();
@@ -726,14 +663,11 @@ class _$ScanBarcodeImpl implements ScanBarcode {
     TResult Function()? create,
     TResult Function()? chooseImage,
     TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
+    TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
     TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult Function(UnitModel value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -754,10 +688,7 @@ class _$ScanBarcodeImpl implements ScanBarcode {
     required TResult Function(DeletePrice value) deletePrice,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
     required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
     required TResult Function(ChooseUnit value) chooseUnit,
   }) {
     return scanBarcode(this);
@@ -774,10 +705,7 @@ class _$ScanBarcodeImpl implements ScanBarcode {
     TResult? Function(DeletePrice value)? deletePrice,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
     TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult? Function(ChooseUnit value)? chooseUnit,
   }) {
     return scanBarcode?.call(this);
@@ -794,10 +722,7 @@ class _$ScanBarcodeImpl implements ScanBarcode {
     TResult Function(DeletePrice value)? deletePrice,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
     TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult Function(ChooseUnit value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -817,6 +742,8 @@ abstract class _$$AddPriceImplCopyWith<$Res> {
   factory _$$AddPriceImplCopyWith(
           _$AddPriceImpl value, $Res Function(_$AddPriceImpl) then) =
       __$$AddPriceImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({PriceList? value});
 }
 
 /// @nodoc
@@ -826,26 +753,54 @@ class __$$AddPriceImplCopyWithImpl<$Res>
   __$$AddPriceImplCopyWithImpl(
       _$AddPriceImpl _value, $Res Function(_$AddPriceImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_$AddPriceImpl(
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as PriceList?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$AddPriceImpl implements AddPrice {
-  const _$AddPriceImpl();
+  const _$AddPriceImpl({this.value});
+
+  @override
+  final PriceList? value;
 
   @override
   String toString() {
-    return 'AddProductEvent.addPrice()';
+    return 'AddProductEvent.addPrice(value: $value)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AddPriceImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$AddPriceImpl &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddPriceImplCopyWith<_$AddPriceImpl> get copyWith =>
+      __$$AddPriceImplCopyWithImpl<_$AddPriceImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -854,17 +809,14 @@ class _$AddPriceImpl implements AddPrice {
     required TResult Function() create,
     required TResult Function() chooseImage,
     required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
+    required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
     required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
     required TResult Function(UnitModel value) chooseUnit,
   }) {
-    return addPrice();
+    return addPrice(value);
   }
 
   @override
@@ -874,17 +826,14 @@ class _$AddPriceImpl implements AddPrice {
     TResult? Function()? create,
     TResult? Function()? chooseImage,
     TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
+    TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
     TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult? Function(UnitModel value)? chooseUnit,
   }) {
-    return addPrice?.call();
+    return addPrice?.call(value);
   }
 
   @override
@@ -894,19 +843,16 @@ class _$AddPriceImpl implements AddPrice {
     TResult Function()? create,
     TResult Function()? chooseImage,
     TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
+    TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
     TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult Function(UnitModel value)? chooseUnit,
     required TResult orElse(),
   }) {
     if (addPrice != null) {
-      return addPrice();
+      return addPrice(value);
     }
     return orElse();
   }
@@ -922,10 +868,7 @@ class _$AddPriceImpl implements AddPrice {
     required TResult Function(DeletePrice value) deletePrice,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
     required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
     required TResult Function(ChooseUnit value) chooseUnit,
   }) {
     return addPrice(this);
@@ -942,10 +885,7 @@ class _$AddPriceImpl implements AddPrice {
     TResult? Function(DeletePrice value)? deletePrice,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
     TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult? Function(ChooseUnit value)? chooseUnit,
   }) {
     return addPrice?.call(this);
@@ -962,10 +902,7 @@ class _$AddPriceImpl implements AddPrice {
     TResult Function(DeletePrice value)? deletePrice,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
     TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult Function(ChooseUnit value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -977,7 +914,15 @@ class _$AddPriceImpl implements AddPrice {
 }
 
 abstract class AddPrice implements AddProductEvent {
-  const factory AddPrice() = _$AddPriceImpl;
+  const factory AddPrice({final PriceList? value}) = _$AddPriceImpl;
+
+  PriceList? get value;
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddPriceImplCopyWith<_$AddPriceImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -987,8 +932,6 @@ abstract class _$$DeletePriceImplCopyWith<$Res> {
       __$$DeletePriceImplCopyWithImpl<$Res>;
   @useResult
   $Res call({PriceList data});
-
-  $PriceListCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -999,6 +942,8 @@ class __$$DeletePriceImplCopyWithImpl<$Res>
       _$DeletePriceImpl _value, $Res Function(_$DeletePriceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1010,14 +955,6 @@ class __$$DeletePriceImplCopyWithImpl<$Res>
           : data // ignore: cast_nullable_to_non_nullable
               as PriceList,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PriceListCopyWith<$Res> get data {
-    return $PriceListCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -1045,7 +982,9 @@ class _$DeletePriceImpl implements DeletePrice {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeletePriceImplCopyWith<_$DeletePriceImpl> get copyWith =>
@@ -1058,14 +997,11 @@ class _$DeletePriceImpl implements DeletePrice {
     required TResult Function() create,
     required TResult Function() chooseImage,
     required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
+    required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
     required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
     required TResult Function(UnitModel value) chooseUnit,
   }) {
     return deletePrice(data);
@@ -1078,14 +1014,11 @@ class _$DeletePriceImpl implements DeletePrice {
     TResult? Function()? create,
     TResult? Function()? chooseImage,
     TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
+    TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
     TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult? Function(UnitModel value)? chooseUnit,
   }) {
     return deletePrice?.call(data);
@@ -1098,14 +1031,11 @@ class _$DeletePriceImpl implements DeletePrice {
     TResult Function()? create,
     TResult Function()? chooseImage,
     TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
+    TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
     TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult Function(UnitModel value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -1126,10 +1056,7 @@ class _$DeletePriceImpl implements DeletePrice {
     required TResult Function(DeletePrice value) deletePrice,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
     required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
     required TResult Function(ChooseUnit value) chooseUnit,
   }) {
     return deletePrice(this);
@@ -1146,10 +1073,7 @@ class _$DeletePriceImpl implements DeletePrice {
     TResult? Function(DeletePrice value)? deletePrice,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
     TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult? Function(ChooseUnit value)? chooseUnit,
   }) {
     return deletePrice?.call(this);
@@ -1166,10 +1090,7 @@ class _$DeletePriceImpl implements DeletePrice {
     TResult Function(DeletePrice value)? deletePrice,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
     TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult Function(ChooseUnit value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -1184,7 +1105,10 @@ abstract class DeletePrice implements AddProductEvent {
   const factory DeletePrice(final PriceList data) = _$DeletePriceImpl;
 
   PriceList get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeletePriceImplCopyWith<_$DeletePriceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1206,6 +1130,8 @@ class __$$ChangeBoolImplCopyWithImpl<$Res>
       _$ChangeBoolImpl _value, $Res Function(_$ChangeBoolImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1244,7 +1170,9 @@ class _$ChangeBoolImpl implements ChangeBool {
   @override
   int get hashCode => Object.hash(runtimeType, key);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChangeBoolImplCopyWith<_$ChangeBoolImpl> get copyWith =>
@@ -1257,14 +1185,11 @@ class _$ChangeBoolImpl implements ChangeBool {
     required TResult Function() create,
     required TResult Function() chooseImage,
     required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
+    required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
     required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
     required TResult Function(UnitModel value) chooseUnit,
   }) {
     return changeBool(key);
@@ -1277,14 +1202,11 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult? Function()? create,
     TResult? Function()? chooseImage,
     TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
+    TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
     TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult? Function(UnitModel value)? chooseUnit,
   }) {
     return changeBool?.call(key);
@@ -1297,14 +1219,11 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult Function()? create,
     TResult Function()? chooseImage,
     TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
+    TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
     TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult Function(UnitModel value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -1325,10 +1244,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     required TResult Function(DeletePrice value) deletePrice,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
     required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
     required TResult Function(ChooseUnit value) chooseUnit,
   }) {
     return changeBool(this);
@@ -1345,10 +1261,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult? Function(DeletePrice value)? deletePrice,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
     TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult? Function(ChooseUnit value)? chooseUnit,
   }) {
     return changeBool?.call(this);
@@ -1365,10 +1278,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult Function(DeletePrice value)? deletePrice,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
     TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult Function(ChooseUnit value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -1383,7 +1293,10 @@ abstract class ChangeBool implements AddProductEvent {
   const factory ChangeBool(final String key) = _$ChangeBoolImpl;
 
   String get key;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChangeBoolImplCopyWith<_$ChangeBoolImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1405,6 +1318,8 @@ class __$$ChangeStringImplCopyWithImpl<$Res>
       _$ChangeStringImpl _value, $Res Function(_$ChangeStringImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1451,7 +1366,9 @@ class _$ChangeStringImpl implements ChangeString {
   @override
   int get hashCode => Object.hash(runtimeType, key, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChangeStringImplCopyWith<_$ChangeStringImpl> get copyWith =>
@@ -1464,14 +1381,11 @@ class _$ChangeStringImpl implements ChangeString {
     required TResult Function() create,
     required TResult Function() chooseImage,
     required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
+    required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
     required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
     required TResult Function(UnitModel value) chooseUnit,
   }) {
     return changeString(key, value);
@@ -1484,14 +1398,11 @@ class _$ChangeStringImpl implements ChangeString {
     TResult? Function()? create,
     TResult? Function()? chooseImage,
     TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
+    TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
     TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult? Function(UnitModel value)? chooseUnit,
   }) {
     return changeString?.call(key, value);
@@ -1504,14 +1415,11 @@ class _$ChangeStringImpl implements ChangeString {
     TResult Function()? create,
     TResult Function()? chooseImage,
     TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
+    TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
     TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult Function(UnitModel value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -1532,10 +1440,7 @@ class _$ChangeStringImpl implements ChangeString {
     required TResult Function(DeletePrice value) deletePrice,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
     required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
     required TResult Function(ChooseUnit value) chooseUnit,
   }) {
     return changeString(this);
@@ -1552,10 +1457,7 @@ class _$ChangeStringImpl implements ChangeString {
     TResult? Function(DeletePrice value)? deletePrice,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
     TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult? Function(ChooseUnit value)? chooseUnit,
   }) {
     return changeString?.call(this);
@@ -1572,10 +1474,7 @@ class _$ChangeStringImpl implements ChangeString {
     TResult Function(DeletePrice value)? deletePrice,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
     TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult Function(ChooseUnit value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -1592,446 +1491,11 @@ abstract class ChangeString implements AddProductEvent {
 
   String get key;
   String get value;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChangeStringImplCopyWith<_$ChangeStringImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ChangePriceImplCopyWith<$Res> {
-  factory _$$ChangePriceImplCopyWith(
-          _$ChangePriceImpl value, $Res Function(_$ChangePriceImpl) then) =
-      __$$ChangePriceImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PriceList data, double value});
-
-  $PriceListCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$ChangePriceImplCopyWithImpl<$Res>
-    extends _$AddProductEventCopyWithImpl<$Res, _$ChangePriceImpl>
-    implements _$$ChangePriceImplCopyWith<$Res> {
-  __$$ChangePriceImplCopyWithImpl(
-      _$ChangePriceImpl _value, $Res Function(_$ChangePriceImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-    Object? value = null,
-  }) {
-    return _then(_$ChangePriceImpl(
-      null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as PriceList,
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PriceListCopyWith<$Res> get data {
-    return $PriceListCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$ChangePriceImpl implements ChangePrice {
-  const _$ChangePriceImpl(this.data, this.value);
-
-  @override
-  final PriceList data;
-  @override
-  final double value;
-
-  @override
-  String toString() {
-    return 'AddProductEvent.changePrice(data: $data, value: $value)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChangePriceImpl &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChangePriceImplCopyWith<_$ChangePriceImpl> get copyWith =>
-      __$$ChangePriceImplCopyWithImpl<_$ChangePriceImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() create,
-    required TResult Function() chooseImage,
-    required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
-    required TResult Function(PriceList data) deletePrice,
-    required TResult Function(String key) changeBool,
-    required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
-    required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
-    required TResult Function(UnitModel value) chooseUnit,
-  }) {
-    return changePrice(data, value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? create,
-    TResult? Function()? chooseImage,
-    TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
-    TResult? Function(PriceList data)? deletePrice,
-    TResult? Function(String key)? changeBool,
-    TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
-    TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
-    TResult? Function(UnitModel value)? chooseUnit,
-  }) {
-    return changePrice?.call(data, value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? create,
-    TResult Function()? chooseImage,
-    TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
-    TResult Function(PriceList data)? deletePrice,
-    TResult Function(String key)? changeBool,
-    TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
-    TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
-    TResult Function(UnitModel value)? chooseUnit,
-    required TResult orElse(),
-  }) {
-    if (changePrice != null) {
-      return changePrice(data, value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Started value) started,
-    required TResult Function(Create value) create,
-    required TResult Function(ChooseImage value) chooseImage,
-    required TResult Function(ScanBarcode value) scanBarcode,
-    required TResult Function(AddPrice value) addPrice,
-    required TResult Function(DeletePrice value) deletePrice,
-    required TResult Function(ChangeBool value) changeBool,
-    required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
-    required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
-    required TResult Function(ChooseUnit value) chooseUnit,
-  }) {
-    return changePrice(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Started value)? started,
-    TResult? Function(Create value)? create,
-    TResult? Function(ChooseImage value)? chooseImage,
-    TResult? Function(ScanBarcode value)? scanBarcode,
-    TResult? Function(AddPrice value)? addPrice,
-    TResult? Function(DeletePrice value)? deletePrice,
-    TResult? Function(ChangeBool value)? changeBool,
-    TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
-    TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
-    TResult? Function(ChooseUnit value)? chooseUnit,
-  }) {
-    return changePrice?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(Create value)? create,
-    TResult Function(ChooseImage value)? chooseImage,
-    TResult Function(ScanBarcode value)? scanBarcode,
-    TResult Function(AddPrice value)? addPrice,
-    TResult Function(DeletePrice value)? deletePrice,
-    TResult Function(ChangeBool value)? changeBool,
-    TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
-    TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
-    TResult Function(ChooseUnit value)? chooseUnit,
-    required TResult orElse(),
-  }) {
-    if (changePrice != null) {
-      return changePrice(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChangePrice implements AddProductEvent {
-  const factory ChangePrice(final PriceList data, final double value) =
-      _$ChangePriceImpl;
-
-  PriceList get data;
-  double get value;
-  @JsonKey(ignore: true)
-  _$$ChangePriceImplCopyWith<_$ChangePriceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ChangeSLImplCopyWith<$Res> {
-  factory _$$ChangeSLImplCopyWith(
-          _$ChangeSLImpl value, $Res Function(_$ChangeSLImpl) then) =
-      __$$ChangeSLImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PriceList data, double value});
-
-  $PriceListCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$ChangeSLImplCopyWithImpl<$Res>
-    extends _$AddProductEventCopyWithImpl<$Res, _$ChangeSLImpl>
-    implements _$$ChangeSLImplCopyWith<$Res> {
-  __$$ChangeSLImplCopyWithImpl(
-      _$ChangeSLImpl _value, $Res Function(_$ChangeSLImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-    Object? value = null,
-  }) {
-    return _then(_$ChangeSLImpl(
-      null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as PriceList,
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PriceListCopyWith<$Res> get data {
-    return $PriceListCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$ChangeSLImpl implements ChangeSL {
-  const _$ChangeSLImpl(this.data, this.value);
-
-  @override
-  final PriceList data;
-  @override
-  final double value;
-
-  @override
-  String toString() {
-    return 'AddProductEvent.changeSL(data: $data, value: $value)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChangeSLImpl &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChangeSLImplCopyWith<_$ChangeSLImpl> get copyWith =>
-      __$$ChangeSLImplCopyWithImpl<_$ChangeSLImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() create,
-    required TResult Function() chooseImage,
-    required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
-    required TResult Function(PriceList data) deletePrice,
-    required TResult Function(String key) changeBool,
-    required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
-    required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
-    required TResult Function(UnitModel value) chooseUnit,
-  }) {
-    return changeSL(data, value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? create,
-    TResult? Function()? chooseImage,
-    TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
-    TResult? Function(PriceList data)? deletePrice,
-    TResult? Function(String key)? changeBool,
-    TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
-    TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
-    TResult? Function(UnitModel value)? chooseUnit,
-  }) {
-    return changeSL?.call(data, value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? create,
-    TResult Function()? chooseImage,
-    TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
-    TResult Function(PriceList data)? deletePrice,
-    TResult Function(String key)? changeBool,
-    TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
-    TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
-    TResult Function(UnitModel value)? chooseUnit,
-    required TResult orElse(),
-  }) {
-    if (changeSL != null) {
-      return changeSL(data, value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Started value) started,
-    required TResult Function(Create value) create,
-    required TResult Function(ChooseImage value) chooseImage,
-    required TResult Function(ScanBarcode value) scanBarcode,
-    required TResult Function(AddPrice value) addPrice,
-    required TResult Function(DeletePrice value) deletePrice,
-    required TResult Function(ChangeBool value) changeBool,
-    required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
-    required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
-    required TResult Function(ChooseUnit value) chooseUnit,
-  }) {
-    return changeSL(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Started value)? started,
-    TResult? Function(Create value)? create,
-    TResult? Function(ChooseImage value)? chooseImage,
-    TResult? Function(ScanBarcode value)? scanBarcode,
-    TResult? Function(AddPrice value)? addPrice,
-    TResult? Function(DeletePrice value)? deletePrice,
-    TResult? Function(ChangeBool value)? changeBool,
-    TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
-    TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
-    TResult? Function(ChooseUnit value)? chooseUnit,
-  }) {
-    return changeSL?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(Create value)? create,
-    TResult Function(ChooseImage value)? chooseImage,
-    TResult Function(ScanBarcode value)? scanBarcode,
-    TResult Function(AddPrice value)? addPrice,
-    TResult Function(DeletePrice value)? deletePrice,
-    TResult Function(ChangeBool value)? changeBool,
-    TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
-    TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
-    TResult Function(ChooseUnit value)? chooseUnit,
-    required TResult orElse(),
-  }) {
-    if (changeSL != null) {
-      return changeSL(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChangeSL implements AddProductEvent {
-  const factory ChangeSL(final PriceList data, final double value) =
-      _$ChangeSLImpl;
-
-  PriceList get data;
-  double get value;
-  @JsonKey(ignore: true)
-  _$$ChangeSLImplCopyWith<_$ChangeSLImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2042,8 +1506,6 @@ abstract class _$$ChooseCategoryImplCopyWith<$Res> {
       __$$ChooseCategoryImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CategoryModel value});
-
-  $CategoryModelCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -2054,6 +1516,8 @@ class __$$ChooseCategoryImplCopyWithImpl<$Res>
       _$ChooseCategoryImpl _value, $Res Function(_$ChooseCategoryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2065,14 +1529,6 @@ class __$$ChooseCategoryImplCopyWithImpl<$Res>
           : value // ignore: cast_nullable_to_non_nullable
               as CategoryModel,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CategoryModelCopyWith<$Res> get value {
-    return $CategoryModelCopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
-    });
   }
 }
 
@@ -2100,7 +1556,9 @@ class _$ChooseCategoryImpl implements ChooseCategory {
   @override
   int get hashCode => Object.hash(runtimeType, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChooseCategoryImplCopyWith<_$ChooseCategoryImpl> get copyWith =>
@@ -2114,14 +1572,11 @@ class _$ChooseCategoryImpl implements ChooseCategory {
     required TResult Function() create,
     required TResult Function() chooseImage,
     required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
+    required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
     required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
     required TResult Function(UnitModel value) chooseUnit,
   }) {
     return chooseCategory(value);
@@ -2134,14 +1589,11 @@ class _$ChooseCategoryImpl implements ChooseCategory {
     TResult? Function()? create,
     TResult? Function()? chooseImage,
     TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
+    TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
     TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult? Function(UnitModel value)? chooseUnit,
   }) {
     return chooseCategory?.call(value);
@@ -2154,14 +1606,11 @@ class _$ChooseCategoryImpl implements ChooseCategory {
     TResult Function()? create,
     TResult Function()? chooseImage,
     TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
+    TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
     TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult Function(UnitModel value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -2182,10 +1631,7 @@ class _$ChooseCategoryImpl implements ChooseCategory {
     required TResult Function(DeletePrice value) deletePrice,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
     required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
     required TResult Function(ChooseUnit value) chooseUnit,
   }) {
     return chooseCategory(this);
@@ -2202,10 +1648,7 @@ class _$ChooseCategoryImpl implements ChooseCategory {
     TResult? Function(DeletePrice value)? deletePrice,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
     TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult? Function(ChooseUnit value)? chooseUnit,
   }) {
     return chooseCategory?.call(this);
@@ -2222,10 +1665,7 @@ class _$ChooseCategoryImpl implements ChooseCategory {
     TResult Function(DeletePrice value)? deletePrice,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
     TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult Function(ChooseUnit value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -2241,237 +1681,11 @@ abstract class ChooseCategory implements AddProductEvent {
       _$ChooseCategoryImpl;
 
   CategoryModel get value;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChooseCategoryImplCopyWith<_$ChooseCategoryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ChooseUnitPriceImplCopyWith<$Res> {
-  factory _$$ChooseUnitPriceImplCopyWith(_$ChooseUnitPriceImpl value,
-          $Res Function(_$ChooseUnitPriceImpl) then) =
-      __$$ChooseUnitPriceImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PriceList data, UnitModel value});
-
-  $PriceListCopyWith<$Res> get data;
-  $UnitModelCopyWith<$Res> get value;
-}
-
-/// @nodoc
-class __$$ChooseUnitPriceImplCopyWithImpl<$Res>
-    extends _$AddProductEventCopyWithImpl<$Res, _$ChooseUnitPriceImpl>
-    implements _$$ChooseUnitPriceImplCopyWith<$Res> {
-  __$$ChooseUnitPriceImplCopyWithImpl(
-      _$ChooseUnitPriceImpl _value, $Res Function(_$ChooseUnitPriceImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-    Object? value = null,
-  }) {
-    return _then(_$ChooseUnitPriceImpl(
-      null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as PriceList,
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as UnitModel,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PriceListCopyWith<$Res> get data {
-    return $PriceListCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UnitModelCopyWith<$Res> get value {
-    return $UnitModelCopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$ChooseUnitPriceImpl implements ChooseUnitPrice {
-  const _$ChooseUnitPriceImpl(this.data, this.value);
-
-  @override
-  final PriceList data;
-  @override
-  final UnitModel value;
-
-  @override
-  String toString() {
-    return 'AddProductEvent.chooseUnitPrice(data: $data, value: $value)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChooseUnitPriceImpl &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChooseUnitPriceImplCopyWith<_$ChooseUnitPriceImpl> get copyWith =>
-      __$$ChooseUnitPriceImplCopyWithImpl<_$ChooseUnitPriceImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() create,
-    required TResult Function() chooseImage,
-    required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
-    required TResult Function(PriceList data) deletePrice,
-    required TResult Function(String key) changeBool,
-    required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
-    required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
-    required TResult Function(UnitModel value) chooseUnit,
-  }) {
-    return chooseUnitPrice(data, value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? create,
-    TResult? Function()? chooseImage,
-    TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
-    TResult? Function(PriceList data)? deletePrice,
-    TResult? Function(String key)? changeBool,
-    TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
-    TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
-    TResult? Function(UnitModel value)? chooseUnit,
-  }) {
-    return chooseUnitPrice?.call(data, value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? create,
-    TResult Function()? chooseImage,
-    TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
-    TResult Function(PriceList data)? deletePrice,
-    TResult Function(String key)? changeBool,
-    TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
-    TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
-    TResult Function(UnitModel value)? chooseUnit,
-    required TResult orElse(),
-  }) {
-    if (chooseUnitPrice != null) {
-      return chooseUnitPrice(data, value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Started value) started,
-    required TResult Function(Create value) create,
-    required TResult Function(ChooseImage value) chooseImage,
-    required TResult Function(ScanBarcode value) scanBarcode,
-    required TResult Function(AddPrice value) addPrice,
-    required TResult Function(DeletePrice value) deletePrice,
-    required TResult Function(ChangeBool value) changeBool,
-    required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
-    required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
-    required TResult Function(ChooseUnit value) chooseUnit,
-  }) {
-    return chooseUnitPrice(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Started value)? started,
-    TResult? Function(Create value)? create,
-    TResult? Function(ChooseImage value)? chooseImage,
-    TResult? Function(ScanBarcode value)? scanBarcode,
-    TResult? Function(AddPrice value)? addPrice,
-    TResult? Function(DeletePrice value)? deletePrice,
-    TResult? Function(ChangeBool value)? changeBool,
-    TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
-    TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
-    TResult? Function(ChooseUnit value)? chooseUnit,
-  }) {
-    return chooseUnitPrice?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Started value)? started,
-    TResult Function(Create value)? create,
-    TResult Function(ChooseImage value)? chooseImage,
-    TResult Function(ScanBarcode value)? scanBarcode,
-    TResult Function(AddPrice value)? addPrice,
-    TResult Function(DeletePrice value)? deletePrice,
-    TResult Function(ChangeBool value)? changeBool,
-    TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
-    TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
-    TResult Function(ChooseUnit value)? chooseUnit,
-    required TResult orElse(),
-  }) {
-    if (chooseUnitPrice != null) {
-      return chooseUnitPrice(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChooseUnitPrice implements AddProductEvent {
-  const factory ChooseUnitPrice(final PriceList data, final UnitModel value) =
-      _$ChooseUnitPriceImpl;
-
-  PriceList get data;
-  UnitModel get value;
-  @JsonKey(ignore: true)
-  _$$ChooseUnitPriceImplCopyWith<_$ChooseUnitPriceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2482,8 +1696,6 @@ abstract class _$$ChooseUnitImplCopyWith<$Res> {
       __$$ChooseUnitImplCopyWithImpl<$Res>;
   @useResult
   $Res call({UnitModel value});
-
-  $UnitModelCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -2494,6 +1706,8 @@ class __$$ChooseUnitImplCopyWithImpl<$Res>
       _$ChooseUnitImpl _value, $Res Function(_$ChooseUnitImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2505,14 +1719,6 @@ class __$$ChooseUnitImplCopyWithImpl<$Res>
           : value // ignore: cast_nullable_to_non_nullable
               as UnitModel,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UnitModelCopyWith<$Res> get value {
-    return $UnitModelCopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
-    });
   }
 }
 
@@ -2540,7 +1746,9 @@ class _$ChooseUnitImpl implements ChooseUnit {
   @override
   int get hashCode => Object.hash(runtimeType, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChooseUnitImplCopyWith<_$ChooseUnitImpl> get copyWith =>
@@ -2553,14 +1761,11 @@ class _$ChooseUnitImpl implements ChooseUnit {
     required TResult Function() create,
     required TResult Function() chooseImage,
     required TResult Function() scanBarcode,
-    required TResult Function() addPrice,
+    required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
-    required TResult Function(PriceList data, double value) changePrice,
-    required TResult Function(PriceList data, double value) changeSL,
     required TResult Function(CategoryModel value) chooseCategory,
-    required TResult Function(PriceList data, UnitModel value) chooseUnitPrice,
     required TResult Function(UnitModel value) chooseUnit,
   }) {
     return chooseUnit(value);
@@ -2573,14 +1778,11 @@ class _$ChooseUnitImpl implements ChooseUnit {
     TResult? Function()? create,
     TResult? Function()? chooseImage,
     TResult? Function()? scanBarcode,
-    TResult? Function()? addPrice,
+    TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
-    TResult? Function(PriceList data, double value)? changePrice,
-    TResult? Function(PriceList data, double value)? changeSL,
     TResult? Function(CategoryModel value)? chooseCategory,
-    TResult? Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult? Function(UnitModel value)? chooseUnit,
   }) {
     return chooseUnit?.call(value);
@@ -2593,14 +1795,11 @@ class _$ChooseUnitImpl implements ChooseUnit {
     TResult Function()? create,
     TResult Function()? chooseImage,
     TResult Function()? scanBarcode,
-    TResult Function()? addPrice,
+    TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
-    TResult Function(PriceList data, double value)? changePrice,
-    TResult Function(PriceList data, double value)? changeSL,
     TResult Function(CategoryModel value)? chooseCategory,
-    TResult Function(PriceList data, UnitModel value)? chooseUnitPrice,
     TResult Function(UnitModel value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -2621,10 +1820,7 @@ class _$ChooseUnitImpl implements ChooseUnit {
     required TResult Function(DeletePrice value) deletePrice,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
-    required TResult Function(ChangePrice value) changePrice,
-    required TResult Function(ChangeSL value) changeSL,
     required TResult Function(ChooseCategory value) chooseCategory,
-    required TResult Function(ChooseUnitPrice value) chooseUnitPrice,
     required TResult Function(ChooseUnit value) chooseUnit,
   }) {
     return chooseUnit(this);
@@ -2641,10 +1837,7 @@ class _$ChooseUnitImpl implements ChooseUnit {
     TResult? Function(DeletePrice value)? deletePrice,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
-    TResult? Function(ChangePrice value)? changePrice,
-    TResult? Function(ChangeSL value)? changeSL,
     TResult? Function(ChooseCategory value)? chooseCategory,
-    TResult? Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult? Function(ChooseUnit value)? chooseUnit,
   }) {
     return chooseUnit?.call(this);
@@ -2661,10 +1854,7 @@ class _$ChooseUnitImpl implements ChooseUnit {
     TResult Function(DeletePrice value)? deletePrice,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
-    TResult Function(ChangePrice value)? changePrice,
-    TResult Function(ChangeSL value)? changeSL,
     TResult Function(ChooseCategory value)? chooseCategory,
-    TResult Function(ChooseUnitPrice value)? chooseUnitPrice,
     TResult Function(ChooseUnit value)? chooseUnit,
     required TResult orElse(),
   }) {
@@ -2679,7 +1869,10 @@ abstract class ChooseUnit implements AddProductEvent {
   const factory ChooseUnit(final UnitModel value) = _$ChooseUnitImpl;
 
   UnitModel get value;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChooseUnitImplCopyWith<_$ChooseUnitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2687,18 +1880,19 @@ abstract class ChooseUnit implements AddProductEvent {
 /// @nodoc
 mixin _$AddProductState {
   bool get isImport => throw _privateConstructorUsedError;
-  int get ton_kho => throw _privateConstructorUsedError;
-  double get gia_nhap_moi_sp => throw _privateConstructorUsedError;
-  String get barcode => throw _privateConstructorUsedError;
-  String get imageUrl => throw _privateConstructorUsedError;
-  CategoryModel get category => throw _privateConstructorUsedError;
-  UnitModel get unit => throw _privateConstructorUsedError;
+  Uint8List? get hinh_san_pham => throw _privateConstructorUsedError;
+  int? get uid_danh_muc => throw _privateConstructorUsedError;
+  String get ten_danh_muc => throw _privateConstructorUsedError;
+  int? get uid_don_vi => throw _privateConstructorUsedError;
+  String get ten_don_vi => throw _privateConstructorUsedError;
+  String get ky_hieu_don_vi => throw _privateConstructorUsedError;
+  List<PriceList> get price_list => throw _privateConstructorUsedError;
   List<CategoryModel> get list_category => throw _privateConstructorUsedError;
   List<UnitModel> get list_unit => throw _privateConstructorUsedError;
-  List<PriceList> get list_price => throw _privateConstructorUsedError;
-  AssetEntity? get image => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddProductState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AddProductStateCopyWith<AddProductState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2711,19 +1905,15 @@ abstract class $AddProductStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isImport,
-      int ton_kho,
-      double gia_nhap_moi_sp,
-      String barcode,
-      String imageUrl,
-      CategoryModel category,
-      UnitModel unit,
+      Uint8List? hinh_san_pham,
+      int? uid_danh_muc,
+      String ten_danh_muc,
+      int? uid_don_vi,
+      String ten_don_vi,
+      String ky_hieu_don_vi,
+      List<PriceList> price_list,
       List<CategoryModel> list_category,
-      List<UnitModel> list_unit,
-      List<PriceList> list_price,
-      AssetEntity? image});
-
-  $CategoryModelCopyWith<$Res> get category;
-  $UnitModelCopyWith<$Res> get unit;
+      List<UnitModel> list_unit});
 }
 
 /// @nodoc
@@ -2736,50 +1926,55 @@ class _$AddProductStateCopyWithImpl<$Res, $Val extends AddProductState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AddProductState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isImport = null,
-    Object? ton_kho = null,
-    Object? gia_nhap_moi_sp = null,
-    Object? barcode = null,
-    Object? imageUrl = null,
-    Object? category = null,
-    Object? unit = null,
+    Object? hinh_san_pham = freezed,
+    Object? uid_danh_muc = freezed,
+    Object? ten_danh_muc = null,
+    Object? uid_don_vi = freezed,
+    Object? ten_don_vi = null,
+    Object? ky_hieu_don_vi = null,
+    Object? price_list = null,
     Object? list_category = null,
     Object? list_unit = null,
-    Object? list_price = null,
-    Object? image = freezed,
   }) {
     return _then(_value.copyWith(
       isImport: null == isImport
           ? _value.isImport
           : isImport // ignore: cast_nullable_to_non_nullable
               as bool,
-      ton_kho: null == ton_kho
-          ? _value.ton_kho
-          : ton_kho // ignore: cast_nullable_to_non_nullable
-              as int,
-      gia_nhap_moi_sp: null == gia_nhap_moi_sp
-          ? _value.gia_nhap_moi_sp
-          : gia_nhap_moi_sp // ignore: cast_nullable_to_non_nullable
-              as double,
-      barcode: null == barcode
-          ? _value.barcode
-          : barcode // ignore: cast_nullable_to_non_nullable
+      hinh_san_pham: freezed == hinh_san_pham
+          ? _value.hinh_san_pham
+          : hinh_san_pham // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      uid_danh_muc: freezed == uid_danh_muc
+          ? _value.uid_danh_muc
+          : uid_danh_muc // ignore: cast_nullable_to_non_nullable
+              as int?,
+      ten_danh_muc: null == ten_danh_muc
+          ? _value.ten_danh_muc
+          : ten_danh_muc // ignore: cast_nullable_to_non_nullable
               as String,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      uid_don_vi: freezed == uid_don_vi
+          ? _value.uid_don_vi
+          : uid_don_vi // ignore: cast_nullable_to_non_nullable
+              as int?,
+      ten_don_vi: null == ten_don_vi
+          ? _value.ten_don_vi
+          : ten_don_vi // ignore: cast_nullable_to_non_nullable
               as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as CategoryModel,
-      unit: null == unit
-          ? _value.unit
-          : unit // ignore: cast_nullable_to_non_nullable
-              as UnitModel,
+      ky_hieu_don_vi: null == ky_hieu_don_vi
+          ? _value.ky_hieu_don_vi
+          : ky_hieu_don_vi // ignore: cast_nullable_to_non_nullable
+              as String,
+      price_list: null == price_list
+          ? _value.price_list
+          : price_list // ignore: cast_nullable_to_non_nullable
+              as List<PriceList>,
       list_category: null == list_category
           ? _value.list_category
           : list_category // ignore: cast_nullable_to_non_nullable
@@ -2788,31 +1983,7 @@ class _$AddProductStateCopyWithImpl<$Res, $Val extends AddProductState>
           ? _value.list_unit
           : list_unit // ignore: cast_nullable_to_non_nullable
               as List<UnitModel>,
-      list_price: null == list_price
-          ? _value.list_price
-          : list_price // ignore: cast_nullable_to_non_nullable
-              as List<PriceList>,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as AssetEntity?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CategoryModelCopyWith<$Res> get category {
-    return $CategoryModelCopyWith<$Res>(_value.category, (value) {
-      return _then(_value.copyWith(category: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UnitModelCopyWith<$Res> get unit {
-    return $UnitModelCopyWith<$Res>(_value.unit, (value) {
-      return _then(_value.copyWith(unit: value) as $Val);
-    });
   }
 }
 
@@ -2826,21 +1997,15 @@ abstract class _$$AddProductStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isImport,
-      int ton_kho,
-      double gia_nhap_moi_sp,
-      String barcode,
-      String imageUrl,
-      CategoryModel category,
-      UnitModel unit,
+      Uint8List? hinh_san_pham,
+      int? uid_danh_muc,
+      String ten_danh_muc,
+      int? uid_don_vi,
+      String ten_don_vi,
+      String ky_hieu_don_vi,
+      List<PriceList> price_list,
       List<CategoryModel> list_category,
-      List<UnitModel> list_unit,
-      List<PriceList> list_price,
-      AssetEntity? image});
-
-  @override
-  $CategoryModelCopyWith<$Res> get category;
-  @override
-  $UnitModelCopyWith<$Res> get unit;
+      List<UnitModel> list_unit});
 }
 
 /// @nodoc
@@ -2851,50 +2016,55 @@ class __$$AddProductStateImplCopyWithImpl<$Res>
       _$AddProductStateImpl _value, $Res Function(_$AddProductStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AddProductState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isImport = null,
-    Object? ton_kho = null,
-    Object? gia_nhap_moi_sp = null,
-    Object? barcode = null,
-    Object? imageUrl = null,
-    Object? category = null,
-    Object? unit = null,
+    Object? hinh_san_pham = freezed,
+    Object? uid_danh_muc = freezed,
+    Object? ten_danh_muc = null,
+    Object? uid_don_vi = freezed,
+    Object? ten_don_vi = null,
+    Object? ky_hieu_don_vi = null,
+    Object? price_list = null,
     Object? list_category = null,
     Object? list_unit = null,
-    Object? list_price = null,
-    Object? image = freezed,
   }) {
     return _then(_$AddProductStateImpl(
       isImport: null == isImport
           ? _value.isImport
           : isImport // ignore: cast_nullable_to_non_nullable
               as bool,
-      ton_kho: null == ton_kho
-          ? _value.ton_kho
-          : ton_kho // ignore: cast_nullable_to_non_nullable
-              as int,
-      gia_nhap_moi_sp: null == gia_nhap_moi_sp
-          ? _value.gia_nhap_moi_sp
-          : gia_nhap_moi_sp // ignore: cast_nullable_to_non_nullable
-              as double,
-      barcode: null == barcode
-          ? _value.barcode
-          : barcode // ignore: cast_nullable_to_non_nullable
+      hinh_san_pham: freezed == hinh_san_pham
+          ? _value.hinh_san_pham
+          : hinh_san_pham // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      uid_danh_muc: freezed == uid_danh_muc
+          ? _value.uid_danh_muc
+          : uid_danh_muc // ignore: cast_nullable_to_non_nullable
+              as int?,
+      ten_danh_muc: null == ten_danh_muc
+          ? _value.ten_danh_muc
+          : ten_danh_muc // ignore: cast_nullable_to_non_nullable
               as String,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      uid_don_vi: freezed == uid_don_vi
+          ? _value.uid_don_vi
+          : uid_don_vi // ignore: cast_nullable_to_non_nullable
+              as int?,
+      ten_don_vi: null == ten_don_vi
+          ? _value.ten_don_vi
+          : ten_don_vi // ignore: cast_nullable_to_non_nullable
               as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as CategoryModel,
-      unit: null == unit
-          ? _value.unit
-          : unit // ignore: cast_nullable_to_non_nullable
-              as UnitModel,
+      ky_hieu_don_vi: null == ky_hieu_don_vi
+          ? _value.ky_hieu_don_vi
+          : ky_hieu_don_vi // ignore: cast_nullable_to_non_nullable
+              as String,
+      price_list: null == price_list
+          ? _value._price_list
+          : price_list // ignore: cast_nullable_to_non_nullable
+              as List<PriceList>,
       list_category: null == list_category
           ? _value._list_category
           : list_category // ignore: cast_nullable_to_non_nullable
@@ -2903,14 +2073,6 @@ class __$$AddProductStateImplCopyWithImpl<$Res>
           ? _value._list_unit
           : list_unit // ignore: cast_nullable_to_non_nullable
               as List<UnitModel>,
-      list_price: null == list_price
-          ? _value._list_price
-          : list_price // ignore: cast_nullable_to_non_nullable
-              as List<PriceList>,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as AssetEntity?,
     ));
   }
 }
@@ -2920,41 +2082,46 @@ class __$$AddProductStateImplCopyWithImpl<$Res>
 class _$AddProductStateImpl implements _AddProductState {
   const _$AddProductStateImpl(
       {this.isImport = false,
-      this.ton_kho = 0,
-      this.gia_nhap_moi_sp = 0,
-      this.barcode = '',
-      this.imageUrl = '',
-      this.category = const CategoryModel(),
-      this.unit = const UnitModel(),
+      this.hinh_san_pham,
+      this.uid_danh_muc,
+      this.ten_danh_muc = '',
+      this.uid_don_vi,
+      this.ten_don_vi = '',
+      this.ky_hieu_don_vi = '',
+      final List<PriceList> price_list = const [],
       final List<CategoryModel> list_category = const [],
-      final List<UnitModel> list_unit = const [],
-      final List<PriceList> list_price = const [],
-      this.image})
-      : _list_category = list_category,
-        _list_unit = list_unit,
-        _list_price = list_price;
+      final List<UnitModel> list_unit = const []})
+      : _price_list = price_list,
+        _list_category = list_category,
+        _list_unit = list_unit;
 
   @override
   @JsonKey()
   final bool isImport;
   @override
-  @JsonKey()
-  final int ton_kho;
+  final Uint8List? hinh_san_pham;
+  @override
+  final int? uid_danh_muc;
   @override
   @JsonKey()
-  final double gia_nhap_moi_sp;
+  final String ten_danh_muc;
+  @override
+  final int? uid_don_vi;
   @override
   @JsonKey()
-  final String barcode;
+  final String ten_don_vi;
   @override
   @JsonKey()
-  final String imageUrl;
+  final String ky_hieu_don_vi;
+  final List<PriceList> _price_list;
   @override
   @JsonKey()
-  final CategoryModel category;
-  @override
-  @JsonKey()
-  final UnitModel unit;
+  List<PriceList> get price_list {
+    if (_price_list is EqualUnmodifiableListView) return _price_list;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_price_list);
+  }
+
   final List<CategoryModel> _list_category;
   @override
   @JsonKey()
@@ -2973,21 +2140,9 @@ class _$AddProductStateImpl implements _AddProductState {
     return EqualUnmodifiableListView(_list_unit);
   }
 
-  final List<PriceList> _list_price;
-  @override
-  @JsonKey()
-  List<PriceList> get list_price {
-    if (_list_price is EqualUnmodifiableListView) return _list_price;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_list_price);
-  }
-
-  @override
-  final AssetEntity? image;
-
   @override
   String toString() {
-    return 'AddProductState(isImport: $isImport, ton_kho: $ton_kho, gia_nhap_moi_sp: $gia_nhap_moi_sp, barcode: $barcode, imageUrl: $imageUrl, category: $category, unit: $unit, list_category: $list_category, list_unit: $list_unit, list_price: $list_price, image: $image)';
+    return 'AddProductState(isImport: $isImport, hinh_san_pham: $hinh_san_pham, uid_danh_muc: $uid_danh_muc, ten_danh_muc: $ten_danh_muc, uid_don_vi: $uid_don_vi, ten_don_vi: $ten_don_vi, ky_hieu_don_vi: $ky_hieu_don_vi, price_list: $price_list, list_category: $list_category, list_unit: $list_unit)';
   }
 
   @override
@@ -2997,40 +2152,43 @@ class _$AddProductStateImpl implements _AddProductState {
             other is _$AddProductStateImpl &&
             (identical(other.isImport, isImport) ||
                 other.isImport == isImport) &&
-            (identical(other.ton_kho, ton_kho) || other.ton_kho == ton_kho) &&
-            (identical(other.gia_nhap_moi_sp, gia_nhap_moi_sp) ||
-                other.gia_nhap_moi_sp == gia_nhap_moi_sp) &&
-            (identical(other.barcode, barcode) || other.barcode == barcode) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
-            (identical(other.category, category) ||
-                other.category == category) &&
-            (identical(other.unit, unit) || other.unit == unit) &&
+            const DeepCollectionEquality()
+                .equals(other.hinh_san_pham, hinh_san_pham) &&
+            (identical(other.uid_danh_muc, uid_danh_muc) ||
+                other.uid_danh_muc == uid_danh_muc) &&
+            (identical(other.ten_danh_muc, ten_danh_muc) ||
+                other.ten_danh_muc == ten_danh_muc) &&
+            (identical(other.uid_don_vi, uid_don_vi) ||
+                other.uid_don_vi == uid_don_vi) &&
+            (identical(other.ten_don_vi, ten_don_vi) ||
+                other.ten_don_vi == ten_don_vi) &&
+            (identical(other.ky_hieu_don_vi, ky_hieu_don_vi) ||
+                other.ky_hieu_don_vi == ky_hieu_don_vi) &&
+            const DeepCollectionEquality()
+                .equals(other._price_list, _price_list) &&
             const DeepCollectionEquality()
                 .equals(other._list_category, _list_category) &&
             const DeepCollectionEquality()
-                .equals(other._list_unit, _list_unit) &&
-            const DeepCollectionEquality()
-                .equals(other._list_price, _list_price) &&
-            (identical(other.image, image) || other.image == image));
+                .equals(other._list_unit, _list_unit));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       isImport,
-      ton_kho,
-      gia_nhap_moi_sp,
-      barcode,
-      imageUrl,
-      category,
-      unit,
+      const DeepCollectionEquality().hash(hinh_san_pham),
+      uid_danh_muc,
+      ten_danh_muc,
+      uid_don_vi,
+      ten_don_vi,
+      ky_hieu_don_vi,
+      const DeepCollectionEquality().hash(_price_list),
       const DeepCollectionEquality().hash(_list_category),
-      const DeepCollectionEquality().hash(_list_unit),
-      const DeepCollectionEquality().hash(_list_price),
-      image);
+      const DeepCollectionEquality().hash(_list_unit));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AddProductState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddProductStateImplCopyWith<_$AddProductStateImpl> get copyWith =>
@@ -3041,41 +2199,41 @@ class _$AddProductStateImpl implements _AddProductState {
 abstract class _AddProductState implements AddProductState {
   const factory _AddProductState(
       {final bool isImport,
-      final int ton_kho,
-      final double gia_nhap_moi_sp,
-      final String barcode,
-      final String imageUrl,
-      final CategoryModel category,
-      final UnitModel unit,
+      final Uint8List? hinh_san_pham,
+      final int? uid_danh_muc,
+      final String ten_danh_muc,
+      final int? uid_don_vi,
+      final String ten_don_vi,
+      final String ky_hieu_don_vi,
+      final List<PriceList> price_list,
       final List<CategoryModel> list_category,
-      final List<UnitModel> list_unit,
-      final List<PriceList> list_price,
-      final AssetEntity? image}) = _$AddProductStateImpl;
+      final List<UnitModel> list_unit}) = _$AddProductStateImpl;
 
   @override
   bool get isImport;
   @override
-  int get ton_kho;
+  Uint8List? get hinh_san_pham;
   @override
-  double get gia_nhap_moi_sp;
+  int? get uid_danh_muc;
   @override
-  String get barcode;
+  String get ten_danh_muc;
   @override
-  String get imageUrl;
+  int? get uid_don_vi;
   @override
-  CategoryModel get category;
+  String get ten_don_vi;
   @override
-  UnitModel get unit;
+  String get ky_hieu_don_vi;
+  @override
+  List<PriceList> get price_list;
   @override
   List<CategoryModel> get list_category;
   @override
   List<UnitModel> get list_unit;
+
+  /// Create a copy of AddProductState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  List<PriceList> get list_price;
-  @override
-  AssetEntity? get image;
-  @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddProductStateImplCopyWith<_$AddProductStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

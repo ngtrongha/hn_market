@@ -3,21 +3,19 @@ import 'package:currency_text_input_formatter/currency_text_input_formatter.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_popup/flutter_popup.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hn_market/model/product_model/product_model.dart';
-import 'package:hn_market/utils/image_cached.dart';
 import 'package:hn_market/utils/utils.dart';
-import 'package:tdesign_flutter/tdesign_flutter.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 import '../../utils/custom_textfield.dart';
+import '../../utils/image_cached.dart';
+import '../../utils/loading.dart';
 import 'bloc/add_product_bloc.dart';
 
 @RoutePage()
 class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
-  const AddProductScreen({super.key, this.oldData, required this.barcode});
-  final ProductModel? oldData;
+  const AddProductScreen({super.key, this.uid, required this.barcode});
+  final int? uid;
   final String barcode;
   @override
   Widget build(BuildContext context) {
@@ -30,7 +28,7 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
             title: 'Thêm sản phẩm',
           ),
           heightBottomSheet: 50,
-          bottomSheet: (oldData != null ? 'Cập nhật' : 'Thêm sản phẩm')
+          bottomSheet: (uid != null ? 'Cập nhật' : 'Thêm sản phẩm')
               .size15
               .color(Colors.white)
               .textButton(
@@ -47,37 +45,23 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
                 10.sized,
                 Row(
                   children: [
-                    if (state.image != null)
+                    if (state.hinh_san_pham != null)
                       Container(
-                        width: 125.sp,
-                        height: 125.sp,
+                        width: 157.sp,
+                        height: 157.sp,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(color: Colors.black12)),
-                        child: AssetEntityImage(
-                          state.image!,
-                          fit: BoxFit.cover,
-                        ),
-                      ).onTap(() {
-                        bloc.add(const ChooseImage());
-                      })
-                    else if (state.imageUrl.isNotEmpty)
-                      Container(
-                        width: 125.sp,
-                        height: 125.sp,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: Colors.black12)),
-                        child: ImageCached(
-                          image: state.imageUrl,
+                        child: ImageMemory(
+                          state.hinh_san_pham!,
                         ),
                       ).onTap(() {
                         bloc.add(const ChooseImage());
                       })
                     else
                       Container(
-                        width: 125.sp,
-                        height: 125.sp,
+                        width: 157.sp,
+                        height: 157.sp,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(color: Colors.black12)),
@@ -86,7 +70,7 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
                           children: [
                             const Icon(FontAwesomeIcons.camera),
                             10.sized,
-                            'Hình khách'.size12,
+                            'Hình sản phẩm'.size12,
                           ],
                         ),
                       ).onTap(() {
@@ -96,113 +80,87 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
                         child: Column(
                       children: [
                         CustomTextField(
-                          controller:
-                              TextEditingController(text: state.barcode),
+                          controller: TextEditingController(text: barcode),
                           readOnly: true,
-                          leftLabel: 'Mã SP',
-                          rightBtn: const Icon(FontAwesomeIcons.barcode),
-                          onBtnTap: () {
-                            bloc.add(const ScanBarcode());
-                          },
-                        ),
+                          title: 'Mã SP',
+                          // rightWidget: const Icon(FontAwesomeIcons.barcode),
+                          // onBtnTap: () {
+                          //   bloc.add(const ScanBarcode());
+                          // },
+                        ).marginSymmetric(horizontal: 10),
                         10.sized,
                         CustomTextField(
-                          controller: bloc.ten_san_pham,
-                          leftLabel: 'Tên SP',
+                          controller: bloc.ten_san_phamController,
+                          title: 'Tên SP',
                           hintText: 'Nhập tên SP',
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Vui lòng nhập tên SP';
+                            }
+                            return null;
+                          },
                           required: true,
-                        ),
+                        ).marginSymmetric(horizontal: 10),
                       ],
                     ))
                   ],
                 ).marginSymmetric(horizontal: 10),
                 10.sized,
-                CustomTextField(
-                  readOnly: true,
-                  leftLabel: 'Loại SP',
-                  required: true,
-                  rightBtn: Container(
-                    constraints: BoxConstraints(maxWidth: 150.sp),
-                    child: CustomPopup(
-                      showArrow: true,
-                      content: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: state.list_category
-                              .map((e) => Container(
-                                          width: 160.sp,
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 8),
-                                          decoration: const BoxDecoration(
-                                              border: Border(
-                                                  bottom: BorderSide(
-                                                      color: Colors.black12))),
-                                          child:
-                                              '#${state.list_category.indexOf(e) + 1}: ${e.ten_danh_muc}'
-                                                  .size15)
-                                      .onTap(() {
-                                    bloc.add(ChooseCategory(e));
-                                  }))
-                              .toList(),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          state.category.ten_danh_muc.size15
-                              .color(Theme.of(context).primaryColor),
-                          15.sized,
-                          const Icon(Icons.keyboard_arrow_down_rounded),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                CustomDropDownButton(
+                        value: state.uid_danh_muc,
+                        title: 'Loại SP',
+                        hintText: 'Chọn loại SP',
+                        validator: (value) {
+                          if (value == null) {
+                            return 'Vui lòng chọn loại SP';
+                          }
+                          return null;
+                        },
+                        onChanged: (p0) {
+                          final category = state.list_category
+                              .firstWhere((element) => element.uid == p0);
+                          bloc.add(ChooseCategory(category));
+                        },
+                        items: state.list_category
+                            .map((e) => DropdownMenuItem(
+                                value: e.uid,
+                                child: (e.ten_danh_muc ?? '').size14.w600))
+                            .toList())
+                    .marginSymmetric(horizontal: 10),
                 10.sized,
                 CustomTextField(
-                  controller: bloc.dung_tich,
                   inputType: TextInputType.number,
-                  leftLabel: 'Dung tích',
+                  controller: bloc.dung_tichController,
+                  title: 'Dung tích',
                   hintText: 'Nhập dung tích',
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Vui lòng nhập dung tích';
+                    }
+                    return null;
+                  },
                   required: true,
-                  rightBtn: Container(
-                    constraints: BoxConstraints(maxWidth: 90.sp),
-                    child: CustomPopup(
-                      showArrow: true,
-                      content: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: state.list_unit
-                            .map((e) => Container(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 8),
-                                  decoration: const BoxDecoration(
-                                      border: Border(
-                                          bottom: BorderSide(
-                                              color: Colors.black12))),
-                                  child: e.ten_don_vi.size15.center,
-                                ).onTap(() {
-                                  bloc.add(ChooseUnit(e));
-                                }))
-                            .toList(),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          state.unit.ky_hieu.size15
-                              .color(Theme.of(context).primaryColor),
-                          15.sized,
-                          const Icon(Icons.keyboard_arrow_down_rounded)
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                  suffixIconMaxWidth: 120.sp,
+                  suffixIcon: CustomDropDownButton(
+                      value: state.uid_don_vi,
+                      hintText: 'Chọn đơn vị',
+                      onChanged: (p0) {
+                        final unit = state.list_unit
+                            .firstWhere((element) => element.uid == p0);
+                        bloc.add(ChooseUnit(unit));
+                      },
+                      items: state.list_unit
+                          .map((e) => DropdownMenuItem(
+                              value: e.uid,
+                              child: (e.ten_don_vi ?? '').size14.w600))
+                          .toList()),
+                ).marginSymmetric(horizontal: 10),
                 10.sized,
                 CustomTextField(
-                  controller: bloc.ghi_chu,
-                  leftLabel: 'Ghi chú',
+                  controller: bloc.ghi_chuController,
+                  title: 'Ghi chú',
                   hintText: 'Nội dung',
-                ),
+                ).marginSymmetric(horizontal: 10),
                 10.sized,
                 Row(
                   children: [
@@ -229,19 +187,19 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
                   ],
                 ),
                 10.sized,
-                if (state.list_price.isNotEmpty)
-                  ...state.list_price.map((e) {
-                    final formaterr =
-                        CurrencyTextInputFormatter(symbol: 'đ', locale: 'vi');
-
+                if (state.price_list.isNotEmpty)
+                  ...state.price_list.map((e) {
                     return Card(
                       child: Column(
                         children: [
                           10.sized,
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              '#${state.list_price.indexOf(e) + 1}'.size16.w500,
+                              '#${state.price_list.indexOf(e) + 1}'.size16.w500,
+                              20.sized,
+                              (e.name ?? '').size16.w500,
+                              const Spacer(),
                               Icon(
                                 FontAwesomeIcons.xmark,
                                 size: 20.sp,
@@ -252,74 +210,28 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
                           ).marginSymmetric(horizontal: 12),
                           const Divider(),
                           CustomTextField(
-                            controller: TextEditingController.fromValue(
-                                TextEditingValue(
-                                    text: formaterr.formatDouble(e.gia_ban),
-                                    selection: TextSelection.collapsed(
-                                        offset: formaterr
-                                            .getFormattedValue()
-                                            .length))),
+                            controller: TextEditingController(
+                                text: Utils.moneyFormat(e.gia_ban)),
                             inputType: TextInputType.number,
-                            backgroundColor: Colors.white,
-                            onChanged: (p0) {
-                              bloc.add(ChangePrice(e,
-                                  formaterr.getUnformattedValue().toDouble()));
-                            },
-                            leftLabel: 'Giá bán',
-                            hintText: 'Nhập giá bán',
+                            contentAlignment: TextAlign.end,
+                            readOnly: true,
+                            title: 'Giá bán',
                             required: true,
-                            inputFormatters: [formaterr],
                           ).marginSymmetric(horizontal: 10),
                           10.sized,
                           CustomTextField(
-                            controller: TextEditingController.fromValue(
-                                TextEditingValue(
-                                    text: e.so_luong.toString(),
-                                    selection: TextSelection.collapsed(
-                                        offset: e.so_luong.toString().length))),
+                            controller: TextEditingController(
+                                text: e.so_luong.toString()),
                             inputType: TextInputType.number,
-                            backgroundColor: Colors.white,
-                            onChanged: (p0) {
-                              bloc.add(ChangeSL(e, double.tryParse(p0) ?? 0));
-                            },
-                            leftLabel: 'Số lượng',
-                            hintText: 'Nhập số lượng',
+                            readOnly: true,
+                            title: 'Số lượng',
+                            contentAlignment: TextAlign.end,
                             required: true,
-                            rightBtn: Container(
-                              constraints: BoxConstraints(maxWidth: 90.sp),
-                              child: CustomPopup(
-                                showArrow: true,
-                                content: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: state.list_unit
-                                      .map((unit) => Container(
-                                            width: 100.sp,
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 8),
-                                            decoration: const BoxDecoration(
-                                                border: Border(
-                                                    bottom: BorderSide(
-                                                        color:
-                                                            Colors.black12))),
-                                            child:
-                                                unit.ten_don_vi.size15.center,
-                                          ).onTap(() {
-                                            bloc.add(ChooseUnitPrice(e, unit));
-                                          }))
-                                      .toList(),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    e.ten_don_vi.size15
-                                        .color(Theme.of(context).primaryColor),
-                                    15.sized,
-                                    const Icon(
-                                        Icons.keyboard_arrow_down_rounded)
-                                  ],
-                                ),
-                              ),
-                            ),
+                            suffixIconMaxWidth: 90.sp,
+                            suffixIcon: (e.ten_don_vi ?? '')
+                                .size15
+                                .color(Theme.of(context).primaryColor)
+                                .marginOnly(right: 10),
                           ).marginSymmetric(horizontal: 10),
                           10.sized,
                         ],
@@ -330,68 +242,68 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
                   Center(
                     child: 'Chưa thêm giá'.size12,
                   ),
-                10.sized,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    'Nhập số lượng nhiều'.size15,
-                    TDSwitch(
-                      isOn: state.isImport,
-                      type: TDSwitchType.icon,
-                      onChanged: (value) {
-                        bloc.add(const ChangeBool('isImport'));
-                        return value;
-                      },
-                    ),
-                  ],
-                ).marginSymmetric(horizontal: 12).onTap(() {
-                  bloc.add(const ChangeBool('isImport'));
-                }),
-                if (state.isImport)
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      10.sized,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          'Tồn kho'.size15,
-                          '${state.ton_kho}'.size16,
-                        ],
-                      ).marginSymmetric(horizontal: 10).onTap(() {
-                        bloc.add(const ChangeBool('isImport'));
-                      }),
-                      10.sized,
-                      CustomTextField(
-                        controller: bloc.so_luong_nhap,
-                        inputType: TextInputType.number,
-                        leftLabel: 'SL nhập',
-                        onChanged: (value) {
-                          bloc.add(ChangeString('so_luong_nhap', value));
-                        },
-                      ),
-                      10.sized,
-                      CustomTextField(
-                        controller: bloc.tong_gia_nhap,
-                        inputType: TextInputType.number,
-                        leftLabel: 'Tổng giá',
-                        onChanged: (value) {
-                          bloc.add(ChangeString('tong_gia_nhap', value));
-                        },
-                        inputFormatters: [bloc.tong_gia_nhap_formartter],
-                      ),
-                      10.sized,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          'Giá nhập mỗi sản phẩm'.size15,
-                          Utils.moneyFormat(state.gia_nhap_moi_sp).size16,
-                        ],
-                      ).marginSymmetric(horizontal: 12).onTap(() {
-                        bloc.add(const ChangeBool('isImport'));
-                      }),
-                    ],
-                  ),
+                // 10.sized,
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     'Nhập số lượng nhiều'.size15,
+                //     TDSwitch(
+                //       isOn: state.isImport,
+                //       type: TDSwitchType.icon,
+                //       onChanged: (value) {
+                //         bloc.add(const ChangeBool('isImport'));
+                //         return value;
+                //       },
+                //     ),
+                //   ],
+                // ).marginSymmetric(horizontal: 12).onTap(() {
+                //   bloc.add(const ChangeBool('isImport'));
+                // }),
+                // if (state.isImport)
+                //   Column(
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [
+                //       10.sized,
+                //       Row(
+                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //         children: [
+                //           'Tồn kho'.size15,
+                //           '0'.size16,
+                //         ],
+                //       ).marginSymmetric(horizontal: 10).onTap(() {
+                //         bloc.add(const ChangeBool('isImport'));
+                //       }),
+                //       10.sized,
+                //       CustomTextField(
+                //         controller: bloc.so_luong_nhap,
+                //         inputType: TextInputType.number,
+                //         title: 'SL nhập',
+                //         onChanged: (value) {
+                //           bloc.add(ChangeString('so_luong_nhap', value));
+                //         },
+                //       ),
+                //       10.sized,
+                //       CustomTextField(
+                //         controller: bloc.tong_gia_nhap,
+                //         inputType: TextInputType.number,
+                //         title: 'Tổng giá',
+                //         onChanged: (value) {
+                //           bloc.add(ChangeString('tong_gia_nhap', value));
+                //         },
+                //         inputFormatters: [bloc.tong_gia_nhap_formartter],
+                //       ),
+                //       10.sized,
+                //       Row(
+                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //         children: [
+                //           'Giá nhập mỗi sản phẩm'.size15,
+                //           Utils.moneyFormat(0).size16,
+                //         ],
+                //       ).marginSymmetric(horizontal: 12).onTap(() {
+                //         bloc.add(const ChangeBool('isImport'));
+                //       }),
+                //     ],
+                //   ),
                 40.sized,
               ],
             )),
@@ -405,7 +317,7 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          AddProductBloc(context, oldData, barcode)..add(const Started()),
+          AddProductBloc(context, uid, barcode)..add(const Started()),
       child: this,
     );
   }

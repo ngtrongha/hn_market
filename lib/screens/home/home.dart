@@ -1,17 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hn_market/app_router/app_router.dart';
 import 'package:hn_market/utils/custom_avatar.dart';
-import 'package:hn_market/utils/image_cached.dart';
 import 'package:hn_market/utils/utils.dart';
 import 'package:talker_flutter/talker_flutter.dart';
-import 'package:tdesign_flutter/tdesign_flutter.dart';
 
 import '../../utils/custom_textfield.dart';
 import '../../utils/empty_widget.dart';
+import '../../utils/image_cached.dart';
 import 'bloc/home_bloc.dart';
 
 @RoutePage()
@@ -42,10 +40,12 @@ class HomeScreen extends StatelessWidget {
                 slivers: [
                   if (Utils.mainBloc.state.user != null)
                     SliverAppBar(
-                      floating: true,
+                      pinned: true,
                       backgroundColor: Theme.of(context).primaryColorLight,
-                      expandedHeight: 100.sp,
+                      expandedHeight: 120.sp,
                       flexibleSpace: Container(
+                        height: 120.sp,
+                        width: double.infinity,
                         alignment: Alignment.center,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -106,6 +106,13 @@ class HomeScreen extends StatelessWidget {
                                               .push(const UnitListRoute());
                                         },
                                       ),
+                                      PopupMenuItem(
+                                        child: 'Thêm đơn hàng'.size15,
+                                        onTap: () {
+                                          Utils.appRouter
+                                              .push(OrderEntryRoute());
+                                        },
+                                      ),
                                     ];
                                   },
                                 )
@@ -126,22 +133,18 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                  SliverAppBar(
-                    expandedHeight: state.isSearchProduct ? 70.sp : 52.sp,
-                    flexibleSpace: Card(
+                  SliverToBoxAdapter(
+                    child: Card(
                             child: Row(
                       children: [
                         if (state.isSearchProduct)
                           Expanded(
-                            child: SizedBox(
-                              height: 40.sp,
-                              child: CustomTextField(
-                                onChanged: (value) {
-                                  bloc.add(ChangeString(
-                                      'search_product_text', value));
-                                },
-                                leftLabel: 'Tìm kiếm',
-                              ),
+                            child: CustomTextField(
+                              onChanged: (value) {
+                                bloc.add(
+                                    ChangeString('search_product_text', value));
+                              },
+                              title: 'Tìm kiếm',
                             ),
                           )
                         else
@@ -177,22 +180,27 @@ class HomeScreen extends StatelessWidget {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            ImageCached(
-                                              image: data.hinh_san_pham,
-                                              width: 120.sp,
-                                              height: 80.sp,
-                                            ),
-                                            data.ten_san_pham.size11,
+                                            if (data.hinh_san_pham != null)
+                                              ImageMemory(
+                                                data.hinh_san_pham!,
+                                                width: 120.sp,
+                                                height: 80.sp,
+                                                fit: BoxFit.cover,
+                                                alignment: Alignment.center,
+                                              ),
+                                            (data.ten_san_pham ?? '').size11,
                                             'Loại: ${data.ten_danh_muc}'.size11,
                                           ],
                                         ),
                                       ).onTap(() {
-                                        Utils.appRouter
-                                            .push(AddProductRoute(
-                                                barcode: data.barcode,
-                                                oldData: data))
-                                            .whenComplete(() =>
-                                                bloc.add(const Started()));
+                                        if (data.barcode != null) {
+                                          Utils.appRouter
+                                              .push(AddProductRoute(
+                                                  barcode: data.barcode!,
+                                                  uid: data.uid))
+                                              .whenComplete(() =>
+                                                  bloc.add(const Started()));
+                                        }
                                       }))
                                   .toList(),
                             ),
@@ -219,14 +227,13 @@ class HomeScreen extends StatelessWidget {
                                         Utils.appRouter.push(OrderEntryRoute());
                                       },
                                       leading: CustomAvatar(
-                                        avatarUrl: data.hinh_khach_hang,
+                                        avatar: data.hinh_khach_hang,
                                         avatarSize: 50.sp,
                                         name: data.ten_khach_hang,
-                                        shape: TDAvatarShape.square,
                                       ),
                                       title: Row(
                                         children: [
-                                          data.ten_khach_hang.size16,
+                                          (data.ten_khach_hang ?? '').size16,
                                           const Spacer(),
                                           Utils.moneyFormat(data.tong_gia)
                                               .size14
@@ -271,7 +278,7 @@ class HomeScreen extends StatelessWidget {
                                                 children: [
                                                   '${e.so_luong}x'.size10,
                                                   5.sized,
-                                                  e.ten_san_pham.size10,
+                                                  (e.ten_san_pham ?? '').size10,
                                                   const Spacer(),
                                                   Utils.moneyFormat(e.gia_ban)
                                                       .size13

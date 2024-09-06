@@ -7,11 +7,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hn_market/main/bloc/main_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+import 'database/object_box.dart';
 import 'firebase_options.dart';
 import 'app_router/my_observer.dart';
 import 'utils/custom_animation.dart';
@@ -22,6 +22,7 @@ main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   HttpOverrides.global = MyHttpOverrides();
+  Utils.objectBox = await ObjectBox.create();
   configLoading();
   const fatalError = true;
   FlutterError.onError = (errorDetails) {
@@ -48,7 +49,7 @@ main() async {
   };
 
   runApp(BlocProvider(
-    create: (context) => MainBloc(),
+    create: (context) => MainBloc()..add(const Started()),
     child: const MyApp(),
   ));
 }

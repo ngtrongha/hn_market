@@ -1,10 +1,12 @@
 // ignore_for_file: use_build_context_synchronously, depend_on_referenced_packages
 
 import 'dart:io';
- 
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:permission_handler/permission_handler.dart';
- 
+
 import 'gallary.dart';
 export 'package:wechat_assets_picker/wechat_assets_picker.dart';
 export 'package:wechat_camera_picker/wechat_camera_picker.dart';
@@ -12,37 +14,29 @@ export 'package:wechat_camera_picker/wechat_camera_picker.dart';
 class Gallery {
   final BuildContext context;
   Gallery(this.context);
-  // Future<AssetEntity?> cropImage(final String path) async {
-  //   CroppedFile? croppedFile = await ImageCropper().cropImage(
-  //     sourcePath: path,
-  //     aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
-  //     compressFormat: ImageCompressFormat.png,
-  //     aspectRatioPresets: [
-  //       CropAspectRatioPreset.square,
-  //     ],
-  //     uiSettings: [
-  //       AndroidUiSettings(
-  //           toolbarTitle: 'Tuỳ chỉnh ảnh',
-  //           toolbarColor: Colors.white,
-  //           toolbarWidgetColor: Theme.of(context).primaryColor,
-  //           statusBarColor: Colors.white,
-  //           initAspectRatio: CropAspectRatioPreset.square,
-  //           lockAspectRatio: false),
-  //       IOSUiSettings(
-  //         title: 'Tuỳ chỉnh ảnh',
-  //       ),
-  //     ],
-  //   );
-  //   if (croppedFile == null) {
-  //     return null;
-  //   }
-  //   final AssetEntity? fileEntity = await PhotoManager.editor.saveImageWithPath(
-  //     croppedFile.path,
-  //     title: p.basename(croppedFile.path),
-  //   );
-
-  //   return fileEntity;
-  // }
+  Future<Uint8List?> cropImage(final String path) async {
+    CroppedFile? croppedFile = await ImageCropper().cropImage(
+      sourcePath: path,
+      aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
+      compressFormat: ImageCompressFormat.png,
+      uiSettings: [
+        AndroidUiSettings(
+            toolbarTitle: 'Tuỳ chỉnh ảnh',
+            toolbarColor: Colors.white,
+            toolbarWidgetColor: Theme.of(context).primaryColor,
+            statusBarColor: Colors.white,
+            initAspectRatio: CropAspectRatioPreset.square,
+            lockAspectRatio: true),
+        IOSUiSettings(
+          title: 'Tuỳ chỉnh ảnh',
+        ),
+      ],
+    );
+    if (croppedFile == null) {
+      return null;
+    }
+    return await croppedFile.readAsBytes();
+  }
 
   Future<List<AssetEntity>?> cameraAndStay({
     final int maxAssetsCount = 20,
@@ -60,7 +54,6 @@ class Gallery {
           maxAssets: maxAssetsCount,
           selectedAssets: selectedAssets,
           requestType: RequestType.image,
-          textDelegate: const VietNamAssetPickerTextDelegate(),
           // themeColor: Theme.of(context).primaryColor,
           specialItemPosition: SpecialItemPosition.prepend,
           pickerTheme: ThemeData.dark().copyWith(
@@ -85,14 +78,12 @@ class Gallery {
             colorScheme: ColorScheme(
               primary: Colors.grey[900]!,
               secondary: Theme.of(context).primaryColor,
-              background: Colors.grey[900]!,
               surface: Colors.grey[900]!,
               brightness: Brightness.dark,
               error: const Color(0xffcf6679),
               onPrimary: Colors.black,
               onSecondary: Colors.black,
               onSurface: Colors.white,
-              onBackground: Colors.white,
               onError: Colors.black,
             ),
           ),
@@ -115,10 +106,7 @@ class Gallery {
                       .contains(status)) {
                     final AssetEntity? result =
                         await CameraPicker.pickFromCamera(context,
-                            pickerConfig:
-                                const CameraPickerConfig(
-                                    textDelegate:
-                                        VietnamCameraPickerTextDelegate()));
+                            pickerConfig: const CameraPickerConfig());
                     if (result == null) {
                       return;
                     }
@@ -190,8 +178,22 @@ class Gallery {
       return await CameraPicker.pickFromCamera(
         context,
         useRootNavigator: false,
+        locale: const Locale('vi'),
         pickerConfig: CameraPickerConfig(
-          textDelegate: const VietnameseCameraPickerTextDelegate(),
+          enableRecording: false,
+          resolutionPreset: ResolutionPreset.high,
+          imageFormatGroup: ImageFormatGroup.jpeg,
+          preferredLensDirection: CameraLensDirection.back,
+          foregroundBuilder: (context, controller) {
+            return AspectRatio(
+              aspectRatio: 1.0,
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white, width: 2),
+                ),
+              ),
+            );
+          },
           theme: ThemeData.dark().copyWith(
             primaryColor: Colors.grey[900],
             primaryColorLight: Colors.grey[900],
@@ -214,14 +216,12 @@ class Gallery {
             colorScheme: ColorScheme(
               primary: Colors.grey[900]!,
               secondary: Theme.of(context).primaryColor,
-              background: Colors.grey[900]!,
               surface: Colors.grey[900]!,
               brightness: Brightness.dark,
               error: const Color(0xffcf6679),
               onPrimary: Colors.black,
               onSecondary: Colors.black,
               onSurface: Colors.white,
-              onBackground: Colors.white,
               onError: Colors.black,
             ),
           ),
@@ -259,168 +259,4 @@ class Gallery {
     }
     return result;
   }
-}
-
-class VietNamAssetPickerTextDelegate extends AssetPickerTextDelegate {
-  const VietNamAssetPickerTextDelegate();
-
-  @override
-  String get languageCode => 'vi';
-
-  @override
-  String get confirm => 'Xác nhận';
-
-  @override
-  String get cancel => 'Hủy bỏ';
-
-  @override
-  String get edit => 'Biên tập';
-
-  @override
-  String get gifIndicator => 'GIF';
-
-  @override
-  String get loadFailed => 'Tải không thành công';
-
-  @override
-  String get original => 'Nguồn gốc';
-
-  @override
-  String get preview => 'Xem trước';
-
-  @override
-  String get select => 'Lựa chọn';
-
-  @override
-  String get emptyList => 'Danh sách trống';
-
-  @override
-  String get unSupportedAssetType => 'Loại nội dung HEIC không được hỗ trợ.';
-
-  @override
-  String get unableToAccessAll =>
-      'Không thể truy cập tất cả nội dung trên thiết bị';
-
-  @override
-  String get viewingLimitedAssetsTip =>
-      'Chỉ xem nội dung và album có thể truy cập vào ứng dụng.';
-
-  @override
-  String get changeAccessibleLimitedAssets =>
-      'Nhấp để cập nhật nội dung có thể truy cập';
-
-  @override
-  String get accessAllTip =>
-      'Ứng dụng chỉ có thể truy cập một số nội dung trên thiết bị.'
-      'Chuyển đến cài đặt hệ thống và cho phép ứng dụng truy cập tất cả nội dung trên thiết bị.';
-
-  @override
-  String get goToSystemSettings => 'Chuyển đến cài đặt hệ thống';
-
-  @override
-  String get accessLimitedAssets => 'Tiếp tục với quyền truy cập hạn chế';
-
-  @override
-  String get accessiblePathName => 'Nội dung có thể truy cập';
-
-  @override
-  String get sTypeAudioLabel => 'Âm thanh';
-
-  @override
-  String get sTypeImageLabel => 'Hình ảnh';
-
-  @override
-  String get sTypeVideoLabel => 'Video';
-
-  @override
-  String get sTypeOtherLabel => 'Other asset';
-
-  @override
-  String get sActionPlayHint => 'chơi';
-
-  @override
-  String get sActionPreviewHint => 'xem trước';
-
-  @override
-  String get sActionSelectHint => 'lựa chọn';
-
-  @override
-  String get sActionSwitchPathLabel => 'chuyển đổi đường dẫn';
-
-  @override
-  String get sActionUseCameraHint => 'sử dụng máy ảnh';
-
-  @override
-  String get sNameDurationLabel => 'khoảng thời gian';
-
-  @override
-  String get sUnitAssetCountLabel => 'đếm';
-}
-
-class VietnamCameraPickerTextDelegate extends CameraPickerTextDelegate {
-  const VietnamCameraPickerTextDelegate();
-
-  @override
-  String get languageCode => 'vi';
-
-  @override
-  String get confirm => 'Xác nhận';
-
-  @override
-  String get shootingTips => 'Nhấn để chụp ảnh.';
-
-  @override
-  String get shootingWithRecordingTips =>
-      'Nhấn để chụp ảnh. Nhấn và giữ để quay video.';
-
-  @override
-  String get shootingOnlyRecordingTips => 'Nhấn và giữ để quay video.';
-
-  @override
-  String get shootingTapRecordingTips => 'Nhấn để quay video.';
-
-  @override
-  String get loadFailed => 'Tải không thành công';
-
-  @override
-  String get loading => 'Đang tải...';
-
-  @override
-  String get saving => 'Đang lưu...';
-
-  @override
-  String get sActionManuallyFocusHint => 'lấy nét thủ công';
-
-  @override
-  String get sActionPreviewHint => 'xem trước';
-
-  @override
-  String get sActionRecordHint => 'ghi ';
-
-  @override
-  String get sActionShootHint => 'chụp ảnh';
-
-  @override
-  String get sActionShootingButtonTooltip => 'nút chụp';
-
-  @override
-  String get sActionStopRecordingHint => 'dừng ghi âm';
-
-  @override
-  String sCameraLensDirectionLabel(CameraLensDirection value) => value.name;
-
-  @override
-  String? sCameraPreviewLabel(CameraLensDirection? value) {
-    if (value == null) {
-      return null;
-    }
-    return '${sCameraLensDirectionLabel(value)} xem trước máy ảnh';
-  }
-
-  @override
-  String sFlashModeLabel(FlashMode mode) => 'Chế độ đèn flash: ${mode.name}';
-
-  @override
-  String sSwitchCameraLensDirectionLabel(CameraLensDirection value) =>
-      'Chuyển sang ${sCameraLensDirectionLabel(value)} máy ảnh';
 }

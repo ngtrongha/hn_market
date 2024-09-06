@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
@@ -15,12 +16,11 @@ import '../screens/order_entry/order_entry.dart';
 import '../screens/qr_scan/qr_scan.dart';
 import '../screens/unit_list/unit_list.dart';
 import '../utils/empty_page.dart';
-import '../utils/utils.dart';
 
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
-class AppRouter extends _$AppRouter {
+class AppRouter extends RootStackRouter {
   @override
   RouteType get defaultRouteType => Platform.isIOS
       ? const RouteType.cupertino()
@@ -48,7 +48,8 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(
           page: CustomerEntryRoute.page,
-        ),AutoRoute(
+        ),
+        AutoRoute(
           page: CustomerListRoute.page,
         ),
         AutoRoute(page: HomeRoute.page, initial: true, guards: [AuthGuard()]),
@@ -60,7 +61,8 @@ class AuthGuard extends AutoRouteGuard {
   void onNavigation(NavigationResolver resolver, StackRouter router) {
     // the navigation is paused until resolver.next() is called with either
     // true to resume/continue navigation or false to abort navigation
-    if (Utils.mainBloc.state.isLogin) {
+    final isLogin = FirebaseAuth.instance.currentUser != null;
+    if (isLogin) {
       // if user is authenticated we continue
       resolver.next(true);
     } else {

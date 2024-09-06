@@ -1,13 +1,11 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hn_market/model/order_model/order_model.dart';
 import 'package:hn_market/utils/utils.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../../firestore/firestore.dart';
 import '../../../model/customer_model/customer_model.dart';
 
 part 'customer_list_event.dart';
@@ -19,9 +17,11 @@ class CustomerListBloc extends Bloc<CustomerListEvent, CustomerListState> {
   final searchController = TextEditingController();
   final BuildContext context;
   List<CustomerModel> get getCustomers => state.list_value
-      .where((element) => element.ten_khach_hang
-          .toLowerCase()
-          .contains(state.search_text.toLowerCase()))
+      .where((element) =>
+          element.ten_khach_hang
+              ?.toLowerCase()
+              .contains(state.search_text.toLowerCase()) ??
+          false)
       .toList();
   CustomerListBloc(this.context) : super(const CustomerListState()) {
     on<Started>(started);
@@ -35,14 +35,11 @@ class CustomerListBloc extends Bloc<CustomerListEvent, CustomerListState> {
   delete(Delete event, Emitter<CustomerListState> emit) async {
     try {
       EasyLoading.show();
-      await MyFirestore()
-          .getCustomersCollection()
-          .doc(event.uid)
-          .delete()
+      await Utils.objectBox.store
+          .box<CustomerModel>()
+          .removeAsync(event.uid)
           .then((querySnapshot) {
-        emit(state.copyWith(
-            list_value: state.list_value.toList()
-              ..removeWhere((element) => element.uid == event.uid)));
+        add(const Started());
       });
     } catch (e) {
       e.printELog;
@@ -55,28 +52,14 @@ class CustomerListBloc extends Bloc<CustomerListEvent, CustomerListState> {
   started(Started event, Emitter<CustomerListState> emit) async {
     try {
       if (!refreshController.isRefresh) EasyLoading.show();
-      await MyFirestore()
-          .getCustomersCollection()
-          .get()
-          .then((QuerySnapshot<CustomerModel> querySnapshot) {
-        final list = <CustomerModel>[];
-        for (var doc in querySnapshot.docs) {
-          list.add(doc.data());
-        }
-        emit(state.copyWith(list_value: list));
+      await Utils.objectBox.store
+          .box<CustomerModel>()
+          .getAllAsync()
+          .then((value) {
+        emit(state.copyWith(
+          list_value: value,
+        ));
       });
-      if (state.list_order.isEmpty) {
-        await MyFirestore()
-            .getOrdersCollection()
-            .get()
-            .then((QuerySnapshot<OrderModel> querySnapshot) {
-          final list = <OrderModel>[];
-          for (var doc in querySnapshot.docs) {
-            list.add(doc.data());
-          }
-          emit(state.copyWith(list_order: list));
-        });
-      }
     } catch (e) {
       e.printELog;
       EasyLoading.dismiss();

@@ -21,6 +21,7 @@ mixin _$CustomerEntryEvent {
     required TResult Function() started,
     required TResult Function() create,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$CustomerEntryEvent {
     TResult? Function()? started,
     TResult? Function()? create,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$CustomerEntryEvent {
     TResult Function()? started,
     TResult Function()? create,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$CustomerEntryEvent {
     required TResult Function(Started value) started,
     required TResult Function(Create value) create,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$CustomerEntryEvent {
     TResult? Function(Started value)? started,
     TResult? Function(Create value)? create,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$CustomerEntryEvent {
     TResult Function(Started value)? started,
     TResult Function(Create value)? create,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -78,6 +84,9 @@ class _$CustomerEntryEventCopyWithImpl<$Res, $Val extends CustomerEntryEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CustomerEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -94,6 +103,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CustomerEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -121,6 +133,7 @@ class _$StartedImpl implements Started {
     required TResult Function() started,
     required TResult Function() create,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
   }) {
     return started();
   }
@@ -131,6 +144,7 @@ class _$StartedImpl implements Started {
     TResult? Function()? started,
     TResult? Function()? create,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
   }) {
     return started?.call();
   }
@@ -141,6 +155,7 @@ class _$StartedImpl implements Started {
     TResult Function()? started,
     TResult Function()? create,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -155,6 +170,7 @@ class _$StartedImpl implements Started {
     required TResult Function(Started value) started,
     required TResult Function(Create value) create,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
   }) {
     return started(this);
   }
@@ -165,6 +181,7 @@ class _$StartedImpl implements Started {
     TResult? Function(Started value)? started,
     TResult? Function(Create value)? create,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
   }) {
     return started?.call(this);
   }
@@ -175,6 +192,7 @@ class _$StartedImpl implements Started {
     TResult Function(Started value)? started,
     TResult Function(Create value)? create,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -202,6 +220,9 @@ class __$$CreateImplCopyWithImpl<$Res>
   __$$CreateImplCopyWithImpl(
       _$CreateImpl _value, $Res Function(_$CreateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CustomerEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -229,6 +250,7 @@ class _$CreateImpl implements Create {
     required TResult Function() started,
     required TResult Function() create,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
   }) {
     return create();
   }
@@ -239,6 +261,7 @@ class _$CreateImpl implements Create {
     TResult? Function()? started,
     TResult? Function()? create,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
   }) {
     return create?.call();
   }
@@ -249,6 +272,7 @@ class _$CreateImpl implements Create {
     TResult Function()? started,
     TResult Function()? create,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -263,6 +287,7 @@ class _$CreateImpl implements Create {
     required TResult Function(Started value) started,
     required TResult Function(Create value) create,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
   }) {
     return create(this);
   }
@@ -273,6 +298,7 @@ class _$CreateImpl implements Create {
     TResult? Function(Started value)? started,
     TResult? Function(Create value)? create,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
   }) {
     return create?.call(this);
   }
@@ -283,6 +309,7 @@ class _$CreateImpl implements Create {
     TResult Function(Started value)? started,
     TResult Function(Create value)? create,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -310,6 +337,9 @@ class __$$ChooseImageImplCopyWithImpl<$Res>
   __$$ChooseImageImplCopyWithImpl(
       _$ChooseImageImpl _value, $Res Function(_$ChooseImageImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CustomerEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -337,6 +367,7 @@ class _$ChooseImageImpl implements ChooseImage {
     required TResult Function() started,
     required TResult Function() create,
     required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
   }) {
     return chooseImage();
   }
@@ -347,6 +378,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult? Function()? started,
     TResult? Function()? create,
     TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
   }) {
     return chooseImage?.call();
   }
@@ -357,6 +389,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult Function()? started,
     TResult Function()? create,
     TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
     required TResult orElse(),
   }) {
     if (chooseImage != null) {
@@ -371,6 +404,7 @@ class _$ChooseImageImpl implements ChooseImage {
     required TResult Function(Started value) started,
     required TResult Function(Create value) create,
     required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
   }) {
     return chooseImage(this);
   }
@@ -381,6 +415,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult? Function(Started value)? started,
     TResult? Function(Create value)? create,
     TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
   }) {
     return chooseImage?.call(this);
   }
@@ -391,6 +426,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult Function(Started value)? started,
     TResult Function(Create value)? create,
     TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
     required TResult orElse(),
   }) {
     if (chooseImage != null) {
@@ -405,11 +441,178 @@ abstract class ChooseImage implements CustomerEntryEvent {
 }
 
 /// @nodoc
-mixin _$CustomerEntryState {
-  CustomerModel get detail => throw _privateConstructorUsedError;
-  AssetEntity? get image => throw _privateConstructorUsedError;
+abstract class _$$ChangeStringImplCopyWith<$Res> {
+  factory _$$ChangeStringImplCopyWith(
+          _$ChangeStringImpl value, $Res Function(_$ChangeStringImpl) then) =
+      __$$ChangeStringImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String key, String value});
+}
 
-  @JsonKey(ignore: true)
+/// @nodoc
+class __$$ChangeStringImplCopyWithImpl<$Res>
+    extends _$CustomerEntryEventCopyWithImpl<$Res, _$ChangeStringImpl>
+    implements _$$ChangeStringImplCopyWith<$Res> {
+  __$$ChangeStringImplCopyWithImpl(
+      _$ChangeStringImpl _value, $Res Function(_$ChangeStringImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CustomerEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? key = null,
+    Object? value = null,
+  }) {
+    return _then(_$ChangeStringImpl(
+      null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeStringImpl implements ChangeString {
+  const _$ChangeStringImpl(this.key, this.value);
+
+  @override
+  final String key;
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'CustomerEntryEvent.changeString(key: $key, value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeStringImpl &&
+            (identical(other.key, key) || other.key == key) &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, key, value);
+
+  /// Create a copy of CustomerEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeStringImplCopyWith<_$ChangeStringImpl> get copyWith =>
+      __$$ChangeStringImplCopyWithImpl<_$ChangeStringImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() create,
+    required TResult Function() chooseImage,
+    required TResult Function(String key, String value) changeString,
+  }) {
+    return changeString(key, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? create,
+    TResult? Function()? chooseImage,
+    TResult? Function(String key, String value)? changeString,
+  }) {
+    return changeString?.call(key, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? create,
+    TResult Function()? chooseImage,
+    TResult Function(String key, String value)? changeString,
+    required TResult orElse(),
+  }) {
+    if (changeString != null) {
+      return changeString(key, value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(Create value) create,
+    required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ChangeString value) changeString,
+  }) {
+    return changeString(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(Create value)? create,
+    TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ChangeString value)? changeString,
+  }) {
+    return changeString?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(Create value)? create,
+    TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ChangeString value)? changeString,
+    required TResult orElse(),
+  }) {
+    if (changeString != null) {
+      return changeString(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeString implements CustomerEntryEvent {
+  const factory ChangeString(final String key, final String value) =
+      _$ChangeStringImpl;
+
+  String get key;
+  String get value;
+
+  /// Create a copy of CustomerEntryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeStringImplCopyWith<_$ChangeStringImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$CustomerEntryState {
+  String get ten_khach_hang => throw _privateConstructorUsedError;
+  Uint8List? get hinh_khach_hang => throw _privateConstructorUsedError;
+  String get sdt_khach_hang => throw _privateConstructorUsedError;
+  String? get dia_chi => throw _privateConstructorUsedError;
+  List<OrderModel> get list_order => throw _privateConstructorUsedError;
+
+  /// Create a copy of CustomerEntryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CustomerEntryStateCopyWith<CustomerEntryState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -420,9 +623,12 @@ abstract class $CustomerEntryStateCopyWith<$Res> {
           CustomerEntryState value, $Res Function(CustomerEntryState) then) =
       _$CustomerEntryStateCopyWithImpl<$Res, CustomerEntryState>;
   @useResult
-  $Res call({CustomerModel detail, AssetEntity? image});
-
-  $CustomerModelCopyWith<$Res> get detail;
+  $Res call(
+      {String ten_khach_hang,
+      Uint8List? hinh_khach_hang,
+      String sdt_khach_hang,
+      String? dia_chi,
+      List<OrderModel> list_order});
 }
 
 /// @nodoc
@@ -435,30 +641,39 @@ class _$CustomerEntryStateCopyWithImpl<$Res, $Val extends CustomerEntryState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CustomerEntryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? detail = null,
-    Object? image = freezed,
+    Object? ten_khach_hang = null,
+    Object? hinh_khach_hang = freezed,
+    Object? sdt_khach_hang = null,
+    Object? dia_chi = freezed,
+    Object? list_order = null,
   }) {
     return _then(_value.copyWith(
-      detail: null == detail
-          ? _value.detail
-          : detail // ignore: cast_nullable_to_non_nullable
-              as CustomerModel,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as AssetEntity?,
+      ten_khach_hang: null == ten_khach_hang
+          ? _value.ten_khach_hang
+          : ten_khach_hang // ignore: cast_nullable_to_non_nullable
+              as String,
+      hinh_khach_hang: freezed == hinh_khach_hang
+          ? _value.hinh_khach_hang
+          : hinh_khach_hang // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      sdt_khach_hang: null == sdt_khach_hang
+          ? _value.sdt_khach_hang
+          : sdt_khach_hang // ignore: cast_nullable_to_non_nullable
+              as String,
+      dia_chi: freezed == dia_chi
+          ? _value.dia_chi
+          : dia_chi // ignore: cast_nullable_to_non_nullable
+              as String?,
+      list_order: null == list_order
+          ? _value.list_order
+          : list_order // ignore: cast_nullable_to_non_nullable
+              as List<OrderModel>,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CustomerModelCopyWith<$Res> get detail {
-    return $CustomerModelCopyWith<$Res>(_value.detail, (value) {
-      return _then(_value.copyWith(detail: value) as $Val);
-    });
   }
 }
 
@@ -470,10 +685,12 @@ abstract class _$$CustomerEntryStateImplCopyWith<$Res>
       __$$CustomerEntryStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CustomerModel detail, AssetEntity? image});
-
-  @override
-  $CustomerModelCopyWith<$Res> get detail;
+  $Res call(
+      {String ten_khach_hang,
+      Uint8List? hinh_khach_hang,
+      String sdt_khach_hang,
+      String? dia_chi,
+      List<OrderModel> list_order});
 }
 
 /// @nodoc
@@ -484,21 +701,38 @@ class __$$CustomerEntryStateImplCopyWithImpl<$Res>
       $Res Function(_$CustomerEntryStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CustomerEntryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? detail = null,
-    Object? image = freezed,
+    Object? ten_khach_hang = null,
+    Object? hinh_khach_hang = freezed,
+    Object? sdt_khach_hang = null,
+    Object? dia_chi = freezed,
+    Object? list_order = null,
   }) {
     return _then(_$CustomerEntryStateImpl(
-      detail: null == detail
-          ? _value.detail
-          : detail // ignore: cast_nullable_to_non_nullable
-              as CustomerModel,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as AssetEntity?,
+      ten_khach_hang: null == ten_khach_hang
+          ? _value.ten_khach_hang
+          : ten_khach_hang // ignore: cast_nullable_to_non_nullable
+              as String,
+      hinh_khach_hang: freezed == hinh_khach_hang
+          ? _value.hinh_khach_hang
+          : hinh_khach_hang // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      sdt_khach_hang: null == sdt_khach_hang
+          ? _value.sdt_khach_hang
+          : sdt_khach_hang // ignore: cast_nullable_to_non_nullable
+              as String,
+      dia_chi: freezed == dia_chi
+          ? _value.dia_chi
+          : dia_chi // ignore: cast_nullable_to_non_nullable
+              as String?,
+      list_order: null == list_order
+          ? _value._list_order
+          : list_order // ignore: cast_nullable_to_non_nullable
+              as List<OrderModel>,
     ));
   }
 }
@@ -507,17 +741,35 @@ class __$$CustomerEntryStateImplCopyWithImpl<$Res>
 
 class _$CustomerEntryStateImpl implements _CustomerEntryState {
   const _$CustomerEntryStateImpl(
-      {this.detail = const CustomerModel(), this.image});
+      {this.ten_khach_hang = '',
+      this.hinh_khach_hang,
+      this.sdt_khach_hang = '',
+      this.dia_chi,
+      final List<OrderModel> list_order = const []})
+      : _list_order = list_order;
 
   @override
   @JsonKey()
-  final CustomerModel detail;
+  final String ten_khach_hang;
   @override
-  final AssetEntity? image;
+  final Uint8List? hinh_khach_hang;
+  @override
+  @JsonKey()
+  final String sdt_khach_hang;
+  @override
+  final String? dia_chi;
+  final List<OrderModel> _list_order;
+  @override
+  @JsonKey()
+  List<OrderModel> get list_order {
+    if (_list_order is EqualUnmodifiableListView) return _list_order;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_list_order);
+  }
 
   @override
   String toString() {
-    return 'CustomerEntryState(detail: $detail, image: $image)';
+    return 'CustomerEntryState(ten_khach_hang: $ten_khach_hang, hinh_khach_hang: $hinh_khach_hang, sdt_khach_hang: $sdt_khach_hang, dia_chi: $dia_chi, list_order: $list_order)';
   }
 
   @override
@@ -525,14 +777,29 @@ class _$CustomerEntryStateImpl implements _CustomerEntryState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CustomerEntryStateImpl &&
-            (identical(other.detail, detail) || other.detail == detail) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.ten_khach_hang, ten_khach_hang) ||
+                other.ten_khach_hang == ten_khach_hang) &&
+            const DeepCollectionEquality()
+                .equals(other.hinh_khach_hang, hinh_khach_hang) &&
+            (identical(other.sdt_khach_hang, sdt_khach_hang) ||
+                other.sdt_khach_hang == sdt_khach_hang) &&
+            (identical(other.dia_chi, dia_chi) || other.dia_chi == dia_chi) &&
+            const DeepCollectionEquality()
+                .equals(other._list_order, _list_order));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, detail, image);
+  int get hashCode => Object.hash(
+      runtimeType,
+      ten_khach_hang,
+      const DeepCollectionEquality().hash(hinh_khach_hang),
+      sdt_khach_hang,
+      dia_chi,
+      const DeepCollectionEquality().hash(_list_order));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CustomerEntryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CustomerEntryStateImplCopyWith<_$CustomerEntryStateImpl> get copyWith =>
@@ -542,15 +809,27 @@ class _$CustomerEntryStateImpl implements _CustomerEntryState {
 
 abstract class _CustomerEntryState implements CustomerEntryState {
   const factory _CustomerEntryState(
-      {final CustomerModel detail,
-      final AssetEntity? image}) = _$CustomerEntryStateImpl;
+      {final String ten_khach_hang,
+      final Uint8List? hinh_khach_hang,
+      final String sdt_khach_hang,
+      final String? dia_chi,
+      final List<OrderModel> list_order}) = _$CustomerEntryStateImpl;
 
   @override
-  CustomerModel get detail;
+  String get ten_khach_hang;
   @override
-  AssetEntity? get image;
+  Uint8List? get hinh_khach_hang;
   @override
-  @JsonKey(ignore: true)
+  String get sdt_khach_hang;
+  @override
+  String? get dia_chi;
+  @override
+  List<OrderModel> get list_order;
+
+  /// Create a copy of CustomerEntryState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CustomerEntryStateImplCopyWith<_$CustomerEntryStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

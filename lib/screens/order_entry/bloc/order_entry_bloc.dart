@@ -1,11 +1,10 @@
-import 'package:bloc/bloc.dart';
+import 'dart:typed_data';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_image_compress/flutter_image_compress.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hn_market/model/customer_model/customer_model.dart';
 import 'package:hn_market/model/order_model/order_model.dart';
@@ -13,7 +12,8 @@ import 'package:hn_market/utils/utils.dart';
 import 'package:tdesign_flutter/tdesign_flutter.dart';
 
 import '../../../app_router/app_router.dart';
-import '../../../firestore/firestore.dart';
+import '../../../model/product_model/product_model.dart';
+import '../../../objectbox.g.dart';
 import '../../../utils/gallary.dart';
 import '../../../utils/image_cached.dart';
 import '../order_popup.dart';
@@ -25,11 +25,9 @@ part 'order_entry_bloc.freezed.dart';
 class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
   final BuildContext context;
   final formKey = GlobalKey<FormState>();
-  final ten_khach_hang = TextEditingController(text: 'Vãng lai');
-  final sdt_khach_hang = TextEditingController();
-  final khach_no = TextEditingController();
-  final khach_no_formartter =
-      CurrencyTextInputFormatter(symbol: 'đ', locale: 'vi');
+
+  final khach_no_formartter = CurrencyTextInputFormatter.simpleCurrency(
+      name: 'đ', locale: 'vi', decimalDigits: 0);
   final ProductModel? product;
   OrderEntryBloc(this.context, this.product) : super(const OrderEntryState()) {
     on<Started>(started);
@@ -43,27 +41,41 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
     on<ChangeBool>(changeBool);
     on<ChoosePrice>(choosePrice);
     on<ChooseCustomer>(chooseCustomer);
+    on<ChangeString>(changeString);
   }
+
+  changeString(ChangeString event, Emitter<OrderEntryState> emit) async {
+    switch (event.key) {
+      case 'ten_khach_hang':
+        emit(state.copyWith(ten_khach_hang: event.value));
+        break;
+      case 'sdt_khach_hang':
+        emit(state.copyWith(sdt_khach_hang: event.value));
+        break;
+    }
+  }
+
   chooseCustomer(ChooseCustomer event, Emitter<OrderEntryState> emit) async {
     try {
-      await MyFirestore().getCustomersCollection().get().then((value) async {
-        final list = value.docs.map((e) => e.data()).toList();
+      await Utils.objectBox.store
+          .box<CustomerModel>()
+          .getAllAsync()
+          .then((values) async {
         await Utils.appRouter
             .pushNativeRoute(OrderPopup.chooseCustomer(
-                list,
-                list.firstWhere(
-                  (element) => element.uid == state.detail.uid_khach_hang,
-                  orElse: () => const CustomerModel(),
+                values,
+                values.firstWhere(
+                  (element) => element.uid == state.uid_khach_hang,
+                  orElse: () => CustomerModel(),
                 )))
             .then((value) {
           if (value != null) {
             final data = value as CustomerModel;
             emit(state.copyWith(
-                detail: state.detail.copyWith(
               uid_khach_hang: data.uid,
-              ten_khach_hang: data.ten_khach_hang,
+              ten_khach_hang: data.ten_khach_hang ?? '',
               hinh_khach_hang: data.hinh_khach_hang,
-            )));
+            ));
           }
         });
       });
@@ -77,18 +89,14 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
 
   choosePrice(ChoosePrice event, Emitter<OrderEntryState> emit) async {
     try {
-      emit(state.copyWith(
-          detail: state.detail.copyWith(
-              list_product: state.detail.list_product
-                  .map((e) => e.uid_product == event.data.uid_product
-                      ? e.copyWith(
-                          gia_ban: event.value.gia_ban,
-                          gia_ban_ky_hieu_don_vi: event.value.ky_hieu_don_vi,
-                          gia_ban_ten_don_vi: event.value.ten_don_vi,
-                          gia_ban_uid_don_vi: event.value.uid_don_vi,
-                        )
-                      : e)
-                  .toList())));
+      final index = state.list_product.indexWhere(
+          (element) => element.uid_product == event.data.uid_product);
+      state.list_product[index].gia_ban = event.value.gia_ban;
+      state.list_product[index].gia_ban_ky_hieu_don_vi =
+          event.value.ky_hieu_don_vi;
+      state.list_product[index].gia_ban_ten_don_vi = event.value.ten_don_vi;
+      state.list_product[index].gia_ban_uid_don_vi = event.value.uid_don_vi;
+      emit(state.copyWith(list_product: state.list_product));
     } catch (e) {
       e.printELog;
       EasyLoading.dismiss();
@@ -101,28 +109,27 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
   addProductByChoose(
       AddProductByChoose event, Emitter<OrderEntryState> emit) async {
     try {
-      await Utils.appRouter
-          .pushNativeRoute(OrderPopup.multiChooseProducts(
-              state.list_product,
-              state.list_product
-                  .where((a) => state.detail.list_product
-                      .any((b) => a.uid == b.uid_product))
-                  .toList()))
-          .then((value) {
-        if (value != null) {
-          emit(state.copyWith(
-              detail: state.detail.copyWith(
-                  list_product: (value as List<ProductModel>)
-                      .map((e) => ProductItem(
-                            uid_product: e.uid,
-                            barcode: e.barcode,
-                            ten_san_pham: e.ten_san_pham,
-                            hinh_san_pham: e.hinh_san_pham,
-                            // gia_ban: product!.gia_ban,
-                            so_luong: 1,
-                          ))
-                      .toList())));
-        }
+      await Utils.objectBox.store
+          .box<ProductModel>()
+          .getAllAsync()
+          .then((value) async {
+        await Utils.appRouter
+            .pushNativeRoute(OrderPopup.multiChooseProducts(
+          value,
+        ))
+            .then((value) {
+          if (value != null) {
+            final list = (value as List<ProductModel>);
+            state.list_product.addAll(list.map((e) => ProductItem(
+                  uid_product: e.uid,
+                  barcode: e.barcode,
+                  ten_san_pham: e.ten_san_pham,
+                  hinh_san_pham: e.hinh_san_pham,
+                  so_luong: 1,
+                )));
+            emit(state.copyWith(list_product: state.list_product));
+          }
+        });
       });
     } catch (e) {
       e.printELog;
@@ -138,60 +145,48 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
   }
 
   getTotal(GetTotal event, Emitter<OrderEntryState> emit) async {
-    final total = state.detail.list_product.fold(
+    final total = state.list_product.fold(
         0.0,
         (previousValue, element) =>
             previousValue + element.gia_ban * element.so_luong);
-    emit(state.copyWith(detail: state.detail.copyWith(tong_gia: total)));
+
+    emit(state.copyWith(tong_gia: total));
   }
 
   create(Create event, Emitter<OrderEntryState> emit) async {
     try {
       if (state.isDebt) {
-        if (state.detail.uid_khach_hang.isEmpty) {
+        if (state.ten_khach_hang.isEmpty) {
           TDToast.showText('Chưa chọn khách hàng', context: context);
           return;
         }
       }
-      if (state.detail.list_product.isEmpty) {
+      if (state.list_product.isEmpty) {
         TDToast.showText('Chưa chọn sản phẩm', context: context);
         return;
       }
       EasyLoading.show();
-      var data = state.detail.copyWith(
-          thoi_gian_mua: DateTime.now(),
-          khach_no: state.isDebt,
-          tong_tien_no: state.isDebt
-              ? khach_no_formartter.getUnformattedValue() > 0
-                  ? khach_no_formartter.getUnformattedValue().toDouble()
-                  : state.detail.tong_gia
-              : 0,
-          ten_khach_hang: ten_khach_hang.text,
-          sdt_khach_hang: sdt_khach_hang.text);
-      if (state.image != null) {
-        final storageRef = FirebaseStorage.instance.ref();
-        final mountainsRef = storageRef.child(
-            '${MyFirestore.customers}/${'${ten_khach_hang.text.noAccentVietnamese()}-${DateTime.now().toIso8601String()}'}.png');
-        await state.image!.originBytes.then((value) async {
-          if (value != null) {
-            var result = await FlutterImageCompress.compressWithList(
-              value,
-              minHeight: 1920,
-              minWidth: 1080,
-              quality: 60,
-              format: CompressFormat.png,
-            );
-            await mountainsRef.putData(result);
-          }
-        });
-        await mountainsRef
-            .getDownloadURL()
-            .then((value) => data = data.copyWith(hinh_khach_hang: value));
-      }
-      final ordersStogare = MyFirestore().getOrdersCollection();
-      await ordersStogare.add(data).then((value) async {
-        await value.update({'uid': value.id}).then(
-            (value) => Utils.appRouter.maybePop());
+      final data = OrderModel(
+        list_product: state.list_product,
+        thoi_gian_mua: DateTime.now(),
+        khach_no: state.isDebt,
+        tong_tien_no: state.isDebt
+            ? khach_no_formartter.getUnformattedValue() > 0
+                ? khach_no_formartter.getUnformattedValue().toDouble()
+                : state.tong_gia
+            : 0,
+        ten_khach_hang: state.ten_khach_hang,
+        sdt_khach_hang: state.sdt_khach_hang,
+        hinh_khach_hang: await state.image?.originBytes,
+      );
+      await Utils.objectBox.store
+          .box<OrderModel>()
+          .putAndGetAsync(data)
+          .then((value) async {
+        if (!context.mounted) return;
+        TDToast.showSuccess('Thành công',
+            direction: IconTextDirection.vertical, context: context);
+        Utils.appRouter.maybePop();
       });
     } catch (e) {
       e.printELog;
@@ -205,42 +200,45 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
       AddProductByScan event, Emitter<OrderEntryState> emit) async {
     try {
       await Utils.appRouter.push(QrScanRoute(
-        onResult: (p0) async {
+        onResult: (p0, controller) async {
           final barcode = p0.barcodes.first.rawValue;
+          if (barcode == null) {
+            if (!context.mounted) return;
+            TDToast.showWarning('Sản phẩm không có trong kho',
+                direction: IconTextDirection.vertical, context: context);
+            Utils.appRouter.maybePop();
+            return;
+          }
           EasyLoading.show();
-          await MyFirestore()
-              .getProductsCollection()
-              .where('barcode', isEqualTo: barcode)
-              .get()
+          await Utils.objectBox.store
+              .box<ProductModel>()
+              .query(ProductModel_.barcode.equals(barcode))
+              .build()
+              .findAsync()
               .then((value) {
-            final data = value.docs.firstOrNull?.data();
-            if (barcode == null || data == null) {
+            final data = value.firstOrNull;
+            if (data == null) {
+              if (!context.mounted) return;
               TDToast.showWarning('Sản phẩm không có trong kho',
                   direction: IconTextDirection.vertical, context: context);
               Utils.appRouter.maybePop();
               return;
             }
-            if (state.detail.list_product
-                .any((element) => element.uid_product == data.uid)) {
-              emit(state.copyWith(
-                  detail: state.detail.copyWith(
-                      list_product: state.detail.list_product
-                          .map((e) => e.uid_product == data.uid
-                              ? e.copyWith(so_luong: e.so_luong + 1)
-                              : e)
-                          .toList())));
+
+            final index = state.list_product
+                .indexWhere((element) => element.uid_product == data.uid);
+            if (index != -1) {
+              state.list_product[index].so_luong++;
+              emit(state.copyWith(list_product: state.list_product));
             } else {
-              emit(state.copyWith(
-                  detail: state.detail.copyWith(
-                      list_product: state.detail.list_product.toList()
-                        ..add(ProductItem(
-                          uid_product: data.uid,
-                          barcode: data.barcode,
-                          ten_san_pham: data.ten_san_pham,
-                          hinh_san_pham: data.hinh_san_pham,
-                          // gia_ban: data.gia_ban,
-                          so_luong: 1,
-                        )))));
+              state.list_product.toList().add(ProductItem(
+                    uid_product: data.uid,
+                    barcode: data.barcode,
+                    ten_san_pham: data.ten_san_pham,
+                    hinh_san_pham: data.hinh_san_pham,
+                    so_luong: 1,
+                  ));
+              emit(state.copyWith(list_product: state.list_product));
             }
             Utils.appRouter.maybePop();
           });
@@ -265,7 +263,7 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
       )
           .then((value) {
         if (value != null) {
-          emit(state.copyWith(image: value));
+          emit(state.copyWith(image: value, ));
         }
       });
     } catch (e) {
@@ -281,13 +279,11 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
       if (event.value < 0 && event.data.so_luong == 1) {
         add(RemoveProduct(event.data));
       } else {
-        emit(state.copyWith(
-            detail: state.detail.copyWith(
-                list_product: state.detail.list_product
-                    .map((e) => e.uid_product == event.data.uid_product
-                        ? e.copyWith(so_luong: e.so_luong + event.value)
-                        : e)
-                    .toList())));
+        final index = state.list_product.indexWhere(
+            (element) => element.uid_product == event.data.uid_product);
+        state.list_product[index].so_luong = event.data.so_luong + event.value;
+
+        emit(state.copyWith(list_product: state.list_product));
       }
     } catch (e) {
       e.printELog;
@@ -304,14 +300,16 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
           title:
               'Bạn muốn xoá sản phẩm này?'.size14.w500.marginOnly(bottom: 10),
           content: ListTile(
-            leading: ImageCached(
-              image: event.data.hinh_san_pham,
-              width: 64.sp,
-              height: 64.sp,
-            ),
+            leading: event.data.hinh_san_pham != null
+                ? ImageMemory(
+                    event.data.hinh_san_pham!,
+                    width: 64.sp,
+                    height: 64.sp,
+                  )
+                : Container(),
             title: Row(
               children: [
-                Expanded(child: event.data.ten_san_pham.size14),
+                Expanded(child: (event.data.ten_san_pham ?? '').size14),
                 10.sized,
                 Utils.moneyFormat(event.data.gia_ban).size16
               ],
@@ -337,11 +335,9 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
         ),
       ).then((value) async {
         if (value != null && value) {
-          emit(state.copyWith(
-              detail: state.detail.copyWith(
-                  list_product: state.detail.list_product.toList()
-                    ..removeWhere((element) =>
-                        element.uid_product == event.data.uid_product))));
+          state.list_product
+              .removeWhere((element) => element.uid == event.data.uid_product);
+          emit(state.copyWith(list_product: state.list_product));
         }
       });
     } catch (e) {
@@ -353,35 +349,28 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
 
   started(Started event, Emitter<OrderEntryState> emit) async {
     try {
-      EasyLoading.show();
-      await MyFirestore().getProductsCollection().get().then((value) async {
-        emit(state.copyWith(
-            list_product: value.docs.map((e) => e.data()).toList()));
-      });
       if (product != null) {
-        emit(state.copyWith(
-            detail: state.detail.copyWith(
-                list_product: state.detail.list_product.toList()
-                  ..add(ProductItem(
-                    uid_product: product!.uid,
-                    barcode: product!.barcode,
-                    ten_san_pham: product!.ten_san_pham,
-                    hinh_san_pham: product!.hinh_san_pham,
-                    gia_ban: product!.price_list.firstOrNull?.gia_ban ?? 0,
-                    gia_ban_ten_don_vi:
-                        product!.price_list.firstOrNull?.ten_don_vi ?? '',
-                    gia_ban_ky_hieu_don_vi:
-                        product!.price_list.firstOrNull?.ky_hieu_don_vi ?? '',
-                    gia_ban_uid_don_vi:
-                        product!.price_list.firstOrNull?.uid_don_vi ?? '',
-                    so_luong: 1,
-                  )))));
+        emit(state.copyWith(list_product: [
+          ProductItem(
+            uid_product: product!.uid,
+            barcode: product!.barcode,
+            ten_san_pham: product!.ten_san_pham,
+            hinh_san_pham: product!.hinh_san_pham,
+            gia_ban: product!.price_list.firstOrNull?.gia_ban ?? 0,
+            gia_ban_ten_don_vi:
+                product!.price_list.firstOrNull?.ten_don_vi ?? '',
+            gia_ban_ky_hieu_don_vi:
+                product!.price_list.firstOrNull?.ky_hieu_don_vi ?? '',
+            gia_ban_uid_don_vi: product!.price_list.firstOrNull?.uid_don_vi,
+            so_luong: 1,
+          ),
+        ]));
       }
     } catch (e) {
       e.printELog;
-      EasyLoading.dismiss();
+      emit(state.copyWith(isLoading: false));
     } finally {
-      EasyLoading.dismiss();
+      emit(state.copyWith(isLoading: false));
       add(const GetTotal());
     }
   }
