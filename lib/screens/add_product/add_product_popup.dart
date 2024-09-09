@@ -1,7 +1,5 @@
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_popup/flutter_popup.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tdesign_flutter/tdesign_flutter.dart';
 
 import '../../model/product_model/product_model.dart';
@@ -92,7 +90,7 @@ class AddProductPopup {
                             required: true,
                             suffixIconMaxWidth: 120.sp,
                             suffixIcon: CustomDropDownButton(
-                                value: chosses.uid_don_vi,
+                                value: chosses.unit.target?.uid,
                                 hintText: 'Chọn đơn vị',
                                 validator: (value) {
                                   if (value == null) {
@@ -103,9 +101,7 @@ class AddProductPopup {
                                 onChanged: (p0) {
                                   final unit = list_unit.firstWhere(
                                       (element) => element.uid == p0);
-                                  chosses.uid_don_vi = unit.uid;
-                                  chosses.ten_don_vi = unit.ten_don_vi;
-                                  chosses.ky_hieu_don_vi = unit.ky_hieu;
+                                  chosses.unit.target = unit;
                                   setState(() {});
                                 },
                                 items: list_unit

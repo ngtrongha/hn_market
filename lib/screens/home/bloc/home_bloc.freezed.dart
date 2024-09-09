@@ -24,6 +24,7 @@ mixin _$HomeEvent {
     required TResult Function() getProducts,
     required TResult Function() getOrders,
     required TResult Function() scan,
+    required TResult Function(int index) changeIndexNav,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$HomeEvent {
     TResult? Function()? getProducts,
     TResult? Function()? getOrders,
     TResult? Function()? scan,
+    TResult? Function(int index)? changeIndexNav,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$HomeEvent {
     TResult Function()? getProducts,
     TResult Function()? getOrders,
     TResult Function()? scan,
+    TResult Function(int index)? changeIndexNav,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$HomeEvent {
     required TResult Function(GetProducts value) getProducts,
     required TResult Function(GetOrders value) getOrders,
     required TResult Function(Scan value) scan,
+    required TResult Function(ChangeIndexNav value) changeIndexNav,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$HomeEvent {
     TResult? Function(GetProducts value)? getProducts,
     TResult? Function(GetOrders value)? getOrders,
     TResult? Function(Scan value)? scan,
+    TResult? Function(ChangeIndexNav value)? changeIndexNav,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$HomeEvent {
     TResult Function(GetProducts value)? getProducts,
     TResult Function(GetOrders value)? getOrders,
     TResult Function(Scan value)? scan,
+    TResult Function(ChangeIndexNav value)? changeIndexNav,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,6 +153,7 @@ class _$StartedImpl implements Started {
     required TResult Function() getProducts,
     required TResult Function() getOrders,
     required TResult Function() scan,
+    required TResult Function(int index) changeIndexNav,
   }) {
     return started();
   }
@@ -160,6 +167,7 @@ class _$StartedImpl implements Started {
     TResult? Function()? getProducts,
     TResult? Function()? getOrders,
     TResult? Function()? scan,
+    TResult? Function(int index)? changeIndexNav,
   }) {
     return started?.call();
   }
@@ -173,6 +181,7 @@ class _$StartedImpl implements Started {
     TResult Function()? getProducts,
     TResult Function()? getOrders,
     TResult Function()? scan,
+    TResult Function(int index)? changeIndexNav,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -190,6 +199,7 @@ class _$StartedImpl implements Started {
     required TResult Function(GetProducts value) getProducts,
     required TResult Function(GetOrders value) getOrders,
     required TResult Function(Scan value) scan,
+    required TResult Function(ChangeIndexNav value) changeIndexNav,
   }) {
     return started(this);
   }
@@ -203,6 +213,7 @@ class _$StartedImpl implements Started {
     TResult? Function(GetProducts value)? getProducts,
     TResult? Function(GetOrders value)? getOrders,
     TResult? Function(Scan value)? scan,
+    TResult? Function(ChangeIndexNav value)? changeIndexNav,
   }) {
     return started?.call(this);
   }
@@ -216,6 +227,7 @@ class _$StartedImpl implements Started {
     TResult Function(GetProducts value)? getProducts,
     TResult Function(GetOrders value)? getOrders,
     TResult Function(Scan value)? scan,
+    TResult Function(ChangeIndexNav value)? changeIndexNav,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -303,6 +315,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     required TResult Function() getProducts,
     required TResult Function() getOrders,
     required TResult Function() scan,
+    required TResult Function(int index) changeIndexNav,
   }) {
     return changeBool(key);
   }
@@ -316,6 +329,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult? Function()? getProducts,
     TResult? Function()? getOrders,
     TResult? Function()? scan,
+    TResult? Function(int index)? changeIndexNav,
   }) {
     return changeBool?.call(key);
   }
@@ -329,6 +343,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult Function()? getProducts,
     TResult Function()? getOrders,
     TResult Function()? scan,
+    TResult Function(int index)? changeIndexNav,
     required TResult orElse(),
   }) {
     if (changeBool != null) {
@@ -346,6 +361,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     required TResult Function(GetProducts value) getProducts,
     required TResult Function(GetOrders value) getOrders,
     required TResult Function(Scan value) scan,
+    required TResult Function(ChangeIndexNav value) changeIndexNav,
   }) {
     return changeBool(this);
   }
@@ -359,6 +375,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult? Function(GetProducts value)? getProducts,
     TResult? Function(GetOrders value)? getOrders,
     TResult? Function(Scan value)? scan,
+    TResult? Function(ChangeIndexNav value)? changeIndexNav,
   }) {
     return changeBool?.call(this);
   }
@@ -372,6 +389,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult Function(GetProducts value)? getProducts,
     TResult Function(GetOrders value)? getOrders,
     TResult Function(Scan value)? scan,
+    TResult Function(ChangeIndexNav value)? changeIndexNav,
     required TResult orElse(),
   }) {
     if (changeBool != null) {
@@ -475,6 +493,7 @@ class _$ChangeStringImpl implements ChangeString {
     required TResult Function() getProducts,
     required TResult Function() getOrders,
     required TResult Function() scan,
+    required TResult Function(int index) changeIndexNav,
   }) {
     return changeString(key, value);
   }
@@ -488,6 +507,7 @@ class _$ChangeStringImpl implements ChangeString {
     TResult? Function()? getProducts,
     TResult? Function()? getOrders,
     TResult? Function()? scan,
+    TResult? Function(int index)? changeIndexNav,
   }) {
     return changeString?.call(key, value);
   }
@@ -501,6 +521,7 @@ class _$ChangeStringImpl implements ChangeString {
     TResult Function()? getProducts,
     TResult Function()? getOrders,
     TResult Function()? scan,
+    TResult Function(int index)? changeIndexNav,
     required TResult orElse(),
   }) {
     if (changeString != null) {
@@ -518,6 +539,7 @@ class _$ChangeStringImpl implements ChangeString {
     required TResult Function(GetProducts value) getProducts,
     required TResult Function(GetOrders value) getOrders,
     required TResult Function(Scan value) scan,
+    required TResult Function(ChangeIndexNav value) changeIndexNav,
   }) {
     return changeString(this);
   }
@@ -531,6 +553,7 @@ class _$ChangeStringImpl implements ChangeString {
     TResult? Function(GetProducts value)? getProducts,
     TResult? Function(GetOrders value)? getOrders,
     TResult? Function(Scan value)? scan,
+    TResult? Function(ChangeIndexNav value)? changeIndexNav,
   }) {
     return changeString?.call(this);
   }
@@ -544,6 +567,7 @@ class _$ChangeStringImpl implements ChangeString {
     TResult Function(GetProducts value)? getProducts,
     TResult Function(GetOrders value)? getOrders,
     TResult Function(Scan value)? scan,
+    TResult Function(ChangeIndexNav value)? changeIndexNav,
     required TResult orElse(),
   }) {
     if (changeString != null) {
@@ -614,6 +638,7 @@ class _$GetProductsImpl implements GetProducts {
     required TResult Function() getProducts,
     required TResult Function() getOrders,
     required TResult Function() scan,
+    required TResult Function(int index) changeIndexNav,
   }) {
     return getProducts();
   }
@@ -627,6 +652,7 @@ class _$GetProductsImpl implements GetProducts {
     TResult? Function()? getProducts,
     TResult? Function()? getOrders,
     TResult? Function()? scan,
+    TResult? Function(int index)? changeIndexNav,
   }) {
     return getProducts?.call();
   }
@@ -640,6 +666,7 @@ class _$GetProductsImpl implements GetProducts {
     TResult Function()? getProducts,
     TResult Function()? getOrders,
     TResult Function()? scan,
+    TResult Function(int index)? changeIndexNav,
     required TResult orElse(),
   }) {
     if (getProducts != null) {
@@ -657,6 +684,7 @@ class _$GetProductsImpl implements GetProducts {
     required TResult Function(GetProducts value) getProducts,
     required TResult Function(GetOrders value) getOrders,
     required TResult Function(Scan value) scan,
+    required TResult Function(ChangeIndexNav value) changeIndexNav,
   }) {
     return getProducts(this);
   }
@@ -670,6 +698,7 @@ class _$GetProductsImpl implements GetProducts {
     TResult? Function(GetProducts value)? getProducts,
     TResult? Function(GetOrders value)? getOrders,
     TResult? Function(Scan value)? scan,
+    TResult? Function(ChangeIndexNav value)? changeIndexNav,
   }) {
     return getProducts?.call(this);
   }
@@ -683,6 +712,7 @@ class _$GetProductsImpl implements GetProducts {
     TResult Function(GetProducts value)? getProducts,
     TResult Function(GetOrders value)? getOrders,
     TResult Function(Scan value)? scan,
+    TResult Function(ChangeIndexNav value)? changeIndexNav,
     required TResult orElse(),
   }) {
     if (getProducts != null) {
@@ -743,6 +773,7 @@ class _$GetOrdersImpl implements GetOrders {
     required TResult Function() getProducts,
     required TResult Function() getOrders,
     required TResult Function() scan,
+    required TResult Function(int index) changeIndexNav,
   }) {
     return getOrders();
   }
@@ -756,6 +787,7 @@ class _$GetOrdersImpl implements GetOrders {
     TResult? Function()? getProducts,
     TResult? Function()? getOrders,
     TResult? Function()? scan,
+    TResult? Function(int index)? changeIndexNav,
   }) {
     return getOrders?.call();
   }
@@ -769,6 +801,7 @@ class _$GetOrdersImpl implements GetOrders {
     TResult Function()? getProducts,
     TResult Function()? getOrders,
     TResult Function()? scan,
+    TResult Function(int index)? changeIndexNav,
     required TResult orElse(),
   }) {
     if (getOrders != null) {
@@ -786,6 +819,7 @@ class _$GetOrdersImpl implements GetOrders {
     required TResult Function(GetProducts value) getProducts,
     required TResult Function(GetOrders value) getOrders,
     required TResult Function(Scan value) scan,
+    required TResult Function(ChangeIndexNav value) changeIndexNav,
   }) {
     return getOrders(this);
   }
@@ -799,6 +833,7 @@ class _$GetOrdersImpl implements GetOrders {
     TResult? Function(GetProducts value)? getProducts,
     TResult? Function(GetOrders value)? getOrders,
     TResult? Function(Scan value)? scan,
+    TResult? Function(ChangeIndexNav value)? changeIndexNav,
   }) {
     return getOrders?.call(this);
   }
@@ -812,6 +847,7 @@ class _$GetOrdersImpl implements GetOrders {
     TResult Function(GetProducts value)? getProducts,
     TResult Function(GetOrders value)? getOrders,
     TResult Function(Scan value)? scan,
+    TResult Function(ChangeIndexNav value)? changeIndexNav,
     required TResult orElse(),
   }) {
     if (getOrders != null) {
@@ -871,6 +907,7 @@ class _$ScanImpl implements Scan {
     required TResult Function() getProducts,
     required TResult Function() getOrders,
     required TResult Function() scan,
+    required TResult Function(int index) changeIndexNav,
   }) {
     return scan();
   }
@@ -884,6 +921,7 @@ class _$ScanImpl implements Scan {
     TResult? Function()? getProducts,
     TResult? Function()? getOrders,
     TResult? Function()? scan,
+    TResult? Function(int index)? changeIndexNav,
   }) {
     return scan?.call();
   }
@@ -897,6 +935,7 @@ class _$ScanImpl implements Scan {
     TResult Function()? getProducts,
     TResult Function()? getOrders,
     TResult Function()? scan,
+    TResult Function(int index)? changeIndexNav,
     required TResult orElse(),
   }) {
     if (scan != null) {
@@ -914,6 +953,7 @@ class _$ScanImpl implements Scan {
     required TResult Function(GetProducts value) getProducts,
     required TResult Function(GetOrders value) getOrders,
     required TResult Function(Scan value) scan,
+    required TResult Function(ChangeIndexNav value) changeIndexNav,
   }) {
     return scan(this);
   }
@@ -927,6 +967,7 @@ class _$ScanImpl implements Scan {
     TResult? Function(GetProducts value)? getProducts,
     TResult? Function(GetOrders value)? getOrders,
     TResult? Function(Scan value)? scan,
+    TResult? Function(ChangeIndexNav value)? changeIndexNav,
   }) {
     return scan?.call(this);
   }
@@ -940,6 +981,7 @@ class _$ScanImpl implements Scan {
     TResult Function(GetProducts value)? getProducts,
     TResult Function(GetOrders value)? getOrders,
     TResult Function(Scan value)? scan,
+    TResult Function(ChangeIndexNav value)? changeIndexNav,
     required TResult orElse(),
   }) {
     if (scan != null) {
@@ -954,7 +996,179 @@ abstract class Scan implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$ChangeIndexNavImplCopyWith<$Res> {
+  factory _$$ChangeIndexNavImplCopyWith(_$ChangeIndexNavImpl value,
+          $Res Function(_$ChangeIndexNavImpl) then) =
+      __$$ChangeIndexNavImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$ChangeIndexNavImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ChangeIndexNavImpl>
+    implements _$$ChangeIndexNavImplCopyWith<$Res> {
+  __$$ChangeIndexNavImplCopyWithImpl(
+      _$ChangeIndexNavImpl _value, $Res Function(_$ChangeIndexNavImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$ChangeIndexNavImpl(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeIndexNavImpl implements ChangeIndexNav {
+  const _$ChangeIndexNavImpl(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'HomeEvent.changeIndexNav(index: $index)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeIndexNavImpl &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeIndexNavImplCopyWith<_$ChangeIndexNavImpl> get copyWith =>
+      __$$ChangeIndexNavImplCopyWithImpl<_$ChangeIndexNavImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String key) changeBool,
+    required TResult Function(String key, String value) changeString,
+    required TResult Function() getProducts,
+    required TResult Function() getOrders,
+    required TResult Function() scan,
+    required TResult Function(int index) changeIndexNav,
+  }) {
+    return changeIndexNav(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String key)? changeBool,
+    TResult? Function(String key, String value)? changeString,
+    TResult? Function()? getProducts,
+    TResult? Function()? getOrders,
+    TResult? Function()? scan,
+    TResult? Function(int index)? changeIndexNav,
+  }) {
+    return changeIndexNav?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String key)? changeBool,
+    TResult Function(String key, String value)? changeString,
+    TResult Function()? getProducts,
+    TResult Function()? getOrders,
+    TResult Function()? scan,
+    TResult Function(int index)? changeIndexNav,
+    required TResult orElse(),
+  }) {
+    if (changeIndexNav != null) {
+      return changeIndexNav(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(ChangeBool value) changeBool,
+    required TResult Function(ChangeString value) changeString,
+    required TResult Function(GetProducts value) getProducts,
+    required TResult Function(GetOrders value) getOrders,
+    required TResult Function(Scan value) scan,
+    required TResult Function(ChangeIndexNav value) changeIndexNav,
+  }) {
+    return changeIndexNav(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(ChangeBool value)? changeBool,
+    TResult? Function(ChangeString value)? changeString,
+    TResult? Function(GetProducts value)? getProducts,
+    TResult? Function(GetOrders value)? getOrders,
+    TResult? Function(Scan value)? scan,
+    TResult? Function(ChangeIndexNav value)? changeIndexNav,
+  }) {
+    return changeIndexNav?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(ChangeBool value)? changeBool,
+    TResult Function(ChangeString value)? changeString,
+    TResult Function(GetProducts value)? getProducts,
+    TResult Function(GetOrders value)? getOrders,
+    TResult Function(Scan value)? scan,
+    TResult Function(ChangeIndexNav value)? changeIndexNav,
+    required TResult orElse(),
+  }) {
+    if (changeIndexNav != null) {
+      return changeIndexNav(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeIndexNav implements HomeEvent {
+  const factory ChangeIndexNav(final int index) = _$ChangeIndexNavImpl;
+
+  int get index;
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeIndexNavImplCopyWith<_$ChangeIndexNavImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeState {
+  int get indexNav => throw _privateConstructorUsedError;
   bool get isLogin => throw _privateConstructorUsedError;
   bool get isSearchProduct => throw _privateConstructorUsedError;
   String get search_product_text => throw _privateConstructorUsedError;
@@ -974,7 +1188,8 @@ abstract class $HomeStateCopyWith<$Res> {
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
   $Res call(
-      {bool isLogin,
+      {int indexNav,
+      bool isLogin,
       bool isSearchProduct,
       String search_product_text,
       List<ProductModel> list_product,
@@ -996,6 +1211,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? indexNav = null,
     Object? isLogin = null,
     Object? isSearchProduct = null,
     Object? search_product_text = null,
@@ -1003,6 +1219,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? list_order = null,
   }) {
     return _then(_value.copyWith(
+      indexNav: null == indexNav
+          ? _value.indexNav
+          : indexNav // ignore: cast_nullable_to_non_nullable
+              as int,
       isLogin: null == isLogin
           ? _value.isLogin
           : isLogin // ignore: cast_nullable_to_non_nullable
@@ -1036,7 +1256,8 @@ abstract class _$$HomeStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool isLogin,
+      {int indexNav,
+      bool isLogin,
       bool isSearchProduct,
       String search_product_text,
       List<ProductModel> list_product,
@@ -1056,6 +1277,7 @@ class __$$HomeStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? indexNav = null,
     Object? isLogin = null,
     Object? isSearchProduct = null,
     Object? search_product_text = null,
@@ -1063,6 +1285,10 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? list_order = null,
   }) {
     return _then(_$HomeStateImpl(
+      indexNav: null == indexNav
+          ? _value.indexNav
+          : indexNav // ignore: cast_nullable_to_non_nullable
+              as int,
       isLogin: null == isLogin
           ? _value.isLogin
           : isLogin // ignore: cast_nullable_to_non_nullable
@@ -1091,7 +1317,8 @@ class __$$HomeStateImplCopyWithImpl<$Res>
 
 class _$HomeStateImpl implements _HomeState {
   const _$HomeStateImpl(
-      {this.isLogin = false,
+      {this.indexNav = 0,
+      this.isLogin = false,
       this.isSearchProduct = false,
       this.search_product_text = '',
       final List<ProductModel> list_product = const [],
@@ -1099,6 +1326,9 @@ class _$HomeStateImpl implements _HomeState {
       : _list_product = list_product,
         _list_order = list_order;
 
+  @override
+  @JsonKey()
+  final int indexNav;
   @override
   @JsonKey()
   final bool isLogin;
@@ -1128,7 +1358,7 @@ class _$HomeStateImpl implements _HomeState {
 
   @override
   String toString() {
-    return 'HomeState(isLogin: $isLogin, isSearchProduct: $isSearchProduct, search_product_text: $search_product_text, list_product: $list_product, list_order: $list_order)';
+    return 'HomeState(indexNav: $indexNav, isLogin: $isLogin, isSearchProduct: $isSearchProduct, search_product_text: $search_product_text, list_product: $list_product, list_order: $list_order)';
   }
 
   @override
@@ -1136,6 +1366,8 @@ class _$HomeStateImpl implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HomeStateImpl &&
+            (identical(other.indexNav, indexNav) ||
+                other.indexNav == indexNav) &&
             (identical(other.isLogin, isLogin) || other.isLogin == isLogin) &&
             (identical(other.isSearchProduct, isSearchProduct) ||
                 other.isSearchProduct == isSearchProduct) &&
@@ -1150,6 +1382,7 @@ class _$HomeStateImpl implements _HomeState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      indexNav,
       isLogin,
       isSearchProduct,
       search_product_text,
@@ -1167,12 +1400,15 @@ class _$HomeStateImpl implements _HomeState {
 
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
-      {final bool isLogin,
+      {final int indexNav,
+      final bool isLogin,
       final bool isSearchProduct,
       final String search_product_text,
       final List<ProductModel> list_product,
       final List<OrderModel> list_order}) = _$HomeStateImpl;
 
+  @override
+  int get indexNav;
   @override
   bool get isLogin;
   @override

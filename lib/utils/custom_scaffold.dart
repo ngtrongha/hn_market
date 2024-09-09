@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'custom_animation.dart';
-
 class CustomScaffold extends StatelessWidget {
   const CustomScaffold({
     super.key,
@@ -35,7 +33,6 @@ class CustomScaffold extends StatelessWidget {
       child: Scaffold(
         appBar: appBar,
         backgroundColor: backgroundColor,
-        floatingActionButtonAnimator: NoScalingAnimation(),
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         floatingActionButtonLocation: floatingActionButtonLocation,
         extendBody: extendBody,

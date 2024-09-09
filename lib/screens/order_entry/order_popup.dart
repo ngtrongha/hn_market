@@ -56,7 +56,7 @@ class OrderPopup {
                                         children: [
                                           'Loại:'.size12,
                                           5.sized,
-                                          (data.ten_danh_muc ?? '').size14
+                                          (data.category.target?.ten_danh_muc ?? '').size14
                                         ],
                                       )
                                     ],

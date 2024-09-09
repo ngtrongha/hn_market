@@ -91,11 +91,7 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
     try {
       final index = state.list_product.indexWhere(
           (element) => element.uid_product == event.data.uid_product);
-      state.list_product[index].gia_ban = event.value.gia_ban;
-      state.list_product[index].gia_ban_ky_hieu_don_vi =
-          event.value.ky_hieu_don_vi;
-      state.list_product[index].gia_ban_ten_don_vi = event.value.ten_don_vi;
-      state.list_product[index].gia_ban_uid_don_vi = event.value.uid_don_vi;
+      state.list_product[index].price.target = event.value;
       emit(state.copyWith(list_product: state.list_product));
     } catch (e) {
       e.printELog;
@@ -148,7 +144,8 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
     final total = state.list_product.fold(
         0.0,
         (previousValue, element) =>
-            previousValue + element.gia_ban * element.so_luong);
+            previousValue +
+            (element.price.target?.gia_ban ?? 0) * element.so_luong);
 
     emit(state.copyWith(tong_gia: total));
   }
@@ -263,7 +260,9 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
       )
           .then((value) {
         if (value != null) {
-          emit(state.copyWith(image: value, ));
+          emit(state.copyWith(
+            image: value,
+          ));
         }
       });
     } catch (e) {
@@ -311,7 +310,7 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
               children: [
                 Expanded(child: (event.data.ten_san_pham ?? '').size14),
                 10.sized,
-                Utils.moneyFormat(event.data.gia_ban).size16
+                Utils.moneyFormat(event.data.price.target?.gia_ban ?? 0).size16
               ],
             ),
           ),
@@ -356,12 +355,7 @@ class OrderEntryBloc extends Bloc<OrderEntryEvent, OrderEntryState> {
             barcode: product!.barcode,
             ten_san_pham: product!.ten_san_pham,
             hinh_san_pham: product!.hinh_san_pham,
-            gia_ban: product!.price_list.firstOrNull?.gia_ban ?? 0,
-            gia_ban_ten_don_vi:
-                product!.price_list.firstOrNull?.ten_don_vi ?? '',
-            gia_ban_ky_hieu_don_vi:
-                product!.price_list.firstOrNull?.ky_hieu_don_vi ?? '',
-            gia_ban_uid_don_vi: product!.price_list.firstOrNull?.uid_don_vi,
+            price: product!.price_list.firstOrNull,
             so_luong: 1,
           ),
         ]));

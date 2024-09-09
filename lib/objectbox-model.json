@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "2:8462100601893205612",
-      "lastPropertyId": "10:4944268585478704077",
+      "lastPropertyId": "11:4254633851667221722",
       "name": "OrderModel",
       "properties": [
         {
@@ -58,6 +58,14 @@
           "id": "10:4944268585478704077",
           "name": "createDate",
           "type": 10
+        },
+        {
+          "id": "11:4254633851667221722",
+          "name": "customerId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "2:5774386875927907610",
+          "relationTarget": "CustomerModel"
         }
       ],
       "relations": [
@@ -70,7 +78,7 @@
     },
     {
       "id": "3:2774907212245098214",
-      "lastPropertyId": "8:8090806262661001619",
+      "lastPropertyId": "9:2986229849620795832",
       "name": "PriceList",
       "properties": [
         {
@@ -85,21 +93,6 @@
           "type": 9
         },
         {
-          "id": "3:6837452732912493970",
-          "name": "uid_don_vi",
-          "type": 6
-        },
-        {
-          "id": "4:7032831974186877870",
-          "name": "ten_don_vi",
-          "type": 9
-        },
-        {
-          "id": "5:4266610608789417277",
-          "name": "ky_hieu_don_vi",
-          "type": 9
-        },
-        {
           "id": "6:6753043266397354163",
           "name": "gia_ban",
           "type": 8
@@ -108,13 +101,21 @@
           "id": "7:1009228909912017167",
           "name": "so_luong",
           "type": 6
+        },
+        {
+          "id": "9:2986229849620795832",
+          "name": "unitId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "3:573286813381815073",
+          "relationTarget": "UnitModel"
         }
       ],
       "relations": []
     },
     {
       "id": "4:3376631319514457996",
-      "lastPropertyId": "14:4278042561808483539",
+      "lastPropertyId": "18:7225780580063542658",
       "name": "ProductItem",
       "properties": [
         {
@@ -144,56 +145,48 @@
           "type": 23
         },
         {
-          "id": "6:6931669776031782900",
-          "name": "uid_don_vi",
-          "type": 6
-        },
-        {
-          "id": "7:2994713848890333595",
-          "name": "ten_don_vi",
-          "type": 9
-        },
-        {
-          "id": "8:5424488080241102282",
-          "name": "ten_loai",
-          "type": 9
-        },
-        {
-          "id": "9:8326155832968762877",
-          "name": "ky_hieu_don_vi",
-          "type": 9
-        },
-        {
-          "id": "10:7410578384373947376",
-          "name": "gia_ban_uid_don_vi",
-          "type": 6
-        },
-        {
-          "id": "11:4117038924924385776",
-          "name": "gia_ban_ten_don_vi",
-          "type": 9
-        },
-        {
-          "id": "12:8744451219592071",
-          "name": "gia_ban_ky_hieu_don_vi",
-          "type": 9
-        },
-        {
-          "id": "13:8312112673082639836",
-          "name": "gia_ban",
-          "type": 8
-        },
-        {
           "id": "14:4278042561808483539",
           "name": "so_luong",
           "type": 6
+        },
+        {
+          "id": "15:570108286703470966",
+          "name": "supplierId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "4:5865870161720845457",
+          "relationTarget": "SupplierModel"
+        },
+        {
+          "id": "16:4560353825386576500",
+          "name": "categoryId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "5:2130917950542592992",
+          "relationTarget": "CategoryModel"
+        },
+        {
+          "id": "17:4894164430705184576",
+          "name": "unitId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "6:698629806240375668",
+          "relationTarget": "UnitModel"
+        },
+        {
+          "id": "18:7225780580063542658",
+          "name": "priceId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "7:525945562797319887",
+          "relationTarget": "PriceList"
         }
       ],
       "relations": []
     },
     {
       "id": "5:2699875232035799149",
-      "lastPropertyId": "13:6850306170653725048",
+      "lastPropertyId": "16:7855610327950231430",
       "name": "ProductModel",
       "properties": [
         {
@@ -218,31 +211,6 @@
           "type": 23
         },
         {
-          "id": "5:7229928441048565709",
-          "name": "uid_danh_muc",
-          "type": 6
-        },
-        {
-          "id": "6:1518545134613383641",
-          "name": "ten_danh_muc",
-          "type": 9
-        },
-        {
-          "id": "7:6982042452188979866",
-          "name": "uid_don_vi",
-          "type": 6
-        },
-        {
-          "id": "8:6001654584984488585",
-          "name": "ten_don_vi",
-          "type": 9
-        },
-        {
-          "id": "9:883625706046727771",
-          "name": "ky_hieu_don_vi",
-          "type": 9
-        },
-        {
           "id": "10:6021767469518361791",
           "name": "ghi_chu",
           "type": 9
@@ -261,6 +229,30 @@
           "id": "13:6850306170653725048",
           "name": "so_luong",
           "type": 6
+        },
+        {
+          "id": "14:5625414788275987508",
+          "name": "supplierId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "8:8124704708369060400",
+          "relationTarget": "SupplierModel"
+        },
+        {
+          "id": "15:6536713529042721626",
+          "name": "categoryId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "9:405308505056760631",
+          "relationTarget": "CategoryModel"
+        },
+        {
+          "id": "16:7855610327950231430",
+          "name": "unitId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "10:5042270014188455772",
+          "relationTarget": "UnitModel"
         }
       ],
       "relations": [
@@ -296,11 +288,6 @@
           "id": "4:2015183802015280897",
           "name": "ky_hieu",
           "type": 9
-        },
-        {
-          "id": "5:7563155607688441043",
-          "name": "createDate",
-          "type": 10
         }
       ],
       "relations": []
@@ -372,10 +359,39 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "9:4684840811247125917",
+      "lastPropertyId": "4:1856481308765661819",
+      "name": "SupplierModel",
+      "properties": [
+        {
+          "id": "1:1940646799049802203",
+          "name": "uid",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6228732961812636152",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:5012052220393829989",
+          "name": "address",
+          "type": 9
+        },
+        {
+          "id": "4:1856481308765661819",
+          "name": "phone",
+          "type": 9
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "8:3828381250875953042",
-  "lastIndexId": "1:681671148803372239",
+  "lastEntityId": "9:4684840811247125917",
+  "lastIndexId": "10:5042270014188455772",
   "lastRelationId": "2:6117545004750295902",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
@@ -391,7 +407,24 @@
     3276445162843721571,
     1946115600899689025,
     8241427837389614950,
-    8090806262661001619
+    8090806262661001619,
+    6837452732912493970,
+    7032831974186877870,
+    4266610608789417277,
+    6931669776031782900,
+    2994713848890333595,
+    5424488080241102282,
+    8326155832968762877,
+    7410578384373947376,
+    4117038924924385776,
+    8744451219592071,
+    8312112673082639836,
+    7229928441048565709,
+    1518545134613383641,
+    6982042452188979866,
+    6001654584984488585,
+    883625706046727771,
+    7563155607688441043
   ],
   "retiredRelationUids": [],
   "version": 1

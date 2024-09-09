@@ -3,6 +3,7 @@ part of 'home_bloc.dart';
 @freezed
 class HomeState with _$HomeState {
   const factory HomeState({
+    @Default(0) final int indexNav,
     @Default(false) final bool isLogin,
     @Default(false) final bool isSearchProduct,
     @Default('') final String search_product_text,

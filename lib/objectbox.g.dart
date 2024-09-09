@@ -18,6 +18,7 @@ import 'model/category_model/category_model.dart';
 import 'model/customer_model/customer_model.dart';
 import 'model/order_model/order_model.dart';
 import 'model/product_model/product_model.dart';
+import 'model/supplier_model/supplier_model.dart';
 import 'model/unit_model/unit_model.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
@@ -26,7 +27,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(2, 8462100601893205612),
       name: 'OrderModel',
-      lastPropertyId: const obx_int.IdUid(10, 4944268585478704077),
+      lastPropertyId: const obx_int.IdUid(11, 4254633851667221722),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -78,7 +79,14 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(10, 4944268585478704077),
             name: 'createDate',
             type: 10,
-            flags: 0)
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 4254633851667221722),
+            name: 'customerId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(2, 5774386875927907610),
+            relationTarget: 'CustomerModel')
       ],
       relations: <obx_int.ModelRelation>[
         obx_int.ModelRelation(
@@ -90,7 +98,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(3, 2774907212245098214),
       name: 'PriceList',
-      lastPropertyId: const obx_int.IdUid(8, 8090806262661001619),
+      lastPropertyId: const obx_int.IdUid(9, 2986229849620795832),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -104,21 +112,6 @@ final _entities = <obx_int.ModelEntity>[
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 6837452732912493970),
-            name: 'uid_don_vi',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 7032831974186877870),
-            name: 'ten_don_vi',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 4266610608789417277),
-            name: 'ky_hieu_don_vi',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
             id: const obx_int.IdUid(6, 6753043266397354163),
             name: 'gia_ban',
             type: 8,
@@ -127,14 +120,21 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(7, 1009228909912017167),
             name: 'so_luong',
             type: 6,
-            flags: 0)
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 2986229849620795832),
+            name: 'unitId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(3, 573286813381815073),
+            relationTarget: 'UnitModel')
       ],
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[]),
   obx_int.ModelEntity(
       id: const obx_int.IdUid(4, 3376631319514457996),
       name: 'ProductItem',
-      lastPropertyId: const obx_int.IdUid(14, 4278042561808483539),
+      lastPropertyId: const obx_int.IdUid(18, 7225780580063542658),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -163,57 +163,45 @@ final _entities = <obx_int.ModelEntity>[
             type: 23,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 6931669776031782900),
-            name: 'uid_don_vi',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 2994713848890333595),
-            name: 'ten_don_vi',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 5424488080241102282),
-            name: 'ten_loai',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 8326155832968762877),
-            name: 'ky_hieu_don_vi',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 7410578384373947376),
-            name: 'gia_ban_uid_don_vi',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(11, 4117038924924385776),
-            name: 'gia_ban_ten_don_vi',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(12, 8744451219592071),
-            name: 'gia_ban_ky_hieu_don_vi',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(13, 8312112673082639836),
-            name: 'gia_ban',
-            type: 8,
-            flags: 0),
-        obx_int.ModelProperty(
             id: const obx_int.IdUid(14, 4278042561808483539),
             name: 'so_luong',
             type: 6,
-            flags: 0)
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 570108286703470966),
+            name: 'supplierId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(4, 5865870161720845457),
+            relationTarget: 'SupplierModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 4560353825386576500),
+            name: 'categoryId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(5, 2130917950542592992),
+            relationTarget: 'CategoryModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 4894164430705184576),
+            name: 'unitId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(6, 698629806240375668),
+            relationTarget: 'UnitModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 7225780580063542658),
+            name: 'priceId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(7, 525945562797319887),
+            relationTarget: 'PriceList')
       ],
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[]),
   obx_int.ModelEntity(
       id: const obx_int.IdUid(5, 2699875232035799149),
       name: 'ProductModel',
-      lastPropertyId: const obx_int.IdUid(13, 6850306170653725048),
+      lastPropertyId: const obx_int.IdUid(16, 7855610327950231430),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -237,31 +225,6 @@ final _entities = <obx_int.ModelEntity>[
             type: 23,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 7229928441048565709),
-            name: 'uid_danh_muc',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 1518545134613383641),
-            name: 'ten_danh_muc',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 6982042452188979866),
-            name: 'uid_don_vi',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 6001654584984488585),
-            name: 'ten_don_vi',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 883625706046727771),
-            name: 'ky_hieu_don_vi',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
             id: const obx_int.IdUid(10, 6021767469518361791),
             name: 'ghi_chu',
             type: 9,
@@ -280,7 +243,28 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(13, 6850306170653725048),
             name: 'so_luong',
             type: 6,
-            flags: 0)
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 5625414788275987508),
+            name: 'supplierId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(8, 8124704708369060400),
+            relationTarget: 'SupplierModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 6536713529042721626),
+            name: 'categoryId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(9, 405308505056760631),
+            relationTarget: 'CategoryModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 7855610327950231430),
+            name: 'unitId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(10, 5042270014188455772),
+            relationTarget: 'UnitModel')
       ],
       relations: <obx_int.ModelRelation>[
         obx_int.ModelRelation(
@@ -314,11 +298,6 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(4, 2015183802015280897),
             name: 'ky_hieu',
             type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 7563155607688441043),
-            name: 'createDate',
-            type: 10,
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[],
@@ -390,6 +369,35 @@ final _entities = <obx_int.ModelEntity>[
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(9, 4684840811247125917),
+      name: 'SupplierModel',
+      lastPropertyId: const obx_int.IdUid(4, 1856481308765661819),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 1940646799049802203),
+            name: 'uid',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 6228732961812636152),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 5012052220393829989),
+            name: 'address',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 1856481308765661819),
+            name: 'phone',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[])
 ];
 
@@ -428,8 +436,8 @@ Future<obx.Store> openStore(
 obx_int.ModelDefinition getObjectBoxModel() {
   final model = obx_int.ModelInfo(
       entities: _entities,
-      lastEntityId: const obx_int.IdUid(8, 3828381250875953042),
-      lastIndexId: const obx_int.IdUid(1, 681671148803372239),
+      lastEntityId: const obx_int.IdUid(9, 4684840811247125917),
+      lastIndexId: const obx_int.IdUid(10, 5042270014188455772),
       lastRelationId: const obx_int.IdUid(2, 6117545004750295902),
       lastSequenceId: const obx_int.IdUid(0, 0),
       retiredEntityUids: const [4121840046154517435],
@@ -439,7 +447,24 @@ obx_int.ModelDefinition getObjectBoxModel() {
         3276445162843721571,
         1946115600899689025,
         8241427837389614950,
-        8090806262661001619
+        8090806262661001619,
+        6837452732912493970,
+        7032831974186877870,
+        4266610608789417277,
+        6931669776031782900,
+        2994713848890333595,
+        5424488080241102282,
+        8326155832968762877,
+        7410578384373947376,
+        4117038924924385776,
+        8744451219592071,
+        8312112673082639836,
+        7229928441048565709,
+        1518545134613383641,
+        6982042452188979866,
+        6001654584984488585,
+        883625706046727771,
+        7563155607688441043
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -449,7 +474,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
   final bindings = <Type, obx_int.EntityDefinition>{
     OrderModel: obx_int.EntityDefinition<OrderModel>(
         model: _entities[0],
-        toOneRelations: (OrderModel object) => [],
+        toOneRelations: (OrderModel object) => [object.customer],
         toManyRelations: (OrderModel object) => {
               obx_int.RelInfo<OrderModel>.toMany(2, object.uid):
                   object.list_product
@@ -468,7 +493,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final sdt_khach_hangOffset = object.sdt_khach_hang == null
               ? null
               : fbb.writeString(object.sdt_khach_hang!);
-          fbb.startTable(11);
+          fbb.startTable(12);
           fbb.addInt64(0, object.uid);
           fbb.addInt64(1, object.thoi_gian_mua?.millisecondsSinceEpoch);
           fbb.addInt64(2, object.uid_khach_hang);
@@ -479,6 +504,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addFloat64(7, object.tong_tien_no);
           fbb.addFloat64(8, object.tong_gia);
           fbb.addInt64(9, object.createDate?.millisecondsSinceEpoch);
+          fbb.addInt64(10, object.customer.targetId);
           fbb.finish(fbb.endTable());
           return object.uid;
         },
@@ -524,6 +550,9 @@ obx_int.ModelDefinition getObjectBoxModel() {
               tong_tien_no: tong_tien_noParam,
               tong_gia: tong_giaParam,
               createDate: createDateParam);
+          object.customer.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 24, 0);
+          object.customer.attach(store);
           obx_int.InternalToManyAccess.setRelInfo<OrderModel>(
               object.list_product,
               store,
@@ -532,7 +561,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
         }),
     PriceList: obx_int.EntityDefinition<PriceList>(
         model: _entities[1],
-        toOneRelations: (PriceList object) => [],
+        toOneRelations: (PriceList object) => [object.unit],
         toManyRelations: (PriceList object) => {},
         getId: (PriceList object) => object.uid,
         setId: (PriceList object, int id) {
@@ -541,20 +570,12 @@ obx_int.ModelDefinition getObjectBoxModel() {
         objectToFB: (PriceList object, fb.Builder fbb) {
           final nameOffset =
               object.name == null ? null : fbb.writeString(object.name!);
-          final ten_don_viOffset = object.ten_don_vi == null
-              ? null
-              : fbb.writeString(object.ten_don_vi!);
-          final ky_hieu_don_viOffset = object.ky_hieu_don_vi == null
-              ? null
-              : fbb.writeString(object.ky_hieu_don_vi!);
-          fbb.startTable(9);
+          fbb.startTable(10);
           fbb.addInt64(0, object.uid);
           fbb.addOffset(1, nameOffset);
-          fbb.addInt64(2, object.uid_don_vi);
-          fbb.addOffset(3, ten_don_viOffset);
-          fbb.addOffset(4, ky_hieu_don_viOffset);
           fbb.addFloat64(5, object.gia_ban);
           fbb.addInt64(6, object.so_luong);
+          fbb.addInt64(8, object.unit.targetId);
           fbb.finish(fbb.endTable());
           return object.uid;
         },
@@ -565,13 +586,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
           final nameParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 6);
-          final uid_don_viParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 8);
-          final ten_don_viParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 10);
-          final ky_hieu_don_viParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 12);
           final gia_banParam =
               const fb.Float64Reader().vTableGet(buffer, rootOffset, 14, 0);
           final so_luongParam =
@@ -579,17 +593,17 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final object = PriceList(
               uid: uidParam,
               name: nameParam,
-              uid_don_vi: uid_don_viParam,
-              ten_don_vi: ten_don_viParam,
-              ky_hieu_don_vi: ky_hieu_don_viParam,
               gia_ban: gia_banParam,
               so_luong: so_luongParam);
-
+          object.unit.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 20, 0);
+          object.unit.attach(store);
           return object;
         }),
     ProductItem: obx_int.EntityDefinition<ProductItem>(
         model: _entities[2],
-        toOneRelations: (ProductItem object) => [],
+        toOneRelations: (ProductItem object) =>
+            [object.supplier, object.category, object.unit, object.price],
         toManyRelations: (ProductItem object) => {},
         getId: (ProductItem object) => object.uid,
         setId: (ProductItem object, int id) {
@@ -604,37 +618,17 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final hinh_san_phamOffset = object.hinh_san_pham == null
               ? null
               : fbb.writeListInt8(object.hinh_san_pham!);
-          final ten_don_viOffset = object.ten_don_vi == null
-              ? null
-              : fbb.writeString(object.ten_don_vi!);
-          final ten_loaiOffset = object.ten_loai == null
-              ? null
-              : fbb.writeString(object.ten_loai!);
-          final ky_hieu_don_viOffset = object.ky_hieu_don_vi == null
-              ? null
-              : fbb.writeString(object.ky_hieu_don_vi!);
-          final gia_ban_ten_don_viOffset = object.gia_ban_ten_don_vi == null
-              ? null
-              : fbb.writeString(object.gia_ban_ten_don_vi!);
-          final gia_ban_ky_hieu_don_viOffset =
-              object.gia_ban_ky_hieu_don_vi == null
-                  ? null
-                  : fbb.writeString(object.gia_ban_ky_hieu_don_vi!);
-          fbb.startTable(15);
+          fbb.startTable(19);
           fbb.addInt64(0, object.uid);
           fbb.addInt64(1, object.uid_product);
           fbb.addOffset(2, barcodeOffset);
           fbb.addOffset(3, ten_san_phamOffset);
           fbb.addOffset(4, hinh_san_phamOffset);
-          fbb.addInt64(5, object.uid_don_vi);
-          fbb.addOffset(6, ten_don_viOffset);
-          fbb.addOffset(7, ten_loaiOffset);
-          fbb.addOffset(8, ky_hieu_don_viOffset);
-          fbb.addInt64(9, object.gia_ban_uid_don_vi);
-          fbb.addOffset(10, gia_ban_ten_don_viOffset);
-          fbb.addOffset(11, gia_ban_ky_hieu_don_viOffset);
-          fbb.addFloat64(12, object.gia_ban);
           fbb.addInt64(13, object.so_luong);
+          fbb.addInt64(14, object.supplier.targetId);
+          fbb.addInt64(15, object.category.targetId);
+          fbb.addInt64(16, object.unit.targetId);
+          fbb.addInt64(17, object.price.targetId);
           fbb.finish(fbb.endTable());
           return object.uid;
         },
@@ -652,25 +646,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
                   .vTableGetNullable(buffer, rootOffset, 10);
           final hinh_san_phamParam = const fb.Uint8ListReader(lazy: false)
               .vTableGetNullable(buffer, rootOffset, 12) as Uint8List?;
-          final uid_don_viParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14);
-          final ten_don_viParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 16);
-          final ten_loaiParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 18);
-          final ky_hieu_don_viParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 20);
-          final gia_ban_uid_don_viParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 22);
-          final gia_ban_ten_don_viParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 24);
-          final gia_ban_ky_hieu_don_viParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 26);
-          final gia_banParam =
-              const fb.Float64Reader().vTableGet(buffer, rootOffset, 28, 0);
           final so_luongParam =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 30, 0);
           final object = ProductItem(
@@ -679,21 +654,25 @@ obx_int.ModelDefinition getObjectBoxModel() {
               barcode: barcodeParam,
               ten_san_pham: ten_san_phamParam,
               hinh_san_pham: hinh_san_phamParam,
-              uid_don_vi: uid_don_viParam,
-              ten_don_vi: ten_don_viParam,
-              ten_loai: ten_loaiParam,
-              ky_hieu_don_vi: ky_hieu_don_viParam,
-              gia_ban_uid_don_vi: gia_ban_uid_don_viParam,
-              gia_ban_ten_don_vi: gia_ban_ten_don_viParam,
-              gia_ban_ky_hieu_don_vi: gia_ban_ky_hieu_don_viParam,
-              gia_ban: gia_banParam,
               so_luong: so_luongParam);
-
+          object.supplier.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 32, 0);
+          object.supplier.attach(store);
+          object.category.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 34, 0);
+          object.category.attach(store);
+          object.unit.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 36, 0);
+          object.unit.attach(store);
+          object.price.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 38, 0);
+          object.price.attach(store);
           return object;
         }),
     ProductModel: obx_int.EntityDefinition<ProductModel>(
         model: _entities[3],
-        toOneRelations: (ProductModel object) => [],
+        toOneRelations: (ProductModel object) =>
+            [object.supplier, object.category, object.unit],
         toManyRelations: (ProductModel object) => {
               obx_int.RelInfo<ProductModel>.toMany(1, object.uid):
                   object.price_list
@@ -711,31 +690,20 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final hinh_san_phamOffset = object.hinh_san_pham == null
               ? null
               : fbb.writeListInt8(object.hinh_san_pham!);
-          final ten_danh_mucOffset = object.ten_danh_muc == null
-              ? null
-              : fbb.writeString(object.ten_danh_muc!);
-          final ten_don_viOffset = object.ten_don_vi == null
-              ? null
-              : fbb.writeString(object.ten_don_vi!);
-          final ky_hieu_don_viOffset = object.ky_hieu_don_vi == null
-              ? null
-              : fbb.writeString(object.ky_hieu_don_vi!);
           final ghi_chuOffset =
               object.ghi_chu == null ? null : fbb.writeString(object.ghi_chu!);
-          fbb.startTable(14);
+          fbb.startTable(17);
           fbb.addInt64(0, object.uid);
           fbb.addOffset(1, barcodeOffset);
           fbb.addOffset(2, ten_san_phamOffset);
           fbb.addOffset(3, hinh_san_phamOffset);
-          fbb.addInt64(4, object.uid_danh_muc);
-          fbb.addOffset(5, ten_danh_mucOffset);
-          fbb.addInt64(6, object.uid_don_vi);
-          fbb.addOffset(7, ten_don_viOffset);
-          fbb.addOffset(8, ky_hieu_don_viOffset);
           fbb.addOffset(9, ghi_chuOffset);
           fbb.addFloat64(10, object.gia_nhap);
           fbb.addInt64(11, object.dung_tich);
           fbb.addInt64(12, object.so_luong);
+          fbb.addInt64(13, object.supplier.targetId);
+          fbb.addInt64(14, object.category.targetId);
+          fbb.addInt64(15, object.unit.targetId);
           fbb.finish(fbb.endTable());
           return object.uid;
         },
@@ -751,18 +719,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
                   .vTableGetNullable(buffer, rootOffset, 8);
           final hinh_san_phamParam = const fb.Uint8ListReader(lazy: false)
               .vTableGetNullable(buffer, rootOffset, 10) as Uint8List?;
-          final uid_danh_mucParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
-          final ten_danh_mucParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 14);
-          final uid_don_viParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16);
-          final ten_don_viParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 18);
-          final ky_hieu_don_viParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 20);
           final ghi_chuParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 22);
           final gia_nhapParam =
@@ -776,15 +732,19 @@ obx_int.ModelDefinition getObjectBoxModel() {
               barcode: barcodeParam,
               ten_san_pham: ten_san_phamParam,
               hinh_san_pham: hinh_san_phamParam,
-              uid_danh_muc: uid_danh_mucParam,
-              ten_danh_muc: ten_danh_mucParam,
-              uid_don_vi: uid_don_viParam,
-              ten_don_vi: ten_don_viParam,
-              ky_hieu_don_vi: ky_hieu_don_viParam,
               ghi_chu: ghi_chuParam,
               gia_nhap: gia_nhapParam,
               dung_tich: dung_tichParam,
               so_luong: so_luongParam);
+          object.supplier.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 30, 0);
+          object.supplier.attach(store);
+          object.category.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 32, 0);
+          object.category.attach(store);
+          object.unit.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 34, 0);
+          object.unit.attach(store);
           obx_int.InternalToManyAccess.setRelInfo<ProductModel>(
               object.price_list,
               store,
@@ -813,15 +773,12 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(1, ten_don_viOffset);
           fbb.addOffset(2, loai_don_viOffset);
           fbb.addOffset(3, ky_hieuOffset);
-          fbb.addInt64(4, object.createDate?.millisecondsSinceEpoch);
           fbb.finish(fbb.endTable());
           return object.uid;
         },
         objectFromFB: (obx.Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
-          final createDateValue =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
           final uidParam =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
           final ten_don_viParam = const fb.StringReader(asciiOptimization: true)
@@ -831,15 +788,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
                   .vTableGetNullable(buffer, rootOffset, 8);
           final ky_hieuParam = const fb.StringReader(asciiOptimization: true)
               .vTableGetNullable(buffer, rootOffset, 10);
-          final createDateParam = createDateValue == null
-              ? null
-              : DateTime.fromMillisecondsSinceEpoch(createDateValue);
           final object = UnitModel(
               uid: uidParam,
               ten_don_vi: ten_don_viParam,
               loai_don_vi: loai_don_viParam,
-              ky_hieu: ky_hieuParam,
-              createDate: createDateParam);
+              ky_hieu: ky_hieuParam);
 
           return object;
         }),
@@ -949,6 +902,48 @@ obx_int.ModelDefinition getObjectBoxModel() {
               createDate: createDateParam);
 
           return object;
+        }),
+    SupplierModel: obx_int.EntityDefinition<SupplierModel>(
+        model: _entities[7],
+        toOneRelations: (SupplierModel object) => [],
+        toManyRelations: (SupplierModel object) => {},
+        getId: (SupplierModel object) => object.uid,
+        setId: (SupplierModel object, int id) {
+          object.uid = id;
+        },
+        objectToFB: (SupplierModel object, fb.Builder fbb) {
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
+          final addressOffset =
+              object.address == null ? null : fbb.writeString(object.address!);
+          final phoneOffset =
+              object.phone == null ? null : fbb.writeString(object.phone!);
+          fbb.startTable(5);
+          fbb.addInt64(0, object.uid);
+          fbb.addOffset(1, nameOffset);
+          fbb.addOffset(2, addressOffset);
+          fbb.addOffset(3, phoneOffset);
+          fbb.finish(fbb.endTable());
+          return object.uid;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final uidParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final nameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final addressParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final phoneParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final object = SupplierModel(
+              uid: uidParam,
+              name: nameParam,
+              address: addressParam,
+              phone: phoneParam);
+
+          return object;
         })
   };
 
@@ -997,6 +992,10 @@ class OrderModel_ {
   static final createDate =
       obx.QueryDateProperty<OrderModel>(_entities[0].properties[9]);
 
+  /// See [OrderModel.customer].
+  static final customer = obx.QueryRelationToOne<OrderModel, CustomerModel>(
+      _entities[0].properties[10]);
+
   /// see [OrderModel.list_product]
   static final list_product = obx.QueryRelationToMany<OrderModel, ProductItem>(
       _entities[0].relations[0]);
@@ -1012,25 +1011,17 @@ class PriceList_ {
   static final name =
       obx.QueryStringProperty<PriceList>(_entities[1].properties[1]);
 
-  /// See [PriceList.uid_don_vi].
-  static final uid_don_vi =
-      obx.QueryIntegerProperty<PriceList>(_entities[1].properties[2]);
-
-  /// See [PriceList.ten_don_vi].
-  static final ten_don_vi =
-      obx.QueryStringProperty<PriceList>(_entities[1].properties[3]);
-
-  /// See [PriceList.ky_hieu_don_vi].
-  static final ky_hieu_don_vi =
-      obx.QueryStringProperty<PriceList>(_entities[1].properties[4]);
-
   /// See [PriceList.gia_ban].
   static final gia_ban =
-      obx.QueryDoubleProperty<PriceList>(_entities[1].properties[5]);
+      obx.QueryDoubleProperty<PriceList>(_entities[1].properties[2]);
 
   /// See [PriceList.so_luong].
   static final so_luong =
-      obx.QueryIntegerProperty<PriceList>(_entities[1].properties[6]);
+      obx.QueryIntegerProperty<PriceList>(_entities[1].properties[3]);
+
+  /// See [PriceList.unit].
+  static final unit =
+      obx.QueryRelationToOne<PriceList, UnitModel>(_entities[1].properties[4]);
 }
 
 /// [ProductItem] entity fields to define ObjectBox queries.
@@ -1055,41 +1046,25 @@ class ProductItem_ {
   static final hinh_san_pham =
       obx.QueryByteVectorProperty<ProductItem>(_entities[2].properties[4]);
 
-  /// See [ProductItem.uid_don_vi].
-  static final uid_don_vi =
-      obx.QueryIntegerProperty<ProductItem>(_entities[2].properties[5]);
-
-  /// See [ProductItem.ten_don_vi].
-  static final ten_don_vi =
-      obx.QueryStringProperty<ProductItem>(_entities[2].properties[6]);
-
-  /// See [ProductItem.ten_loai].
-  static final ten_loai =
-      obx.QueryStringProperty<ProductItem>(_entities[2].properties[7]);
-
-  /// See [ProductItem.ky_hieu_don_vi].
-  static final ky_hieu_don_vi =
-      obx.QueryStringProperty<ProductItem>(_entities[2].properties[8]);
-
-  /// See [ProductItem.gia_ban_uid_don_vi].
-  static final gia_ban_uid_don_vi =
-      obx.QueryIntegerProperty<ProductItem>(_entities[2].properties[9]);
-
-  /// See [ProductItem.gia_ban_ten_don_vi].
-  static final gia_ban_ten_don_vi =
-      obx.QueryStringProperty<ProductItem>(_entities[2].properties[10]);
-
-  /// See [ProductItem.gia_ban_ky_hieu_don_vi].
-  static final gia_ban_ky_hieu_don_vi =
-      obx.QueryStringProperty<ProductItem>(_entities[2].properties[11]);
-
-  /// See [ProductItem.gia_ban].
-  static final gia_ban =
-      obx.QueryDoubleProperty<ProductItem>(_entities[2].properties[12]);
-
   /// See [ProductItem.so_luong].
   static final so_luong =
-      obx.QueryIntegerProperty<ProductItem>(_entities[2].properties[13]);
+      obx.QueryIntegerProperty<ProductItem>(_entities[2].properties[5]);
+
+  /// See [ProductItem.supplier].
+  static final supplier = obx.QueryRelationToOne<ProductItem, SupplierModel>(
+      _entities[2].properties[6]);
+
+  /// See [ProductItem.category].
+  static final category = obx.QueryRelationToOne<ProductItem, CategoryModel>(
+      _entities[2].properties[7]);
+
+  /// See [ProductItem.unit].
+  static final unit = obx.QueryRelationToOne<ProductItem, UnitModel>(
+      _entities[2].properties[8]);
+
+  /// See [ProductItem.price].
+  static final price = obx.QueryRelationToOne<ProductItem, PriceList>(
+      _entities[2].properties[9]);
 }
 
 /// [ProductModel] entity fields to define ObjectBox queries.
@@ -1110,41 +1085,33 @@ class ProductModel_ {
   static final hinh_san_pham =
       obx.QueryByteVectorProperty<ProductModel>(_entities[3].properties[3]);
 
-  /// See [ProductModel.uid_danh_muc].
-  static final uid_danh_muc =
-      obx.QueryIntegerProperty<ProductModel>(_entities[3].properties[4]);
-
-  /// See [ProductModel.ten_danh_muc].
-  static final ten_danh_muc =
-      obx.QueryStringProperty<ProductModel>(_entities[3].properties[5]);
-
-  /// See [ProductModel.uid_don_vi].
-  static final uid_don_vi =
-      obx.QueryIntegerProperty<ProductModel>(_entities[3].properties[6]);
-
-  /// See [ProductModel.ten_don_vi].
-  static final ten_don_vi =
-      obx.QueryStringProperty<ProductModel>(_entities[3].properties[7]);
-
-  /// See [ProductModel.ky_hieu_don_vi].
-  static final ky_hieu_don_vi =
-      obx.QueryStringProperty<ProductModel>(_entities[3].properties[8]);
-
   /// See [ProductModel.ghi_chu].
   static final ghi_chu =
-      obx.QueryStringProperty<ProductModel>(_entities[3].properties[9]);
+      obx.QueryStringProperty<ProductModel>(_entities[3].properties[4]);
 
   /// See [ProductModel.gia_nhap].
   static final gia_nhap =
-      obx.QueryDoubleProperty<ProductModel>(_entities[3].properties[10]);
+      obx.QueryDoubleProperty<ProductModel>(_entities[3].properties[5]);
 
   /// See [ProductModel.dung_tich].
   static final dung_tich =
-      obx.QueryIntegerProperty<ProductModel>(_entities[3].properties[11]);
+      obx.QueryIntegerProperty<ProductModel>(_entities[3].properties[6]);
 
   /// See [ProductModel.so_luong].
   static final so_luong =
-      obx.QueryIntegerProperty<ProductModel>(_entities[3].properties[12]);
+      obx.QueryIntegerProperty<ProductModel>(_entities[3].properties[7]);
+
+  /// See [ProductModel.supplier].
+  static final supplier = obx.QueryRelationToOne<ProductModel, SupplierModel>(
+      _entities[3].properties[8]);
+
+  /// See [ProductModel.category].
+  static final category = obx.QueryRelationToOne<ProductModel, CategoryModel>(
+      _entities[3].properties[9]);
+
+  /// See [ProductModel.unit].
+  static final unit = obx.QueryRelationToOne<ProductModel, UnitModel>(
+      _entities[3].properties[10]);
 
   /// see [ProductModel.price_list]
   static final price_list = obx.QueryRelationToMany<ProductModel, PriceList>(
@@ -1168,10 +1135,6 @@ class UnitModel_ {
   /// See [UnitModel.ky_hieu].
   static final ky_hieu =
       obx.QueryStringProperty<UnitModel>(_entities[4].properties[3]);
-
-  /// See [UnitModel.createDate].
-  static final createDate =
-      obx.QueryDateProperty<UnitModel>(_entities[4].properties[4]);
 }
 
 /// [CustomerModel] entity fields to define ObjectBox queries.
@@ -1218,4 +1181,23 @@ class CategoryModel_ {
   /// See [CategoryModel.createDate].
   static final createDate =
       obx.QueryDateProperty<CategoryModel>(_entities[6].properties[3]);
+}
+
+/// [SupplierModel] entity fields to define ObjectBox queries.
+class SupplierModel_ {
+  /// See [SupplierModel.uid].
+  static final uid =
+      obx.QueryIntegerProperty<SupplierModel>(_entities[7].properties[0]);
+
+  /// See [SupplierModel.name].
+  static final name =
+      obx.QueryStringProperty<SupplierModel>(_entities[7].properties[1]);
+
+  /// See [SupplierModel.address].
+  static final address =
+      obx.QueryStringProperty<SupplierModel>(_entities[7].properties[2]);
+
+  /// See [SupplierModel.phone].
+  static final phone =
+      obx.QueryStringProperty<SupplierModel>(_entities[7].properties[3]);
 }

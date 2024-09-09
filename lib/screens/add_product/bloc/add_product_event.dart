@@ -8,6 +8,8 @@ class AddProductEvent with _$AddProductEvent {
   const factory AddProductEvent.scanBarcode() = ScanBarcode;
   const factory AddProductEvent.addPrice({final PriceList? value}) = AddPrice;
   const factory AddProductEvent.deletePrice(final PriceList data) = DeletePrice;
+  const factory AddProductEvent.chooseSupplier(final SupplierModel value) =
+      ChooseSupplier;
   const factory AddProductEvent.changeBool(final String key) = ChangeBool;
   const factory AddProductEvent.changeString(
       final String key, final String value) = ChangeString;

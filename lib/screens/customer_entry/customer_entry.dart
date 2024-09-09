@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hn_market/utils/utils.dart';
 
 import '../../utils/custom_textfield.dart';
-import '../../utils/gallary.dart';
 import '../../utils/image_cached.dart';
 import 'bloc/customer_entry_bloc.dart';
 
@@ -23,11 +22,16 @@ class CustomerEntryScreen extends StatelessWidget implements AutoRouteWrapper {
             context,
             title: 'Thêm khách hàng',
           ),
-          bottomSheet: 'Thêm khách hàng'.size16.color(Colors.white).textButton(
-            onPressed: () {
-              bloc.add(const Create());
-            },
-          ).marginSymmetric(horizontal: 10),
+          bottomSheet: 'Thêm khách hàng'
+              .size16
+              .color(Colors.white)
+              .textButton(
+                onPressed: () {
+                  bloc.add(const Create());
+                },
+              )
+              .marginSymmetric(horizontal: 10)
+              .marginOnly(bottom: 10),
           body: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,8 +41,8 @@ class CustomerEntryScreen extends StatelessWidget implements AutoRouteWrapper {
                   children: [
                     if (state.hinh_khach_hang != null)
                       Container(
-                        width: 125.sp,
-                        height: 125.sp,
+                        width: 160.sp,
+                        height: 160.sp,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(color: Colors.black12)),
@@ -51,8 +55,8 @@ class CustomerEntryScreen extends StatelessWidget implements AutoRouteWrapper {
                       })
                     else
                       Container(
-                        width: 125.sp,
-                        height: 125.sp,
+                        width: 160.sp,
+                        height: 160.sp,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(color: Colors.black12)),
@@ -75,21 +79,33 @@ class CustomerEntryScreen extends StatelessWidget implements AutoRouteWrapper {
                           onChanged: (value) {
                             bloc.add(ChangeString('ten_khach_hang', value));
                           },
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Vui lòng nhập tên khách hàng';
+                            }
+                            return null;
+                          },
                           title: 'Khách hàng',
                           required: true,
                           hintText: 'Nhập tên khách hàng',
-                        ),
+                        ).marginSymmetric(horizontal: 10),
                         10.sized,
                         CustomTextField(
                           initialValue: state.sdt_khach_hang,
                           onChanged: (value) {
                             bloc.add(ChangeString('sdt_khach_hang', value));
                           },
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Vui lòng nhập số điện thoại khách hàng';
+                            }
+                            return null;
+                          },
                           inputType: TextInputType.phone,
                           title: 'SĐT Khách',
                           hintText: 'Nhập SĐT khách hàng',
                           required: true,
-                        ),
+                        ).marginSymmetric(horizontal: 10),
                       ],
                     ))
                   ],
@@ -102,7 +118,7 @@ class CustomerEntryScreen extends StatelessWidget implements AutoRouteWrapper {
                   },
                   title: 'Địa chỉ',
                   hintText: 'Nhập địa chỉ khách hàng',
-                ),
+                ).marginSymmetric(horizontal: 10),
               ],
             ),
           ),

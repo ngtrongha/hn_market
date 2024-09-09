@@ -8,9 +8,9 @@ import 'package:hn_market/utils/gallary.dart';
 import 'package:hn_market/utils/utils.dart';
 import 'package:tdesign_flutter/tdesign_flutter.dart';
 
-import '../../../app_router/app_router.dart';
 import '../../../model/category_model/category_model.dart';
 import '../../../model/product_model/product_model.dart';
+import '../../../model/supplier_model/supplier_model.dart';
 import '../../../model/unit_model/unit_model.dart';
 import '../add_product_popup.dart';
 
@@ -41,6 +41,7 @@ class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
     on<ChangeString>(changeString);
     on<AddPrice>(addPrice);
     on<DeletePrice>(deletePrice);
+    on<ChooseSupplier>(chooseSupplier);
   }
 
   deletePrice(DeletePrice event, Emitter<AddProductState> emit) async {
@@ -95,12 +96,17 @@ class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
     emit(state.copyWith(isImport: !state.isImport));
   }
 
+  chooseSupplier(ChooseSupplier event, Emitter<AddProductState> emit) async {
+    try {
+      emit(state.copyWith(supplier: event.value));
+    } catch (e) {
+      e.printELog;
+    }
+  }
+
   chooseUnit(ChooseUnit event, Emitter<AddProductState> emit) async {
     try {
-      emit(state.copyWith(
-          uid_don_vi: event.value.uid,
-          ten_don_vi: event.value.ten_don_vi ?? '',
-          ky_hieu_don_vi: event.value.ky_hieu ?? ''));
+      emit(state.copyWith(unit: event.value));
     } catch (e) {
       e.printELog;
     }
@@ -108,9 +114,7 @@ class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
 
   chooseCategory(ChooseCategory event, Emitter<AddProductState> emit) async {
     try {
-      emit(state.copyWith(
-          ten_danh_muc: event.value.ten_danh_muc ?? '',
-          uid_danh_muc: event.value.uid));
+      emit(state.copyWith(category: event.value));
     } catch (e) {
       e.printELog;
     }
@@ -128,6 +132,12 @@ class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
       await Utils.objectBox.store.box<UnitModel>().getAllAsync().then((value) {
         emit(state.copyWith(list_unit: value));
       });
+      await Utils.objectBox.store
+          .box<SupplierModel>()
+          .getAllAsync()
+          .then((value) {
+        emit(state.copyWith(list_supplier: value));
+      });
       if (uid != null) {
         await Utils.objectBox.store
             .box<ProductModel>()
@@ -142,11 +152,9 @@ class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
           so_luongController.text = value?.so_luong.toString() ?? '';
           emit(state.copyWith(
               hinh_san_pham: value?.hinh_san_pham,
-              uid_danh_muc: value?.uid_danh_muc ?? 0,
-              ten_danh_muc: value?.ten_danh_muc ?? '',
-              uid_don_vi: value?.uid_don_vi ?? 0,
-              ten_don_vi: value?.ten_don_vi ?? '',
-              ky_hieu_don_vi: value?.ky_hieu_don_vi ?? '',
+              category: value?.category.target,
+              unit: value?.unit.target,
+              supplier: value?.supplier.target,
               price_list: value?.price_list ?? []));
         });
       }
@@ -167,6 +175,19 @@ class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
         TDToast.showText('Bạn chưa nhập tên SP', context: context);
         return;
       }
+
+      if (state.category == null) {
+        TDToast.showText('Bạn chưa chọn danh mục', context: context);
+        return;
+      }
+      if (state.unit == null) {
+        TDToast.showText('Bạn chưa chọn đơn vị', context: context);
+        return;
+      }
+      if (state.supplier == null) {
+        TDToast.showText('Bạn chưa chọn nhà cung cấp', context: context);
+        return;
+      }
       if (state.price_list.isEmpty) {
         if (state.price_list.any((element) => element.gia_ban == 0)) {
           TDToast.showText('Bạn chưa nhập giá', context: context);
@@ -185,11 +206,9 @@ class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
         barcode: barcode,
         ten_san_pham: ten_san_phamController.text,
         hinh_san_pham: state.hinh_san_pham,
-        uid_danh_muc: state.uid_danh_muc,
-        ten_danh_muc: state.ten_danh_muc,
-        uid_don_vi: state.uid_don_vi,
-        ten_don_vi: state.ten_don_vi,
-        ky_hieu_don_vi: state.ky_hieu_don_vi,
+        category: state.category!,
+        unit: state.unit!,
+        supplier: state.supplier!,
         ghi_chu: ghi_chuController.text,
         gia_nhap: double.tryParse(gia_nhapController.text) ?? 0,
         dung_tich: int.tryParse(dung_tichController.text) ?? 0,

@@ -1,7 +1,9 @@
+// ignore_for_file: constant_identifier_names
+
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tdesign_flutter/tdesign_flutter.dart';
 
 String? enumToString(dynamic e) {
   if (e == null) {
@@ -15,7 +17,62 @@ extension DoubleExtension on num {
       toString().replaceAll(RegExp(r'([.]*0)(?!.*\d)'), '');
 }
 
+extension IntegerExtensions on int? {
+  String toVietnameseWords() {
+    if (this == null) {
+      return '';
+    }
+    if (this == 0) {
+      return 'Không';
+    }
+
+    if (this! < 0) {
+      return 'Âm ${(-this!).toVietnameseWords().toLowerCase()}';
+    }
+
+    String s = toString();
+
+    List<String> groups =
+        (ZERO_LEFT_PADDING[s.length % 3] + s).chunk(3).toList();
+    bool showZeroHundred = shouldShowZeroHundred(groups);
+
+    int index = -1;
+    String rawResult = groups.fold('', (String acc, String e) {
+      index++;
+      String triple = readTriple(e, showZeroHundred && index > 0);
+      String multipleThousand = triple.trim().isEmpty
+          ? ''
+          : MULTIPLE_THOUSAND[groups.length - 1 - index];
+      return '$acc $triple $multipleThousand';
+    });
+
+    return RegExp(r'\s+').allMatches(rawResult).isEmpty
+        ? rawResult.trim().capitalize()
+        : rawResult.replaceAll(RegExp(r'\s+'), ' ').trim().capitalize();
+  }
+}
+
 extension StringsExtension on String {
+  Iterable<String> chunk(int chunkSize) sync* {
+    for (int i = 0; i < length; i += chunkSize) {
+      yield substring(i, min(i + chunkSize, length));
+    }
+  }
+
+  bool get isImage => ['jpg', 'png'].contains(this);
+  String get pathName => '/$this';
+  String capitalize() {
+    if (isEmpty) {
+      throw 'Input cannot be empty';
+    } else {
+      return substring(0, 1).toUpperCase() + substring(1).toLowerCase();
+    }
+  }
+
+  bool get emailValid => RegExp(
+          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+      .hasMatch(this);
+
   String noAccentVietnamese([final bool? enable]) {
     String result = this;
     if (enable == null || !enable) {
@@ -74,8 +131,9 @@ extension SVGExtension on String {
   String get svg => 'assets/svg/$this.svg';
   String get riv => 'assets/rive/$this.riv';
   String get lottie => 'assets/lottie/$this.json';
-  String get png => 'assets/png/$this.png';
+  String get png => 'assets/images/$this.png';
   String get jpg => 'assets/jpg/$this.jpg';
+  String get gif => 'assets/gif/$this.gif';
 }
 
 extension ColorExtension on String {
@@ -86,286 +144,286 @@ extension ColorExtension on String {
           : int.parse(replaceAll('#', '0xFF')));
 }
 
-extension FontSizeExtension on String {
-  TDText get size32 => TDText(
-        this,
+extension FontSizeExtension on String? {
+  Text get size32 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 32.sp,
+          fontSize: 32,
           color: '151515'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size30 => TDText(
-        this,
+  Text get size30 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 30.sp,
+          fontSize: 30,
           color: '151515'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size28 => TDText(
-        this,
+  Text get size28 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 28.sp,
+          fontSize: 28,
           color: '151515'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size26 => TDText(
-        this,
+  Text get size26 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 26.sp,
+          fontSize: 26,
           color: '151515'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size24 => TDText(
-        this,
+  Text get size24 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 24.sp,
+          fontSize: 24,
           color: '151515'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size22 => TDText(
-        this,
+  Text get size22 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 22.sp,
+          fontSize: 22,
           color: '151515'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size20 => TDText(
-        this,
+  Text get size20 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 20.sp,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontSize: 20,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size18 => TDText(
-        this,
+  Text get size18 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 18.sp,
+          fontSize: 18,
           color: '151515'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size17 => TDText(
-        this,
+  Text get size17 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 17.sp,
-          color: '535353'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontSize: 17,
+          color: '082819'.color,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size16 => TDText(
-        this,
+  Text get size16 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 16.sp,
-          color: '535353'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontSize: 16,
+          color: '082819'.color,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size15 => TDText(
-        this,
+  Text get size15 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 15.sp,
-          color: '535353'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontSize: 15,
+          color: '082819'.color,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size14 => TDText(
-        this,
+  Text get size14 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 14.sp,
-          color: '535353'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontSize: 14,
+          color: '082819'.color,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size13 => TDText(
-        this,
+  Text get size13 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 13.sp,
-          color: '535353'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontSize: 13,
+          color: '082819'.color,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size12 => TDText(
-        this,
+  Text get size12 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 12.sp,
-          color: '535353'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontSize: 12,
+          color: '082819'.color,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size11 => TDText(
-        this,
+  Text get size11 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 11.sp,
-          color: '535353'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontSize: 11,
+          color: '082819'.color,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
-  TDText get size10 => TDText(
-        this,
+  Text get size10 => Text(
+        this ?? '',
         style: TextStyle(
-          fontSize: 10.sp,
-          color: '535353'.color,
-          fontFamily: GoogleFonts.inter().fontFamily,
+          fontSize: 10,
+          color: '082819'.color,
+          fontFamily: GoogleFonts.mulish().fontFamily,
         ),
       );
 }
 
-extension FontWeightExtension on TDText {
-  TDText get w100 => TDText(
+extension FontWeightExtension on Text {
+  Text get w100 => Text(
         data!,
         style: style?.copyWith(fontWeight: FontWeight.w100),
       );
-  TDText get w200 => TDText(
+  Text get w200 => Text(
         data!,
         style: style?.copyWith(fontWeight: FontWeight.w200),
       );
-  TDText get w300 => TDText(
+  Text get w300 => Text(
         data!,
         style: style?.copyWith(fontWeight: FontWeight.w300),
       );
-  TDText get w400 => TDText(
+  Text get w400 => Text(
         data!,
         style: style?.copyWith(fontWeight: FontWeight.w400),
       );
-  TDText get w500 => TDText(
+  Text get w500 => Text(
         data!,
         style: style?.copyWith(fontWeight: FontWeight.w500),
       );
-  TDText get w600 => TDText(
+  Text get w600 => Text(
         data!,
         style: style?.copyWith(fontWeight: FontWeight.w600),
       );
-  TDText get w700 => TDText(
+  Text get w700 => Text(
         data!,
         style: style?.copyWith(fontWeight: FontWeight.w700),
       );
-  TDText get w800 => TDText(
+  Text get w800 => Text(
         data!,
         style: style?.copyWith(fontWeight: FontWeight.w800),
       );
-  TDText get w900 => TDText(
+  Text get w900 => Text(
         data!,
         style: style?.copyWith(fontWeight: FontWeight.w900),
       );
-  TDText get bold => TDText(
+  Text get bold => Text(
         data!,
         style: style?.copyWith(fontWeight: FontWeight.bold),
       );
 }
 
-extension TextDecorationExtension on TDText {
-  TDText get lineThrough => TDText(
+extension TextDecorationExtension on Text {
+  Text get lineThrough => Text(
         data!,
         style: style?.copyWith(decoration: TextDecoration.lineThrough),
       );
-  TDText get overline => TDText(
+  Text get overline => Text(
         data!,
         style: style?.copyWith(decoration: TextDecoration.overline),
       );
-  TDText get underline => TDText(
+  Text get underline => Text(
         data!,
         style: style?.copyWith(decoration: TextDecoration.underline),
       );
 }
 
-extension TextOverflowExtension on TDText {
-  TDText get clip => TDText(
+extension TextOverflowExtension on Text {
+  Text get clip => Text(
         data!,
         style: style?.copyWith(overflow: TextOverflow.clip),
       );
-  Widget get ellipsis => TDText(
+  Widget get ellipsis => Text(
         data!,
         style: style?.copyWith(overflow: TextOverflow.ellipsis),
       );
-  Widget get fade => TDText(
+  Widget get fade => Text(
         data!,
         style: style?.copyWith(overflow: TextOverflow.fade),
       );
 }
 
-extension TextAlignExtension on TDText {
-  TDText get center => TDText(
+extension TextAlignExtension on Text {
+  Text get center => Text(
         data!,
         textAlign: TextAlign.center,
         style: style,
       );
-  TDText get end => TDText(
+  Text get end => Text(
         data!,
         textAlign: TextAlign.end,
         style: style,
       );
-  TDText get justify => TDText(
+  Text get justify => Text(
         data!,
         textAlign: TextAlign.justify,
         style: style,
       );
-  TDText get left => TDText(
+  Text get left => Text(
         data!,
         textAlign: TextAlign.left,
         style: style,
       );
-  TDText get right => TDText(
+  Text get right => Text(
         data!,
         textAlign: TextAlign.right,
         style: style,
       );
-  TDText get start => TDText(
+  Text get start => Text(
         data!,
         textAlign: TextAlign.start,
         style: style,
       );
 }
 
-extension FontColorExtension on TDText {
-  TDText color(final Color color) {
-    return TDText(
+extension FontColorExtension on Text {
+  Text color(final Color color) {
+    return Text(
       data!,
       style: style?.copyWith(color: color),
     );
   }
 }
 
-extension HeightStyleExtension on TDText {
-  TDText height(final double height) {
-    return TDText(
+extension HeightStyleExtension on Text {
+  Text height(final double height) {
+    return Text(
       data!,
       style: style?.copyWith(height: height),
     );
   }
 }
 
-extension FontStyleExtension on TDText {
-  TDText get italic => TDText(
+extension FontStyleExtension on Text {
+  Text get italic => Text(
         data!,
         style: style?.copyWith(fontStyle: FontStyle.italic),
       );
-  TDText lineHeight(final double height) => TDText(
+  Text lineHeight(final double height) => Text(
         data!,
         style: style?.copyWith(height: height / 100),
       );
 }
 
 extension TextExtension on String {
-  TDText requiredText({
+  Text requiredText({
     final Color? color,
     final double fontSize = 14,
     final FontWeight? fontWeight,
   }) {
-    return TDText.rich(
-      TDTextSpan(
+    return Text.rich(
+      TextSpan(
           text: this,
           style: TextStyle(
-              color: color ?? '535353'.color,
-              fontSize: fontSize.sp,
+              color: color ?? '#476704'.color,
+              fontSize: fontSize,
               fontWeight: fontWeight),
           children: [
-            TDTextSpan(
+            TextSpan(
               text: '*',
               style: TextStyle(
                   color: Colors.red,
@@ -374,5 +432,85 @@ extension TextExtension on String {
             )
           ]),
     );
+  }
+}
+
+const List<String> ZERO_LEFT_PADDING = ["", "00", "0"];
+
+const List<String> DIGITS = [
+  "không",
+  "một",
+  "hai",
+  "ba",
+  "bốn",
+  "năm",
+  "sáu",
+  "bảy",
+  "tám",
+  "chín"
+];
+
+const List<String> MULTIPLE_THOUSAND = [
+  "",
+  "nghìn",
+  "triệu",
+  "tỷ",
+  "nghìn tỷ",
+  "triệu tỷ",
+  "tỷ tỷ"
+];
+
+bool shouldShowZeroHundred(List<String> goups) {
+  List<String> reversedGroups = [...goups].reversed.toList();
+  int count = reversedGroups.takeWhile((it) => it == "000").length;
+  return count < reversedGroups.length - 1;
+}
+
+String readTriple(String triple, bool showZeroHundred) {
+  List<int> digits = triple.split('').map(int.parse).toList();
+
+  int a = digits[0];
+  int b = digits[1];
+  int c = digits[2];
+
+  if (a == 0 && b == 0 && c == 0) {
+    return "";
+  } else if (a == 0 && showZeroHundred) {
+    return "không trăm ${readPair(b, c)}";
+  } else if (a == 0 && b == 0) {
+    return DIGITS[c];
+  } else if (a == 0) {
+    return readPair(b, c);
+  } else {
+    return "${DIGITS[a]} trăm ${readPair(b, c)}";
+  }
+}
+
+String readPair(int b, int c) {
+  switch (b) {
+    case 0:
+      return c == 0 ? '' : 'linh ${DIGITS[c]}';
+    case 1:
+      switch (c) {
+        case 0:
+          return 'mười';
+        case 5:
+          return 'mười lăm';
+        default:
+          return 'mười ${DIGITS[c]}';
+      }
+    default:
+      switch (c) {
+        case 0:
+          return '${DIGITS[b]} mươi ';
+        case 1:
+          return '${DIGITS[b]} mươi mốt';
+        case 4:
+          return '${DIGITS[b]} mươi tư';
+        case 5:
+          return '${DIGITS[b]} mươi lăm';
+        default:
+          return '${DIGITS[b]} mươi ${DIGITS[c]}';
+      }
   }
 }

@@ -241,7 +241,9 @@ class OrderEntryScreen extends StatelessWidget implements AutoRouteWrapper {
                                               Row(children: [
                                                 'Loại:'.size14,
                                                 Expanded(
-                                                    child: (e.ten_loai ?? '')
+                                                    child: (e.category.target
+                                                                ?.ten_danh_muc ??
+                                                            '')
                                                         .size16
                                                         .end),
                                               ]),
@@ -288,7 +290,7 @@ class OrderEntryScreen extends StatelessWidget implements AutoRouteWrapper {
                                                                         children: [
                                                                           (price.name ?? '')
                                                                               .size14,
-                                                                          '${Utils.moneyFormat(price.gia_ban)}${e.so_luong > 1 ? '/${price.so_luong}' : ''}/${price.ten_don_vi}'
+                                                                          '${Utils.moneyFormat(price.gia_ban)}${e.so_luong > 1 ? '/${price.so_luong}' : ''}/${price.unit.target?.ky_hieu ?? ''}'
                                                                               .size15
                                                                               .center,
                                                                         ],
@@ -306,7 +308,7 @@ class OrderEntryScreen extends StatelessWidget implements AutoRouteWrapper {
                                                             MainAxisAlignment
                                                                 .end,
                                                         children: [
-                                                          '${Utils.moneyFormat(e.gia_ban)}/${e.gia_ban_ten_don_vi}'
+                                                          '${Utils.moneyFormat(e.price.target?.gia_ban ?? 0)}/${e.price.target?.unit.target?.ten_don_vi ?? ''}'
                                                               .size15
                                                               .color(Theme.of(
                                                                       context)

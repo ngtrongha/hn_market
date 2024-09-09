@@ -55,6 +55,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<GetProducts>(getProducts);
     on<ChangeBool>(changeBool);
     on<ChangeString>(changeString);
+    on<ChangeIndexNav>(changeIndexNav);
+  }
+  changeIndexNav(ChangeIndexNav event, Emitter<HomeState> emit) async {
+    emit(state.copyWith(indexNav: event.index));
   }
   changeString(ChangeString event, Emitter<HomeState> emit) async {
     switch (event.key) {

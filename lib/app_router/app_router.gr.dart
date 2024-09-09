@@ -305,6 +305,25 @@ class QrScanRouteArgs {
 }
 
 /// generated route for
+/// [SupplierListScreen]
+class SupplierListRoute extends PageRouteInfo<void> {
+  const SupplierListRoute({List<PageRouteInfo>? children})
+      : super(
+          SupplierListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SupplierListRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const SupplierListScreen());
+    },
+  );
+}
+
+/// generated route for
 /// [UnitListScreen]
 class UnitListRoute extends PageRouteInfo<void> {
   const UnitListRoute({List<PageRouteInfo>? children})

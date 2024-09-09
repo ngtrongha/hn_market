@@ -1,15 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_popup/flutter_popup.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hn_market/utils/utils.dart';
-import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 import '../../utils/custom_textfield.dart';
 import '../../utils/image_cached.dart';
-import '../../utils/loading.dart';
 import 'bloc/add_product_bloc.dart';
 
 @RoutePage()
@@ -32,10 +28,12 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
               .size15
               .color(Colors.white)
               .textButton(
-            onPressed: () {
-              bloc.add(const Create());
-            },
-          ).marginSymmetric(horizontal: 10),
+                onPressed: () {
+                  bloc.add(const Create());
+                },
+              )
+              .marginSymmetric(horizontal: 10)
+              .marginOnly(bottom: 10),
           body: Form(
             key: bloc.formKey,
             child: SingleChildScrollView(
@@ -107,7 +105,7 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
                 ).marginSymmetric(horizontal: 10),
                 10.sized,
                 CustomDropDownButton(
-                        value: state.uid_danh_muc,
+                        value: state.category?.uid,
                         title: 'Loại SP',
                         hintText: 'Chọn loại SP',
                         validator: (value) {
@@ -128,6 +126,28 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
                             .toList())
                     .marginSymmetric(horizontal: 10),
                 10.sized,
+                CustomDropDownButton(
+                        value: state.supplier?.uid,
+                        title: 'Nhà cung cấp',
+                        hintText: 'Chọn nhà cung cấp',
+                        validator: (value) {
+                          if (value == null) {
+                            return 'Vui lòng chọn nhà cung cấp';
+                          }
+                          return null;
+                        },
+                        onChanged: (p0) {
+                          final supplier = state.list_supplier
+                              .firstWhere((element) => element.uid == p0);
+                          bloc.add(ChooseSupplier(supplier));
+                        },
+                        items: state.list_supplier
+                            .map((e) => DropdownMenuItem(
+                                value: e.uid,
+                                child: (e.name ?? '').size14.w600))
+                            .toList())
+                    .marginSymmetric(horizontal: 10),
+                10.sized,
                 CustomTextField(
                   inputType: TextInputType.number,
                   controller: bloc.dung_tichController,
@@ -142,7 +162,7 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
                   required: true,
                   suffixIconMaxWidth: 120.sp,
                   suffixIcon: CustomDropDownButton(
-                      value: state.uid_don_vi,
+                      value: state.unit?.uid,
                       hintText: 'Chọn đơn vị',
                       onChanged: (p0) {
                         final unit = state.list_unit
@@ -228,7 +248,7 @@ class AddProductScreen extends StatelessWidget implements AutoRouteWrapper {
                             contentAlignment: TextAlign.end,
                             required: true,
                             suffixIconMaxWidth: 90.sp,
-                            suffixIcon: (e.ten_don_vi ?? '')
+                            suffixIcon: (e.unit.target?.ten_don_vi ?? '')
                                 .size15
                                 .color(Theme.of(context).primaryColor)
                                 .marginOnly(right: 10),

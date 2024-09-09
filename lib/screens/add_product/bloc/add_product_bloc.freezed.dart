@@ -24,6 +24,7 @@ mixin _$AddProductEvent {
     required TResult Function() scanBarcode,
     required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
+    required TResult Function(SupplierModel value) chooseSupplier,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
     required TResult Function(CategoryModel value) chooseCategory,
@@ -38,6 +39,7 @@ mixin _$AddProductEvent {
     TResult? Function()? scanBarcode,
     TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
+    TResult? Function(SupplierModel value)? chooseSupplier,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
     TResult? Function(CategoryModel value)? chooseCategory,
@@ -52,6 +54,7 @@ mixin _$AddProductEvent {
     TResult Function()? scanBarcode,
     TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
+    TResult Function(SupplierModel value)? chooseSupplier,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
     TResult Function(CategoryModel value)? chooseCategory,
@@ -67,6 +70,7 @@ mixin _$AddProductEvent {
     required TResult Function(ScanBarcode value) scanBarcode,
     required TResult Function(AddPrice value) addPrice,
     required TResult Function(DeletePrice value) deletePrice,
+    required TResult Function(ChooseSupplier value) chooseSupplier,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
     required TResult Function(ChooseCategory value) chooseCategory,
@@ -81,6 +85,7 @@ mixin _$AddProductEvent {
     TResult? Function(ScanBarcode value)? scanBarcode,
     TResult? Function(AddPrice value)? addPrice,
     TResult? Function(DeletePrice value)? deletePrice,
+    TResult? Function(ChooseSupplier value)? chooseSupplier,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
     TResult? Function(ChooseCategory value)? chooseCategory,
@@ -95,6 +100,7 @@ mixin _$AddProductEvent {
     TResult Function(ScanBarcode value)? scanBarcode,
     TResult Function(AddPrice value)? addPrice,
     TResult Function(DeletePrice value)? deletePrice,
+    TResult Function(ChooseSupplier value)? chooseSupplier,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
     TResult Function(ChooseCategory value)? chooseCategory,
@@ -172,6 +178,7 @@ class _$StartedImpl implements Started {
     required TResult Function() scanBarcode,
     required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
+    required TResult Function(SupplierModel value) chooseSupplier,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
     required TResult Function(CategoryModel value) chooseCategory,
@@ -189,6 +196,7 @@ class _$StartedImpl implements Started {
     TResult? Function()? scanBarcode,
     TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
+    TResult? Function(SupplierModel value)? chooseSupplier,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
     TResult? Function(CategoryModel value)? chooseCategory,
@@ -206,6 +214,7 @@ class _$StartedImpl implements Started {
     TResult Function()? scanBarcode,
     TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
+    TResult Function(SupplierModel value)? chooseSupplier,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
     TResult Function(CategoryModel value)? chooseCategory,
@@ -227,6 +236,7 @@ class _$StartedImpl implements Started {
     required TResult Function(ScanBarcode value) scanBarcode,
     required TResult Function(AddPrice value) addPrice,
     required TResult Function(DeletePrice value) deletePrice,
+    required TResult Function(ChooseSupplier value) chooseSupplier,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
     required TResult Function(ChooseCategory value) chooseCategory,
@@ -244,6 +254,7 @@ class _$StartedImpl implements Started {
     TResult? Function(ScanBarcode value)? scanBarcode,
     TResult? Function(AddPrice value)? addPrice,
     TResult? Function(DeletePrice value)? deletePrice,
+    TResult? Function(ChooseSupplier value)? chooseSupplier,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
     TResult? Function(ChooseCategory value)? chooseCategory,
@@ -261,6 +272,7 @@ class _$StartedImpl implements Started {
     TResult Function(ScanBarcode value)? scanBarcode,
     TResult Function(AddPrice value)? addPrice,
     TResult Function(DeletePrice value)? deletePrice,
+    TResult Function(ChooseSupplier value)? chooseSupplier,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
     TResult Function(ChooseCategory value)? chooseCategory,
@@ -325,6 +337,7 @@ class _$CreateImpl implements Create {
     required TResult Function() scanBarcode,
     required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
+    required TResult Function(SupplierModel value) chooseSupplier,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
     required TResult Function(CategoryModel value) chooseCategory,
@@ -342,6 +355,7 @@ class _$CreateImpl implements Create {
     TResult? Function()? scanBarcode,
     TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
+    TResult? Function(SupplierModel value)? chooseSupplier,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
     TResult? Function(CategoryModel value)? chooseCategory,
@@ -359,6 +373,7 @@ class _$CreateImpl implements Create {
     TResult Function()? scanBarcode,
     TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
+    TResult Function(SupplierModel value)? chooseSupplier,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
     TResult Function(CategoryModel value)? chooseCategory,
@@ -380,6 +395,7 @@ class _$CreateImpl implements Create {
     required TResult Function(ScanBarcode value) scanBarcode,
     required TResult Function(AddPrice value) addPrice,
     required TResult Function(DeletePrice value) deletePrice,
+    required TResult Function(ChooseSupplier value) chooseSupplier,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
     required TResult Function(ChooseCategory value) chooseCategory,
@@ -397,6 +413,7 @@ class _$CreateImpl implements Create {
     TResult? Function(ScanBarcode value)? scanBarcode,
     TResult? Function(AddPrice value)? addPrice,
     TResult? Function(DeletePrice value)? deletePrice,
+    TResult? Function(ChooseSupplier value)? chooseSupplier,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
     TResult? Function(ChooseCategory value)? chooseCategory,
@@ -414,6 +431,7 @@ class _$CreateImpl implements Create {
     TResult Function(ScanBarcode value)? scanBarcode,
     TResult Function(AddPrice value)? addPrice,
     TResult Function(DeletePrice value)? deletePrice,
+    TResult Function(ChooseSupplier value)? chooseSupplier,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
     TResult Function(ChooseCategory value)? chooseCategory,
@@ -478,6 +496,7 @@ class _$ChooseImageImpl implements ChooseImage {
     required TResult Function() scanBarcode,
     required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
+    required TResult Function(SupplierModel value) chooseSupplier,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
     required TResult Function(CategoryModel value) chooseCategory,
@@ -495,6 +514,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult? Function()? scanBarcode,
     TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
+    TResult? Function(SupplierModel value)? chooseSupplier,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
     TResult? Function(CategoryModel value)? chooseCategory,
@@ -512,6 +532,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult Function()? scanBarcode,
     TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
+    TResult Function(SupplierModel value)? chooseSupplier,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
     TResult Function(CategoryModel value)? chooseCategory,
@@ -533,6 +554,7 @@ class _$ChooseImageImpl implements ChooseImage {
     required TResult Function(ScanBarcode value) scanBarcode,
     required TResult Function(AddPrice value) addPrice,
     required TResult Function(DeletePrice value) deletePrice,
+    required TResult Function(ChooseSupplier value) chooseSupplier,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
     required TResult Function(ChooseCategory value) chooseCategory,
@@ -550,6 +572,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult? Function(ScanBarcode value)? scanBarcode,
     TResult? Function(AddPrice value)? addPrice,
     TResult? Function(DeletePrice value)? deletePrice,
+    TResult? Function(ChooseSupplier value)? chooseSupplier,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
     TResult? Function(ChooseCategory value)? chooseCategory,
@@ -567,6 +590,7 @@ class _$ChooseImageImpl implements ChooseImage {
     TResult Function(ScanBarcode value)? scanBarcode,
     TResult Function(AddPrice value)? addPrice,
     TResult Function(DeletePrice value)? deletePrice,
+    TResult Function(ChooseSupplier value)? chooseSupplier,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
     TResult Function(ChooseCategory value)? chooseCategory,
@@ -631,6 +655,7 @@ class _$ScanBarcodeImpl implements ScanBarcode {
     required TResult Function() scanBarcode,
     required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
+    required TResult Function(SupplierModel value) chooseSupplier,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
     required TResult Function(CategoryModel value) chooseCategory,
@@ -648,6 +673,7 @@ class _$ScanBarcodeImpl implements ScanBarcode {
     TResult? Function()? scanBarcode,
     TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
+    TResult? Function(SupplierModel value)? chooseSupplier,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
     TResult? Function(CategoryModel value)? chooseCategory,
@@ -665,6 +691,7 @@ class _$ScanBarcodeImpl implements ScanBarcode {
     TResult Function()? scanBarcode,
     TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
+    TResult Function(SupplierModel value)? chooseSupplier,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
     TResult Function(CategoryModel value)? chooseCategory,
@@ -686,6 +713,7 @@ class _$ScanBarcodeImpl implements ScanBarcode {
     required TResult Function(ScanBarcode value) scanBarcode,
     required TResult Function(AddPrice value) addPrice,
     required TResult Function(DeletePrice value) deletePrice,
+    required TResult Function(ChooseSupplier value) chooseSupplier,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
     required TResult Function(ChooseCategory value) chooseCategory,
@@ -703,6 +731,7 @@ class _$ScanBarcodeImpl implements ScanBarcode {
     TResult? Function(ScanBarcode value)? scanBarcode,
     TResult? Function(AddPrice value)? addPrice,
     TResult? Function(DeletePrice value)? deletePrice,
+    TResult? Function(ChooseSupplier value)? chooseSupplier,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
     TResult? Function(ChooseCategory value)? chooseCategory,
@@ -720,6 +749,7 @@ class _$ScanBarcodeImpl implements ScanBarcode {
     TResult Function(ScanBarcode value)? scanBarcode,
     TResult Function(AddPrice value)? addPrice,
     TResult Function(DeletePrice value)? deletePrice,
+    TResult Function(ChooseSupplier value)? chooseSupplier,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
     TResult Function(ChooseCategory value)? chooseCategory,
@@ -811,6 +841,7 @@ class _$AddPriceImpl implements AddPrice {
     required TResult Function() scanBarcode,
     required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
+    required TResult Function(SupplierModel value) chooseSupplier,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
     required TResult Function(CategoryModel value) chooseCategory,
@@ -828,6 +859,7 @@ class _$AddPriceImpl implements AddPrice {
     TResult? Function()? scanBarcode,
     TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
+    TResult? Function(SupplierModel value)? chooseSupplier,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
     TResult? Function(CategoryModel value)? chooseCategory,
@@ -845,6 +877,7 @@ class _$AddPriceImpl implements AddPrice {
     TResult Function()? scanBarcode,
     TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
+    TResult Function(SupplierModel value)? chooseSupplier,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
     TResult Function(CategoryModel value)? chooseCategory,
@@ -866,6 +899,7 @@ class _$AddPriceImpl implements AddPrice {
     required TResult Function(ScanBarcode value) scanBarcode,
     required TResult Function(AddPrice value) addPrice,
     required TResult Function(DeletePrice value) deletePrice,
+    required TResult Function(ChooseSupplier value) chooseSupplier,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
     required TResult Function(ChooseCategory value) chooseCategory,
@@ -883,6 +917,7 @@ class _$AddPriceImpl implements AddPrice {
     TResult? Function(ScanBarcode value)? scanBarcode,
     TResult? Function(AddPrice value)? addPrice,
     TResult? Function(DeletePrice value)? deletePrice,
+    TResult? Function(ChooseSupplier value)? chooseSupplier,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
     TResult? Function(ChooseCategory value)? chooseCategory,
@@ -900,6 +935,7 @@ class _$AddPriceImpl implements AddPrice {
     TResult Function(ScanBarcode value)? scanBarcode,
     TResult Function(AddPrice value)? addPrice,
     TResult Function(DeletePrice value)? deletePrice,
+    TResult Function(ChooseSupplier value)? chooseSupplier,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
     TResult Function(ChooseCategory value)? chooseCategory,
@@ -999,6 +1035,7 @@ class _$DeletePriceImpl implements DeletePrice {
     required TResult Function() scanBarcode,
     required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
+    required TResult Function(SupplierModel value) chooseSupplier,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
     required TResult Function(CategoryModel value) chooseCategory,
@@ -1016,6 +1053,7 @@ class _$DeletePriceImpl implements DeletePrice {
     TResult? Function()? scanBarcode,
     TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
+    TResult? Function(SupplierModel value)? chooseSupplier,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
     TResult? Function(CategoryModel value)? chooseCategory,
@@ -1033,6 +1071,7 @@ class _$DeletePriceImpl implements DeletePrice {
     TResult Function()? scanBarcode,
     TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
+    TResult Function(SupplierModel value)? chooseSupplier,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
     TResult Function(CategoryModel value)? chooseCategory,
@@ -1054,6 +1093,7 @@ class _$DeletePriceImpl implements DeletePrice {
     required TResult Function(ScanBarcode value) scanBarcode,
     required TResult Function(AddPrice value) addPrice,
     required TResult Function(DeletePrice value) deletePrice,
+    required TResult Function(ChooseSupplier value) chooseSupplier,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
     required TResult Function(ChooseCategory value) chooseCategory,
@@ -1071,6 +1111,7 @@ class _$DeletePriceImpl implements DeletePrice {
     TResult? Function(ScanBarcode value)? scanBarcode,
     TResult? Function(AddPrice value)? addPrice,
     TResult? Function(DeletePrice value)? deletePrice,
+    TResult? Function(ChooseSupplier value)? chooseSupplier,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
     TResult? Function(ChooseCategory value)? chooseCategory,
@@ -1088,6 +1129,7 @@ class _$DeletePriceImpl implements DeletePrice {
     TResult Function(ScanBarcode value)? scanBarcode,
     TResult Function(AddPrice value)? addPrice,
     TResult Function(DeletePrice value)? deletePrice,
+    TResult Function(ChooseSupplier value)? chooseSupplier,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
     TResult Function(ChooseCategory value)? chooseCategory,
@@ -1110,6 +1152,202 @@ abstract class DeletePrice implements AddProductEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeletePriceImplCopyWith<_$DeletePriceImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChooseSupplierImplCopyWith<$Res> {
+  factory _$$ChooseSupplierImplCopyWith(_$ChooseSupplierImpl value,
+          $Res Function(_$ChooseSupplierImpl) then) =
+      __$$ChooseSupplierImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SupplierModel value});
+}
+
+/// @nodoc
+class __$$ChooseSupplierImplCopyWithImpl<$Res>
+    extends _$AddProductEventCopyWithImpl<$Res, _$ChooseSupplierImpl>
+    implements _$$ChooseSupplierImplCopyWith<$Res> {
+  __$$ChooseSupplierImplCopyWithImpl(
+      _$ChooseSupplierImpl _value, $Res Function(_$ChooseSupplierImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$ChooseSupplierImpl(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as SupplierModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChooseSupplierImpl implements ChooseSupplier {
+  const _$ChooseSupplierImpl(this.value);
+
+  @override
+  final SupplierModel value;
+
+  @override
+  String toString() {
+    return 'AddProductEvent.chooseSupplier(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChooseSupplierImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChooseSupplierImplCopyWith<_$ChooseSupplierImpl> get copyWith =>
+      __$$ChooseSupplierImplCopyWithImpl<_$ChooseSupplierImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() create,
+    required TResult Function() chooseImage,
+    required TResult Function() scanBarcode,
+    required TResult Function(PriceList? value) addPrice,
+    required TResult Function(PriceList data) deletePrice,
+    required TResult Function(SupplierModel value) chooseSupplier,
+    required TResult Function(String key) changeBool,
+    required TResult Function(String key, String value) changeString,
+    required TResult Function(CategoryModel value) chooseCategory,
+    required TResult Function(UnitModel value) chooseUnit,
+  }) {
+    return chooseSupplier(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? create,
+    TResult? Function()? chooseImage,
+    TResult? Function()? scanBarcode,
+    TResult? Function(PriceList? value)? addPrice,
+    TResult? Function(PriceList data)? deletePrice,
+    TResult? Function(SupplierModel value)? chooseSupplier,
+    TResult? Function(String key)? changeBool,
+    TResult? Function(String key, String value)? changeString,
+    TResult? Function(CategoryModel value)? chooseCategory,
+    TResult? Function(UnitModel value)? chooseUnit,
+  }) {
+    return chooseSupplier?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? create,
+    TResult Function()? chooseImage,
+    TResult Function()? scanBarcode,
+    TResult Function(PriceList? value)? addPrice,
+    TResult Function(PriceList data)? deletePrice,
+    TResult Function(SupplierModel value)? chooseSupplier,
+    TResult Function(String key)? changeBool,
+    TResult Function(String key, String value)? changeString,
+    TResult Function(CategoryModel value)? chooseCategory,
+    TResult Function(UnitModel value)? chooseUnit,
+    required TResult orElse(),
+  }) {
+    if (chooseSupplier != null) {
+      return chooseSupplier(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Started value) started,
+    required TResult Function(Create value) create,
+    required TResult Function(ChooseImage value) chooseImage,
+    required TResult Function(ScanBarcode value) scanBarcode,
+    required TResult Function(AddPrice value) addPrice,
+    required TResult Function(DeletePrice value) deletePrice,
+    required TResult Function(ChooseSupplier value) chooseSupplier,
+    required TResult Function(ChangeBool value) changeBool,
+    required TResult Function(ChangeString value) changeString,
+    required TResult Function(ChooseCategory value) chooseCategory,
+    required TResult Function(ChooseUnit value) chooseUnit,
+  }) {
+    return chooseSupplier(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Started value)? started,
+    TResult? Function(Create value)? create,
+    TResult? Function(ChooseImage value)? chooseImage,
+    TResult? Function(ScanBarcode value)? scanBarcode,
+    TResult? Function(AddPrice value)? addPrice,
+    TResult? Function(DeletePrice value)? deletePrice,
+    TResult? Function(ChooseSupplier value)? chooseSupplier,
+    TResult? Function(ChangeBool value)? changeBool,
+    TResult? Function(ChangeString value)? changeString,
+    TResult? Function(ChooseCategory value)? chooseCategory,
+    TResult? Function(ChooseUnit value)? chooseUnit,
+  }) {
+    return chooseSupplier?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Started value)? started,
+    TResult Function(Create value)? create,
+    TResult Function(ChooseImage value)? chooseImage,
+    TResult Function(ScanBarcode value)? scanBarcode,
+    TResult Function(AddPrice value)? addPrice,
+    TResult Function(DeletePrice value)? deletePrice,
+    TResult Function(ChooseSupplier value)? chooseSupplier,
+    TResult Function(ChangeBool value)? changeBool,
+    TResult Function(ChangeString value)? changeString,
+    TResult Function(ChooseCategory value)? chooseCategory,
+    TResult Function(ChooseUnit value)? chooseUnit,
+    required TResult orElse(),
+  }) {
+    if (chooseSupplier != null) {
+      return chooseSupplier(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChooseSupplier implements AddProductEvent {
+  const factory ChooseSupplier(final SupplierModel value) =
+      _$ChooseSupplierImpl;
+
+  SupplierModel get value;
+
+  /// Create a copy of AddProductEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChooseSupplierImplCopyWith<_$ChooseSupplierImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1187,6 +1425,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     required TResult Function() scanBarcode,
     required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
+    required TResult Function(SupplierModel value) chooseSupplier,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
     required TResult Function(CategoryModel value) chooseCategory,
@@ -1204,6 +1443,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult? Function()? scanBarcode,
     TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
+    TResult? Function(SupplierModel value)? chooseSupplier,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
     TResult? Function(CategoryModel value)? chooseCategory,
@@ -1221,6 +1461,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult Function()? scanBarcode,
     TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
+    TResult Function(SupplierModel value)? chooseSupplier,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
     TResult Function(CategoryModel value)? chooseCategory,
@@ -1242,6 +1483,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     required TResult Function(ScanBarcode value) scanBarcode,
     required TResult Function(AddPrice value) addPrice,
     required TResult Function(DeletePrice value) deletePrice,
+    required TResult Function(ChooseSupplier value) chooseSupplier,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
     required TResult Function(ChooseCategory value) chooseCategory,
@@ -1259,6 +1501,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult? Function(ScanBarcode value)? scanBarcode,
     TResult? Function(AddPrice value)? addPrice,
     TResult? Function(DeletePrice value)? deletePrice,
+    TResult? Function(ChooseSupplier value)? chooseSupplier,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
     TResult? Function(ChooseCategory value)? chooseCategory,
@@ -1276,6 +1519,7 @@ class _$ChangeBoolImpl implements ChangeBool {
     TResult Function(ScanBarcode value)? scanBarcode,
     TResult Function(AddPrice value)? addPrice,
     TResult Function(DeletePrice value)? deletePrice,
+    TResult Function(ChooseSupplier value)? chooseSupplier,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
     TResult Function(ChooseCategory value)? chooseCategory,
@@ -1383,6 +1627,7 @@ class _$ChangeStringImpl implements ChangeString {
     required TResult Function() scanBarcode,
     required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
+    required TResult Function(SupplierModel value) chooseSupplier,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
     required TResult Function(CategoryModel value) chooseCategory,
@@ -1400,6 +1645,7 @@ class _$ChangeStringImpl implements ChangeString {
     TResult? Function()? scanBarcode,
     TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
+    TResult? Function(SupplierModel value)? chooseSupplier,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
     TResult? Function(CategoryModel value)? chooseCategory,
@@ -1417,6 +1663,7 @@ class _$ChangeStringImpl implements ChangeString {
     TResult Function()? scanBarcode,
     TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
+    TResult Function(SupplierModel value)? chooseSupplier,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
     TResult Function(CategoryModel value)? chooseCategory,
@@ -1438,6 +1685,7 @@ class _$ChangeStringImpl implements ChangeString {
     required TResult Function(ScanBarcode value) scanBarcode,
     required TResult Function(AddPrice value) addPrice,
     required TResult Function(DeletePrice value) deletePrice,
+    required TResult Function(ChooseSupplier value) chooseSupplier,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
     required TResult Function(ChooseCategory value) chooseCategory,
@@ -1455,6 +1703,7 @@ class _$ChangeStringImpl implements ChangeString {
     TResult? Function(ScanBarcode value)? scanBarcode,
     TResult? Function(AddPrice value)? addPrice,
     TResult? Function(DeletePrice value)? deletePrice,
+    TResult? Function(ChooseSupplier value)? chooseSupplier,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
     TResult? Function(ChooseCategory value)? chooseCategory,
@@ -1472,6 +1721,7 @@ class _$ChangeStringImpl implements ChangeString {
     TResult Function(ScanBarcode value)? scanBarcode,
     TResult Function(AddPrice value)? addPrice,
     TResult Function(DeletePrice value)? deletePrice,
+    TResult Function(ChooseSupplier value)? chooseSupplier,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
     TResult Function(ChooseCategory value)? chooseCategory,
@@ -1574,6 +1824,7 @@ class _$ChooseCategoryImpl implements ChooseCategory {
     required TResult Function() scanBarcode,
     required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
+    required TResult Function(SupplierModel value) chooseSupplier,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
     required TResult Function(CategoryModel value) chooseCategory,
@@ -1591,6 +1842,7 @@ class _$ChooseCategoryImpl implements ChooseCategory {
     TResult? Function()? scanBarcode,
     TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
+    TResult? Function(SupplierModel value)? chooseSupplier,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
     TResult? Function(CategoryModel value)? chooseCategory,
@@ -1608,6 +1860,7 @@ class _$ChooseCategoryImpl implements ChooseCategory {
     TResult Function()? scanBarcode,
     TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
+    TResult Function(SupplierModel value)? chooseSupplier,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
     TResult Function(CategoryModel value)? chooseCategory,
@@ -1629,6 +1882,7 @@ class _$ChooseCategoryImpl implements ChooseCategory {
     required TResult Function(ScanBarcode value) scanBarcode,
     required TResult Function(AddPrice value) addPrice,
     required TResult Function(DeletePrice value) deletePrice,
+    required TResult Function(ChooseSupplier value) chooseSupplier,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
     required TResult Function(ChooseCategory value) chooseCategory,
@@ -1646,6 +1900,7 @@ class _$ChooseCategoryImpl implements ChooseCategory {
     TResult? Function(ScanBarcode value)? scanBarcode,
     TResult? Function(AddPrice value)? addPrice,
     TResult? Function(DeletePrice value)? deletePrice,
+    TResult? Function(ChooseSupplier value)? chooseSupplier,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
     TResult? Function(ChooseCategory value)? chooseCategory,
@@ -1663,6 +1918,7 @@ class _$ChooseCategoryImpl implements ChooseCategory {
     TResult Function(ScanBarcode value)? scanBarcode,
     TResult Function(AddPrice value)? addPrice,
     TResult Function(DeletePrice value)? deletePrice,
+    TResult Function(ChooseSupplier value)? chooseSupplier,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
     TResult Function(ChooseCategory value)? chooseCategory,
@@ -1763,6 +2019,7 @@ class _$ChooseUnitImpl implements ChooseUnit {
     required TResult Function() scanBarcode,
     required TResult Function(PriceList? value) addPrice,
     required TResult Function(PriceList data) deletePrice,
+    required TResult Function(SupplierModel value) chooseSupplier,
     required TResult Function(String key) changeBool,
     required TResult Function(String key, String value) changeString,
     required TResult Function(CategoryModel value) chooseCategory,
@@ -1780,6 +2037,7 @@ class _$ChooseUnitImpl implements ChooseUnit {
     TResult? Function()? scanBarcode,
     TResult? Function(PriceList? value)? addPrice,
     TResult? Function(PriceList data)? deletePrice,
+    TResult? Function(SupplierModel value)? chooseSupplier,
     TResult? Function(String key)? changeBool,
     TResult? Function(String key, String value)? changeString,
     TResult? Function(CategoryModel value)? chooseCategory,
@@ -1797,6 +2055,7 @@ class _$ChooseUnitImpl implements ChooseUnit {
     TResult Function()? scanBarcode,
     TResult Function(PriceList? value)? addPrice,
     TResult Function(PriceList data)? deletePrice,
+    TResult Function(SupplierModel value)? chooseSupplier,
     TResult Function(String key)? changeBool,
     TResult Function(String key, String value)? changeString,
     TResult Function(CategoryModel value)? chooseCategory,
@@ -1818,6 +2077,7 @@ class _$ChooseUnitImpl implements ChooseUnit {
     required TResult Function(ScanBarcode value) scanBarcode,
     required TResult Function(AddPrice value) addPrice,
     required TResult Function(DeletePrice value) deletePrice,
+    required TResult Function(ChooseSupplier value) chooseSupplier,
     required TResult Function(ChangeBool value) changeBool,
     required TResult Function(ChangeString value) changeString,
     required TResult Function(ChooseCategory value) chooseCategory,
@@ -1835,6 +2095,7 @@ class _$ChooseUnitImpl implements ChooseUnit {
     TResult? Function(ScanBarcode value)? scanBarcode,
     TResult? Function(AddPrice value)? addPrice,
     TResult? Function(DeletePrice value)? deletePrice,
+    TResult? Function(ChooseSupplier value)? chooseSupplier,
     TResult? Function(ChangeBool value)? changeBool,
     TResult? Function(ChangeString value)? changeString,
     TResult? Function(ChooseCategory value)? chooseCategory,
@@ -1852,6 +2113,7 @@ class _$ChooseUnitImpl implements ChooseUnit {
     TResult Function(ScanBarcode value)? scanBarcode,
     TResult Function(AddPrice value)? addPrice,
     TResult Function(DeletePrice value)? deletePrice,
+    TResult Function(ChooseSupplier value)? chooseSupplier,
     TResult Function(ChangeBool value)? changeBool,
     TResult Function(ChangeString value)? changeString,
     TResult Function(ChooseCategory value)? chooseCategory,
@@ -1881,14 +2143,13 @@ abstract class ChooseUnit implements AddProductEvent {
 mixin _$AddProductState {
   bool get isImport => throw _privateConstructorUsedError;
   Uint8List? get hinh_san_pham => throw _privateConstructorUsedError;
-  int? get uid_danh_muc => throw _privateConstructorUsedError;
-  String get ten_danh_muc => throw _privateConstructorUsedError;
-  int? get uid_don_vi => throw _privateConstructorUsedError;
-  String get ten_don_vi => throw _privateConstructorUsedError;
-  String get ky_hieu_don_vi => throw _privateConstructorUsedError;
+  CategoryModel? get category => throw _privateConstructorUsedError;
+  UnitModel? get unit => throw _privateConstructorUsedError;
+  SupplierModel? get supplier => throw _privateConstructorUsedError;
   List<PriceList> get price_list => throw _privateConstructorUsedError;
   List<CategoryModel> get list_category => throw _privateConstructorUsedError;
   List<UnitModel> get list_unit => throw _privateConstructorUsedError;
+  List<SupplierModel> get list_supplier => throw _privateConstructorUsedError;
 
   /// Create a copy of AddProductState
   /// with the given fields replaced by the non-null parameter values.
@@ -1906,14 +2167,13 @@ abstract class $AddProductStateCopyWith<$Res> {
   $Res call(
       {bool isImport,
       Uint8List? hinh_san_pham,
-      int? uid_danh_muc,
-      String ten_danh_muc,
-      int? uid_don_vi,
-      String ten_don_vi,
-      String ky_hieu_don_vi,
+      CategoryModel? category,
+      UnitModel? unit,
+      SupplierModel? supplier,
       List<PriceList> price_list,
       List<CategoryModel> list_category,
-      List<UnitModel> list_unit});
+      List<UnitModel> list_unit,
+      List<SupplierModel> list_supplier});
 }
 
 /// @nodoc
@@ -1933,14 +2193,13 @@ class _$AddProductStateCopyWithImpl<$Res, $Val extends AddProductState>
   $Res call({
     Object? isImport = null,
     Object? hinh_san_pham = freezed,
-    Object? uid_danh_muc = freezed,
-    Object? ten_danh_muc = null,
-    Object? uid_don_vi = freezed,
-    Object? ten_don_vi = null,
-    Object? ky_hieu_don_vi = null,
+    Object? category = freezed,
+    Object? unit = freezed,
+    Object? supplier = freezed,
     Object? price_list = null,
     Object? list_category = null,
     Object? list_unit = null,
+    Object? list_supplier = null,
   }) {
     return _then(_value.copyWith(
       isImport: null == isImport
@@ -1951,26 +2210,18 @@ class _$AddProductStateCopyWithImpl<$Res, $Val extends AddProductState>
           ? _value.hinh_san_pham
           : hinh_san_pham // ignore: cast_nullable_to_non_nullable
               as Uint8List?,
-      uid_danh_muc: freezed == uid_danh_muc
-          ? _value.uid_danh_muc
-          : uid_danh_muc // ignore: cast_nullable_to_non_nullable
-              as int?,
-      ten_danh_muc: null == ten_danh_muc
-          ? _value.ten_danh_muc
-          : ten_danh_muc // ignore: cast_nullable_to_non_nullable
-              as String,
-      uid_don_vi: freezed == uid_don_vi
-          ? _value.uid_don_vi
-          : uid_don_vi // ignore: cast_nullable_to_non_nullable
-              as int?,
-      ten_don_vi: null == ten_don_vi
-          ? _value.ten_don_vi
-          : ten_don_vi // ignore: cast_nullable_to_non_nullable
-              as String,
-      ky_hieu_don_vi: null == ky_hieu_don_vi
-          ? _value.ky_hieu_don_vi
-          : ky_hieu_don_vi // ignore: cast_nullable_to_non_nullable
-              as String,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as CategoryModel?,
+      unit: freezed == unit
+          ? _value.unit
+          : unit // ignore: cast_nullable_to_non_nullable
+              as UnitModel?,
+      supplier: freezed == supplier
+          ? _value.supplier
+          : supplier // ignore: cast_nullable_to_non_nullable
+              as SupplierModel?,
       price_list: null == price_list
           ? _value.price_list
           : price_list // ignore: cast_nullable_to_non_nullable
@@ -1983,6 +2234,10 @@ class _$AddProductStateCopyWithImpl<$Res, $Val extends AddProductState>
           ? _value.list_unit
           : list_unit // ignore: cast_nullable_to_non_nullable
               as List<UnitModel>,
+      list_supplier: null == list_supplier
+          ? _value.list_supplier
+          : list_supplier // ignore: cast_nullable_to_non_nullable
+              as List<SupplierModel>,
     ) as $Val);
   }
 }
@@ -1998,14 +2253,13 @@ abstract class _$$AddProductStateImplCopyWith<$Res>
   $Res call(
       {bool isImport,
       Uint8List? hinh_san_pham,
-      int? uid_danh_muc,
-      String ten_danh_muc,
-      int? uid_don_vi,
-      String ten_don_vi,
-      String ky_hieu_don_vi,
+      CategoryModel? category,
+      UnitModel? unit,
+      SupplierModel? supplier,
       List<PriceList> price_list,
       List<CategoryModel> list_category,
-      List<UnitModel> list_unit});
+      List<UnitModel> list_unit,
+      List<SupplierModel> list_supplier});
 }
 
 /// @nodoc
@@ -2023,14 +2277,13 @@ class __$$AddProductStateImplCopyWithImpl<$Res>
   $Res call({
     Object? isImport = null,
     Object? hinh_san_pham = freezed,
-    Object? uid_danh_muc = freezed,
-    Object? ten_danh_muc = null,
-    Object? uid_don_vi = freezed,
-    Object? ten_don_vi = null,
-    Object? ky_hieu_don_vi = null,
+    Object? category = freezed,
+    Object? unit = freezed,
+    Object? supplier = freezed,
     Object? price_list = null,
     Object? list_category = null,
     Object? list_unit = null,
+    Object? list_supplier = null,
   }) {
     return _then(_$AddProductStateImpl(
       isImport: null == isImport
@@ -2041,26 +2294,18 @@ class __$$AddProductStateImplCopyWithImpl<$Res>
           ? _value.hinh_san_pham
           : hinh_san_pham // ignore: cast_nullable_to_non_nullable
               as Uint8List?,
-      uid_danh_muc: freezed == uid_danh_muc
-          ? _value.uid_danh_muc
-          : uid_danh_muc // ignore: cast_nullable_to_non_nullable
-              as int?,
-      ten_danh_muc: null == ten_danh_muc
-          ? _value.ten_danh_muc
-          : ten_danh_muc // ignore: cast_nullable_to_non_nullable
-              as String,
-      uid_don_vi: freezed == uid_don_vi
-          ? _value.uid_don_vi
-          : uid_don_vi // ignore: cast_nullable_to_non_nullable
-              as int?,
-      ten_don_vi: null == ten_don_vi
-          ? _value.ten_don_vi
-          : ten_don_vi // ignore: cast_nullable_to_non_nullable
-              as String,
-      ky_hieu_don_vi: null == ky_hieu_don_vi
-          ? _value.ky_hieu_don_vi
-          : ky_hieu_don_vi // ignore: cast_nullable_to_non_nullable
-              as String,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as CategoryModel?,
+      unit: freezed == unit
+          ? _value.unit
+          : unit // ignore: cast_nullable_to_non_nullable
+              as UnitModel?,
+      supplier: freezed == supplier
+          ? _value.supplier
+          : supplier // ignore: cast_nullable_to_non_nullable
+              as SupplierModel?,
       price_list: null == price_list
           ? _value._price_list
           : price_list // ignore: cast_nullable_to_non_nullable
@@ -2073,6 +2318,10 @@ class __$$AddProductStateImplCopyWithImpl<$Res>
           ? _value._list_unit
           : list_unit // ignore: cast_nullable_to_non_nullable
               as List<UnitModel>,
+      list_supplier: null == list_supplier
+          ? _value._list_supplier
+          : list_supplier // ignore: cast_nullable_to_non_nullable
+              as List<SupplierModel>,
     ));
   }
 }
@@ -2083,17 +2332,17 @@ class _$AddProductStateImpl implements _AddProductState {
   const _$AddProductStateImpl(
       {this.isImport = false,
       this.hinh_san_pham,
-      this.uid_danh_muc,
-      this.ten_danh_muc = '',
-      this.uid_don_vi,
-      this.ten_don_vi = '',
-      this.ky_hieu_don_vi = '',
+      this.category,
+      this.unit,
+      this.supplier,
       final List<PriceList> price_list = const [],
       final List<CategoryModel> list_category = const [],
-      final List<UnitModel> list_unit = const []})
+      final List<UnitModel> list_unit = const [],
+      final List<SupplierModel> list_supplier = const []})
       : _price_list = price_list,
         _list_category = list_category,
-        _list_unit = list_unit;
+        _list_unit = list_unit,
+        _list_supplier = list_supplier;
 
   @override
   @JsonKey()
@@ -2101,18 +2350,11 @@ class _$AddProductStateImpl implements _AddProductState {
   @override
   final Uint8List? hinh_san_pham;
   @override
-  final int? uid_danh_muc;
+  final CategoryModel? category;
   @override
-  @JsonKey()
-  final String ten_danh_muc;
+  final UnitModel? unit;
   @override
-  final int? uid_don_vi;
-  @override
-  @JsonKey()
-  final String ten_don_vi;
-  @override
-  @JsonKey()
-  final String ky_hieu_don_vi;
+  final SupplierModel? supplier;
   final List<PriceList> _price_list;
   @override
   @JsonKey()
@@ -2140,9 +2382,18 @@ class _$AddProductStateImpl implements _AddProductState {
     return EqualUnmodifiableListView(_list_unit);
   }
 
+  final List<SupplierModel> _list_supplier;
+  @override
+  @JsonKey()
+  List<SupplierModel> get list_supplier {
+    if (_list_supplier is EqualUnmodifiableListView) return _list_supplier;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_list_supplier);
+  }
+
   @override
   String toString() {
-    return 'AddProductState(isImport: $isImport, hinh_san_pham: $hinh_san_pham, uid_danh_muc: $uid_danh_muc, ten_danh_muc: $ten_danh_muc, uid_don_vi: $uid_don_vi, ten_don_vi: $ten_don_vi, ky_hieu_don_vi: $ky_hieu_don_vi, price_list: $price_list, list_category: $list_category, list_unit: $list_unit)';
+    return 'AddProductState(isImport: $isImport, hinh_san_pham: $hinh_san_pham, category: $category, unit: $unit, supplier: $supplier, price_list: $price_list, list_category: $list_category, list_unit: $list_unit, list_supplier: $list_supplier)';
   }
 
   @override
@@ -2154,22 +2405,19 @@ class _$AddProductStateImpl implements _AddProductState {
                 other.isImport == isImport) &&
             const DeepCollectionEquality()
                 .equals(other.hinh_san_pham, hinh_san_pham) &&
-            (identical(other.uid_danh_muc, uid_danh_muc) ||
-                other.uid_danh_muc == uid_danh_muc) &&
-            (identical(other.ten_danh_muc, ten_danh_muc) ||
-                other.ten_danh_muc == ten_danh_muc) &&
-            (identical(other.uid_don_vi, uid_don_vi) ||
-                other.uid_don_vi == uid_don_vi) &&
-            (identical(other.ten_don_vi, ten_don_vi) ||
-                other.ten_don_vi == ten_don_vi) &&
-            (identical(other.ky_hieu_don_vi, ky_hieu_don_vi) ||
-                other.ky_hieu_don_vi == ky_hieu_don_vi) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.unit, unit) || other.unit == unit) &&
+            (identical(other.supplier, supplier) ||
+                other.supplier == supplier) &&
             const DeepCollectionEquality()
                 .equals(other._price_list, _price_list) &&
             const DeepCollectionEquality()
                 .equals(other._list_category, _list_category) &&
             const DeepCollectionEquality()
-                .equals(other._list_unit, _list_unit));
+                .equals(other._list_unit, _list_unit) &&
+            const DeepCollectionEquality()
+                .equals(other._list_supplier, _list_supplier));
   }
 
   @override
@@ -2177,14 +2425,13 @@ class _$AddProductStateImpl implements _AddProductState {
       runtimeType,
       isImport,
       const DeepCollectionEquality().hash(hinh_san_pham),
-      uid_danh_muc,
-      ten_danh_muc,
-      uid_don_vi,
-      ten_don_vi,
-      ky_hieu_don_vi,
+      category,
+      unit,
+      supplier,
       const DeepCollectionEquality().hash(_price_list),
       const DeepCollectionEquality().hash(_list_category),
-      const DeepCollectionEquality().hash(_list_unit));
+      const DeepCollectionEquality().hash(_list_unit),
+      const DeepCollectionEquality().hash(_list_supplier));
 
   /// Create a copy of AddProductState
   /// with the given fields replaced by the non-null parameter values.
@@ -2200,35 +2447,32 @@ abstract class _AddProductState implements AddProductState {
   const factory _AddProductState(
       {final bool isImport,
       final Uint8List? hinh_san_pham,
-      final int? uid_danh_muc,
-      final String ten_danh_muc,
-      final int? uid_don_vi,
-      final String ten_don_vi,
-      final String ky_hieu_don_vi,
+      final CategoryModel? category,
+      final UnitModel? unit,
+      final SupplierModel? supplier,
       final List<PriceList> price_list,
       final List<CategoryModel> list_category,
-      final List<UnitModel> list_unit}) = _$AddProductStateImpl;
+      final List<UnitModel> list_unit,
+      final List<SupplierModel> list_supplier}) = _$AddProductStateImpl;
 
   @override
   bool get isImport;
   @override
   Uint8List? get hinh_san_pham;
   @override
-  int? get uid_danh_muc;
+  CategoryModel? get category;
   @override
-  String get ten_danh_muc;
+  UnitModel? get unit;
   @override
-  int? get uid_don_vi;
-  @override
-  String get ten_don_vi;
-  @override
-  String get ky_hieu_don_vi;
+  SupplierModel? get supplier;
   @override
   List<PriceList> get price_list;
   @override
   List<CategoryModel> get list_category;
   @override
   List<UnitModel> get list_unit;
+  @override
+  List<SupplierModel> get list_supplier;
 
   /// Create a copy of AddProductState
   /// with the given fields replaced by the non-null parameter values.

@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 
 import '../utils.dart';
 
+
 extension ObjectExtension on dynamic {
   void get printDLog => {if (Utils.debugLog) Utils.log.debug(this)};
   void get printELog => {if (Utils.debugLog) Utils.log.error(this)};
@@ -61,10 +62,11 @@ extension WidgetsExtension on Widget {
       },
       style: TextButton.styleFrom(
         backgroundColor: enable ? bgColor : bgColor.withOpacity(0.5),
+        padding: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
             side: side, borderRadius: BorderRadius.circular(radius ?? 100)),
-        maximumSize: Size(width ?? double.infinity, (height ?? 48).sp),
-        minimumSize: Size(width ?? double.infinity, (height ?? 48).sp),
+        maximumSize: Size(width ?? double.infinity, (height ?? 48)),
+        minimumSize: Size(width ?? double.infinity, (height ?? 48)),
       ),
       child: this,
     );
@@ -132,5 +134,5 @@ extension WidgetsExtension on Widget {
 }
 
 extension NumExtension on num {
-  Gap get sized => Gap(sp);
+  Gap get sized => Gap(toDouble());
 }

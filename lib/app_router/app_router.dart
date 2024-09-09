@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hn_market/utils/extensions/string_extension.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 import '../model/product_model/product_model.dart';
@@ -14,6 +15,7 @@ import '../screens/home/home.dart';
 import '../screens/login/login.dart';
 import '../screens/order_entry/order_entry.dart';
 import '../screens/qr_scan/qr_scan.dart';
+import '../screens/supplier_list/supplier_list.dart';
 import '../screens/unit_list/unit_list.dart';
 import '../utils/empty_page.dart';
 
@@ -28,31 +30,58 @@ class AppRouter extends RootStackRouter {
 
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(
+        CustomRoute(
           page: AddProductRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          path: AddProductRoute.name.pathName,
         ),
-        AutoRoute(
+        CustomRoute(
           page: LoginRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          path: LoginRoute.name.pathName,
         ),
-        AutoRoute(
+        CustomRoute(
           page: QrScanRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          path: QrScanRoute.name.pathName,
         ),
-        AutoRoute(
+        CustomRoute(
           page: CategoryListRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          path: CategoryListRoute.name.pathName,
         ),
-        AutoRoute(
+        CustomRoute(
           page: UnitListRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          path: UnitListRoute.name.pathName,
         ),
-        AutoRoute(
+        CustomRoute(
           page: OrderEntryRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          path: OrderEntryRoute.name.pathName,
         ),
-        AutoRoute(
+        CustomRoute(
           page: CustomerEntryRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          path: CustomerEntryRoute.name.pathName,
         ),
-        AutoRoute(
+        CustomRoute(
           page: CustomerListRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          path: CustomerListRoute.name.pathName,
         ),
-        AutoRoute(page: HomeRoute.page, initial: true, guards: [AuthGuard()]),
+        CustomRoute(
+          page: SupplierListRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          path: SupplierListRoute.name.pathName,
+        ),
+        CustomRoute(
+          page: HomeRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          path: HomeRoute.name.pathName,
+          guards: [AuthGuard()],
+          initial: true,
+        ),
       ];
 }
 

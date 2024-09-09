@@ -9,4 +9,5 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.getProducts() = GetProducts;
   const factory HomeEvent.getOrders() = GetOrders;
   const factory HomeEvent.scan() = Scan;
+  const factory HomeEvent.changeIndexNav(final int index) = ChangeIndexNav;
 }
